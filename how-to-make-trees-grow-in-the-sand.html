@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Make Trees Grow in the Sand — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html" class="active">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <article class="project-detail">
+
+      <!-- ===== CABECERA DEL PROYECTO ===== -->
+      <div class="project-detail-header">
+        <p class="eyebrow">// PROJECT 09</p>
+        <h1 class="page-title">How to Make Trees Grow in the Sand</h1>
+      </div>
+
+      <!-- ===== TEXTO DEL PROYECTO ===== -->
+      <div class="project-body">
+        <p>This work consists of a series of interviews with Cuban primary school students. The children respond to a simple question: "How to make trees grow in the sand"</p>
+
+        <p>I created this piece at a moment when the Cuban educational system — one of the main pillars of national policy — was beginning to fragment, and I felt the need to address the issue. Within this context, each question served as an analogy for the political and social situation in which the interviewed children were growing up.</p>
+
+        <p>The responses — full of innocence — vividly portray the contradictions of the Cuban social system: hopeless yet utopian. Some were devastatingly poignant, such as "I would wait for the wind to carry the sand away," while others, like "I would pour water again and again," retained the enduring optimism of childhood.</p>
+
+        <p>I aimed for maximum simplicity, directing the audience's attention entirely to the children's voices; as a result, the piece exists solely as a continuously looping audio. In this case, sound forms both the document and the artwork. It is a direct testimony, with the target group responding honestly, which gives the material a profound sense of authenticity.</p>
+
+        <p>The operation of the piece is structured around language and relies on the formal similarity between <em>cómo</em> ("how") and <em>como</em> ("like/as") in the Spanish language. The first, <em>cómo</em>, with an interrogative function, introduces the notion of reply and enables the exchange between speaker and interlocutor through questions and answers. The second, <em>como</em>, with an adverbial function, acts as a rhetorical device that signals the futility of the enunciative act.</p>
+
+        <p>Through this displacement, reality re-signifies poetry: each mental image takes on a political dimension that engages the audience emotionally through listening. No artifice is needed; the children's voices and the use of language are the only elements required to generate a response.</p>
+      </div>
+
+      <!-- ===== VIDEO ===== -->
+      <div class="project-videos">
+        <div class="video-embed">
+          <iframe
+            src="https://youtube.com/embed/nDGYYGjtYBw?rel=0&showinfo=0"
+            title="How to Make Trees Grow in the Sand — YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ===== VOLVER ===== -->
+      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    function handleFullscreenChange() {
+      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
+        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
+      });
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

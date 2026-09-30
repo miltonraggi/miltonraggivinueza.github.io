@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Fields of Mars — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html" class="active">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <article class="project-detail">
+
+      <!-- ===== CABECERA DEL PROYECTO ===== -->
+      <div class="project-detail-header">
+        <p class="eyebrow">// PROJECT 11</p>
+        <h1 class="page-title">The Fields of Mars</h1>
+      </div>
+
+      <!-- ===== TEXTO DEL PROYECTO ===== -->
+      <div class="project-body">
+        <p>Electro-sound modulation work based on a set of programmatic rules and a motion capture system. Inspired by the ruins of the "Castillo del Príncipe de La Habana" (old military fortress and prison in Havana).</p>
+
+        <p>The ideological structure of the piece is based on a pre-established set of operating rules (define by a computer program) that condition the social behavior of people in space. This set of rules represents an architecture of power and control that is completed and defined in public obedience.</p>
+
+        <p>The installation behaves as a control agent that can be subverted and altered from the forms (sound variables) that the performers manage to define in their experience within the system. In this sense, the piece explores the idea of subversion as an integral part of life within a controlled society.</p>
+
+        <p>The interactive base of the work contrasts a structure of ideal variables (established by the program) with the variables of reality, in this sense the particular nature of each subject in the perimeters of light distorts and modulates a sound phrase (a constant hammering) from different areas of action.</p>
+      </div>
+
+      <!-- ===== VIDEO ===== -->
+      <div class="project-videos">
+        <div class="video-embed">
+          <iframe
+            src="https://youtube.com/embed/9IKizLJuz-A?rel=0&showinfo=0"
+            title="The Fields of Mars — YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ===== VOLVER ===== -->
+      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    function handleFullscreenChange() {
+      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
+        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
+      });
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

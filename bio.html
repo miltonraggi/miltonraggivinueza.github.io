@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bio — Milton Raggi Vinueza</title>
+
+  <!-- 👇 Este bloque de <head> es IDÉNTICO al de index.html. Siempre se copia igual. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 👇 Ojo acá: como bio.html está en la MISMA carpeta que style.css,
+       la ruta sigue siendo "style.css" sin cambios -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVEGACIÓN ===== -->
+  <!-- 👇 Este <header> completo es COPIADO tal cual de index.html.
+       Único cambio: quitamos class="active" de Home, porque ahora
+       estamos parados en "About", no en Home. -->
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html" class="active">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <!-- ===== CONTENIDO PROPIO DE ESTA PÁGINA ===== -->
+  <!-- 👇 Acá empieza lo ÚNICO de bio.html. Todo lo de arriba era repetido. -->
+  <main>
+    <section class="bio-section">
+      <p class="eyebrow">// ABOUT</p>
+      
+      <div class="bio-layout">
+        <!-- 🔧 La foto vive en la carpeta images/. Reemplazá "milton-foto.jpg"
+             por el nombre EXACTO de tu archivo (respetando mayúsculas/minúsculas) -->
+        <img src="images/milton-foto.jpg" alt="Retrato de Milton Raggi Vinueza" class="bio-photo" />
+
+        <div class="bio-text">
+          <p>
+            Milton Raggi Vinueza (Havana, 1991) is a Cuban visual artist,
+            curator, and educator. He completed his studies at the San
+            Alejandro National Academy of Fine Arts (2006-2010) and
+            obtained his second degree from the University of the Arts of
+            Cuba (ISA) in 2017. He served as a professor of contemporary
+            art at ISA until 2019. Currently, he is pursuing a Master's
+            degree in Digital Media at the Hochschule für Künste Bremen
+            (HfK Bremen), supported by a full DAAD scholarship, which has
+            further refined his expertise in the integration of art and
+            technology.
+          </p>
+          <p>
+            Raggi Vinueza's artistic practice engages with complex themes
+            such as power dynamics, control, systems, hierarchies, and
+            the dissolution and collapse of political utopias. As an
+            artist born in Cuba during the 1990s, his work is deeply
+            informed by the erosion of revolutionary ideals and the
+            evolving political and cultural landscape. He predominantly
+            creates audiovisual performances and immersive installations
+            that incorporate interactive elements. Through these
+            innovative approaches, he critically examines the fragility
+            of societal structures and the transformation of political
+            ideologies, questioning their ongoing relevance in
+            contemporary contexts.
+          </p>
+          <p>
+            In 2013, Raggi Vinueza co-founded <strong>AXIS.Visual Lab</strong>
+            with Aaron Moreno, an interdisciplinary collective focused on
+            the exploration of new technologies within the realm of art.
+            Recognized as a pioneer of video mapping and large-scale
+            audiovisual performances in Cuba, his work seamlessly merges
+            creative expression with cutting-edge technological practices
+            to create groundbreaking, site-specific experiences.
+          </p>
+          <p>
+            Since 2017, with support from the Ludwig Foundation of Cuba,
+            Raggi Vinueza, in collaboration with AXIS.Visual Lab, has
+            developed the <strong>Art and Technology Laboratories (LAT)</strong>
+            project. LAT aims to promote workshops, collaborative
+            initiatives, and exchange platforms that foster the
+            professional development of emerging creators and engage new
+            audiences across Cuba.
+          </p>
+          <p>
+            Raggi has received numerous accolades throughout his career,
+            including the La Joven Estampa Award (Casa de las Américas,
+            2009), the Curatorial Award (Centro de Artes Plásticas y
+            Diseño, 2011), the National Award for Curatorial Practice
+            (Consejo Nacional de las Artes Visuales, 2018), the Estudio
+            21 Creation Grant (Centro de Desarrollo de las Artes
+            Visuales, 2019), the Emerging Artist Award from the Cisneros
+            Fontanals Art Foundation (CIFO, 2020) and the HfK
+            Hochschulpreise (Hochschule für Künste Bremen, 2025).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <!-- 👇 Copiado tal cual de index.html -->
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+
+  <!-- ===== JAVASCRIPT DE NAVEGACIÓN ===== -->
+  <script>
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    // 🔧 NUEVO: cerrar todos los desplegables abiertos apenas se scrollea
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

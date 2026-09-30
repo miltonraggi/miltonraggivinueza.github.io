@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curatorial Work — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html">Main Projects</a>
+          <a href="curatorial-work.html" class="active">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projects-header">
+      <p class="eyebrow">// WORK</p>
+      <h1 class="page-title">Curatorial Work</h1>
+      <p class="hero-subtitle">Here is a selection of exhibitions I have curated.</p>
+    </section>
+
+    <section class="project-index">
+      <ol>
+        <li class="project-item">
+          <a href="outsider.html">
+            <span class="project-number">01</span>
+            <span class="project-name">Outsider</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="und-nacht-war.html">
+            <span class="project-number">02</span>
+            <span class="project-name">Und Nacht War</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="the-escapist.html">
+            <span class="project-number">03</span>
+            <span class="project-name">The Escapist</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="16-mil.html">
+            <span class="project-number">04</span>
+            <span class="project-name">16 Mil Photography in Motion</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="i.html">
+            <span class="project-number">05</span>
+            <span class="project-name">I</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="gadgets.html">
+            <span class="project-number">06</span>
+            <span class="project-name">Gadgets</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="v-i-r.html">
+            <span class="project-number">07</span>
+            <span class="project-name">V.I.R</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+        <li class="project-item">
+          <a href="state-curaduria.html">
+            <span class="project-number">08</span>
+            <span class="project-name">State</span>
+            <span class="project-arrow">→</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

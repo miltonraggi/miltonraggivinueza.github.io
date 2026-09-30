@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Gold of Seaborg — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html" class="active">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <article class="project-detail">
+
+      <!-- ===== CABECERA DEL PROYECTO ===== -->
+      <div class="project-detail-header">
+        <p class="eyebrow">// PROJECT 08</p>
+        <h1 class="page-title">The Gold of Seaborg</h1>
+      </div>
+
+      <!-- ===== TEXTO DEL PROYECTO ===== -->
+      <div class="project-body">
+        <p>The piece is divided into three constituent parts. The first is the recording and construction of an information package that serves as the primary engine for the two subsequent parts. Such a document is a detailed digital survey of the moisture given off by ink as time turns it to stone. The second part is the reading of these data from a program that allows the information to be converted into specific sound frequencies. The third part of the piece is a replica of a cymatics experiment using data-sounds-impulses to organize insects killed by the light of artificial lamps.</p>
+
+        <p>The work is an installation based on cymatics and stimulation experiments on the Chladni plate. This experiment explores the idea of the Euclidean order, a structural symbol of a space subject to strict laws that define an area. From this concept, programming works as a platform associated with the control machine; predesigned then to run system in a calculated and precise way.</p>
+
+        <p>The titled of the work refers to an experiment made by Glenn T. Seaborg in which molecules of led where turn into gold for a short period of time.</p>
+
+        <p>A symbolic structure resides in the data capture process that focuses on the loss and wear of mobility and mutability of liquid ink as it is reduced by the sun and time. Under this premise, the evaporated water could represent the exodus of the soul; the data a symbolic apprehension that seeks at all costs to complete a system using the vestiges of what is no longer present.</p>
+
+        <p>This poetics applied to the data engine is reinforced in "The Gold of Seaborg" as a textual closure and direct association with the concept of power and control in the search for an ideal (gold) and weight of the world (return to lead).</p>
+
+        <p>As the last representational element, the insects, killed by their seduction before the light, vibrate under the orders of the system.</p>
+      </div>
+
+      <!-- ===== VIDEO ===== -->
+      <div class="project-videos">
+        <div class="video-embed">
+          <iframe
+            src="https://youtube.com/embed/S6G03mTEKNg?rel=0&showinfo=0"
+            title="The Gold of Seaborg — YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ===== CRÉDITOS ===== -->
+      <div class="project-credits">
+        <p><strong>Credits:</strong></p>
+        <p>Photographs: Pavel Méndez</p>
+        <p>Video Documentation: Pavel Méndez</p>
+      </div>
+
+      <!-- ===== VOLVER ===== -->
+      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    function handleFullscreenChange() {
+      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
+        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
+      });
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old Prints — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html" class="active">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <article class="project-detail">
+
+      <!-- ===== CABECERA DEL PROYECTO ===== -->
+      <div class="project-detail-header">
+        <p class="eyebrow">// PROJECT 13</p>
+        <h1 class="page-title">Old Prints</h1>
+      </div>
+
+      <!-- ===== TEXTO INTRODUCTORIO (aplica a las 3 obras) ===== -->
+      <div class="project-body">
+        <p>The series consists of three works that employ the repetition and superimposition of political slogans and the colors of Cuban propaganda to reflect on the decline and fracture of the socio-political system within that context.</p>
+
+        <p>Screen printing serves as the primary medium for this project. This choice is significant, as screen printing has been a recurring and emblematic tool in Cuban political propaganda, carrying with it a rich historical and symbolic weight.</p>
+
+        <p>Furthermore, the inherent characteristics of the medium — its reliance on matrix, repetition, superimposition, the interaction between substrates, and the physical wear of its components — align seamlessly with the conceptual aims of the series. Through the repetitive layering of slogans, vast planes of color emerge, symbolizing the state's mechanisms for validating and legitimizing its discourse. However, this repetition ultimately leads to the loss of the textual reference in the final image, signifying blind obedience, collective sacrifice, and the erosion of meaning. This process also demands significant physical effort from the artist and results in the eventual destruction of the printing matrix.</p>
+
+        <p>Additionally, the inherent incompatibility between the substrate and the ink creates recurring fractures in the color planes. This phenomenon serves as a metaphor for the failure of absolutist ideologies and mirrors the ongoing crisis within the political system.</p>
+      </div>
+
+      <!-- ===== SUB-OBRA 1: CERO ===== -->
+      <div class="project-subwork">
+        <p class="project-subwork-title">Cero</p>
+        <p class="project-subwork-specs">Silkscreen over acetate paper<br />5 m x 1,20 m</p>
+      </div>
+      <div class="project-gallery">
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/1.jpg">
+          <img src="images/proyectos/old-prints/1.jpg" alt="Cero — foto 1" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/2.jpg">
+          <img src="images/proyectos/old-prints/2.jpg" alt="Cero — foto 2" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/3.jpg">
+          <img src="images/proyectos/old-prints/3.jpg" alt="Cero — foto 3" />
+        </button>
+      </div>
+
+      <!-- ===== SUB-OBRA 2: AIRE ===== -->
+      <div class="project-subwork">
+        <p class="project-subwork-title">Aire</p>
+        <p class="project-subwork-specs">Silkscreen over acetate paper<br />2,50 m x 1,50 m</p>
+      </div>
+      <div class="project-gallery">
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/4.jpg">
+          <img src="images/proyectos/old-prints/4.jpg" alt="Aire — foto 1" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/5.png">
+          <img src="images/proyectos/old-prints/5.png" alt="Aire — foto 2" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/6.jpg">
+          <img src="images/proyectos/old-prints/6.jpg" alt="Aire — foto 3" />
+        </button>
+      </div>
+
+      <!-- ===== SUB-OBRA 3: ABRIR Y CERRAR LOS OJOS ===== -->
+      <div class="project-subwork">
+        <p class="project-subwork-title">Abrir y Cerrar los Ojos</p>
+        <p class="project-subwork-specs">Silkscreen over acetate paper<br />2,10 m x 1,20 m</p>
+      </div>
+      <div class="project-gallery">
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/7.jpg">
+          <img src="images/proyectos/old-prints/7.jpg" alt="Abrir y Cerrar los Ojos — foto 1" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/8.jpg">
+          <img src="images/proyectos/old-prints/8.jpg" alt="Abrir y Cerrar los Ojos — foto 2" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/old-prints/9.jpg">
+          <img src="images/proyectos/old-prints/9.jpg" alt="Abrir y Cerrar los Ojos — foto 3" />
+        </button>
+      </div>
+
+      <!-- ===== LIGHTBOX ===== -->
+      <!-- 🔧 Uno solo para TODA la página: agarra las miniaturas de las 3
+           galerías juntas, así que las flechas navegan a través de las
+           3 obras en orden -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+        <img src="" alt="" id="lightboxImage" />
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+      </div>
+
+      <!-- ===== VOLVER ===== -->
+      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const thumbs = document.querySelectorAll('.gallery-thumb');
+    const images = Array.from(thumbs).map((thumb) => thumb.dataset.full);
+    let currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = index;
+      lightboxImage.src = images[currentIndex];
+    }
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        showImage(index);
+        lightbox.classList.add('is-open');
+      });
+    });
+
+    lightboxNext.addEventListener('click', () => {
+      showImage((currentIndex + 1) % images.length);
+    });
+
+    lightboxPrev.addEventListener('click', () => {
+      showImage((currentIndex - 1 + images.length) % images.length);
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('is-open');
+    });
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        lightbox.classList.remove('is-open');
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('is-open')) return;
+
+      if (event.key === 'Escape') {
+        lightbox.classList.remove('is-open');
+      } else if (event.key === 'ArrowRight') {
+        showImage((currentIndex + 1) % images.length);
+      } else if (event.key === 'ArrowLeft') {
+        showImage((currentIndex - 1 + images.length) % images.length);
+      }
+    });
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

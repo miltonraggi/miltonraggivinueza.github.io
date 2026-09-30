@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>180.Echo — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html" class="active">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <article class="project-detail">
+
+      <!-- ===== CABECERA DEL PROYECTO ===== -->
+      <div class="project-detail-header">
+        <p class="eyebrow">// PROJECT 07</p>
+        <h1 class="page-title">180.Echo</h1>
+      </div>
+
+      <!-- ===== TEXTO DEL PROYECTO ===== -->
+      <div class="project-body">
+        <p>Electromechanical work designed and installed in the basement of a factory in Leipzig, Germany.</p>
+
+        <p>Based on the operation of a common object that has become a relic, this project addresses the fragility and variability of political power structures.</p>
+
+        <p>The work consists of a self-sufficient system that modulates the signal of an analog radio in the reception space of the official channel of the disappeared RDA. Indefinitely a motor oscillates between the extremes of the coordinates corresponding to the extinct DDR radio.</p>
+
+        <p>The result of this operation is a sound product where static and noise accumulate, producing at a physiological level a type of sound that is unbearable for some visitors and pleasant for others.</p>
+
+        <p>This conceptual operation becomes an act of invasion that finds in the humidity and darkness of the basement of a disused factory a symbolic space that feeds on the political and socio-cultural context of Leipzig as a former part of the socialist block.</p>
+      </div>
+
+      <!-- ===== VIDEO ===== -->
+      <div class="project-videos">
+        <div class="video-embed">
+          <iframe
+            src="https://youtube.com/embed/afZCS6gyr0w?rel=0&showinfo=0"
+            title="180.Echo — YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ===== VOLVER ===== -->
+      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    function handleFullscreenChange() {
+      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
+        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
+      });
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

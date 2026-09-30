@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXIS.Visual Lab — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html" class="active">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== INTRO ===== -->
+    <section class="lab-intro">
+      <p class="eyebrow">// WORK</p>
+      <h1 class="page-title">AXIS.Visual Lab</h1>
+
+      <p><strong style="color: var(--text);">AXIS.Visual Lab</strong> is an independent artists' collective founded in 2013 by Aaron R. Moreno (Onerom) and Milton Raggi. Guided by a deep interest in technology, the collective explores its creative potential as both a medium and a source of artistic inquiry.</p>
+
+      <p>Its practice encompasses audiovisual, interactive, and immersive experiences, with a particular emphasis on video mapping and the transformation of public spaces. AXIS.Visual Lab also collaborates with artists, curators, and cultural institutions across a wide range of interdisciplinary projects and exhibition platforms.</p>
+
+      <p>Dedicated to advancing technology-based art within Cuba's contemporary art scene, AXIS.Visual Lab works to increase the visibility of digital and new media practices, foster interdisciplinary exchange, and contribute to the development of a growing network of artists and practitioners working at the intersection of art and technology.</p>
+    </section>
+
+    <!-- ===== 3 ÁREAS DE TRABAJO ===== -->
+    <!-- 🔧 Mismo formato de lista que Main Projects / Curatorial Work
+         (.project-index), pero cada fila esconde un bloque de
+         imagen+descripción+"Learn more" que se despliega al pasar el
+         mouse sobre el encabezado — no hace falta clickear nada. -->
+    <section class="project-index" style="margin-top: 2rem;">
+      <ol>
+        <li class="project-item feature-row-item">
+          <div class="project-item-row">
+            <span class="project-number">01</span>
+            <span class="project-name">Main Projects</span>
+            <span class="project-arrow">→</span>
+          </div>
+          <div class="feature-deploy-wrap">
+            <div class="feature-deploy-inner">
+              <img src="images/axis/feature-main-projects.png" alt="Main Projects" />
+              <p class="reference-label">In this section you will find large scale projection mappings, immersive audiovisual installations, sound art and a lot of other cool stuff.</p>
+              <a href="video-mappings.html" class="text-link">Learn more →</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="project-item feature-row-item">
+          <div class="project-item-row">
+            <span class="project-number">02</span>
+            <span class="project-name">Production &amp; Collaboration</span>
+            <span class="project-arrow">→</span>
+          </div>
+          <div class="feature-deploy-wrap">
+            <div class="feature-deploy-inner">
+              <img src="images/axis/feature-production.png" alt="Production & Collaboration" />
+              <p class="reference-label">In the continuous pursuit of growing our community, we help visual artist colleagues to produce their works and exhibitions. We also collaborate with institutions and curators in diverse art spaces.</p>
+              <a href="product-collab.html" class="text-link">Learn more →</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="project-item feature-row-item">
+          <div class="project-item-row">
+            <span class="project-number">03</span>
+            <span class="project-name">Education</span>
+            <span class="project-arrow">→</span>
+          </div>
+          <div class="feature-deploy-wrap">
+            <div class="feature-deploy-inner">
+              <img src="images/axis/feature-education.png" alt="Education" />
+              <p class="reference-label">We at AXIS.Visual Lab know very well what isolation and lack of resources mean, so we believe in sharing information and growing together. One of our main objectives is to educate interested members of our community.</p>
+              <a href="lat.html" class="text-link">Learn more →</a>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== EQUIPO ===== -->
+    <section class="lab-team">
+      <p class="lab-team-title">Meet the Team</p>
+      <div class="lab-team-grid">
+        <div class="team-member">
+          <img src="images/axis/aaron.png" alt="Aaron R. Moreno" />
+          <p class="team-member-name">Aaron R. Moreno</p>
+        </div>
+        <div class="team-member">
+          <img src="images/axis/milton.png" alt="Milton Raggi Vinueza" />
+          <p class="team-member-name">Milton Raggi Vinueza</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section class="lab-contact">
+      <p class="lab-contact-title">Get in Touch</p>
+      <a href="mailto:hello@miltonraggivinueza.com" class="cta-button">Send an email</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

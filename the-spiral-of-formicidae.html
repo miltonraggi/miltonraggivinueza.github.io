@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Spiral of Formicidae — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html" class="active">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main>
+    <article class="project-detail">
+
+      <!-- ===== CABECERA DEL PROYECTO ===== -->
+      <div class="project-detail-header">
+        <p class="eyebrow">// PROJECT 01</p>
+        <h1 class="page-title">The Spiral of Formicidae</h1>
+      </div>
+
+      <!-- ===== TEXTO DEL PROYECTO ===== -->
+      <!-- 🔧 Cada <p> es un párrafo del texto original. Para los otros proyectos,
+           reemplazás este bloque entero por el texto correspondiente. -->
+      <div class="project-body">
+        <p>Music has been and continues to be one of the ways in which ideological and socio-political projects are narrated and perpetuated. Hymns, slogans and marches inhabit the imaginary of times and generations affected by the heat of the Revolutions. This project utilizes "The Internationale", an emblem of proletarian struggle and one of the most recognized songs of communism, to critically describe the reality of post communist societies.</p>
+
+        <p>Inscribed on a series of broken music boxes, this melody is the harmonic base of my instrument. The mechanical defect prevents the spring force from being stored, causing the harmony to become noise. The anthem is reduced to a portion of information that is fragmented into intonations and sound resources. I use a series of contact microphones to amplify, interpret and decompose the signal of four units. Within the symbolic character of the performance, this loss of the autonomous functioning of each music box means that I must be present controlling the rhythm and cadence of each unit. Slave of a machinery that does not contemplate the wear and tear of the individual, my tired hands make mistakes, which under the listening do not go unnoticed.</p>
+
+        <p>"The Internationale" embodies the utopian values and ideals of socialism. From the brokenness, the project uses the symbolic charge associated with this anthem to emphasize the failure of a political and ideological project that has affected the present of my people. Wrapped in the romanticism of building a "New Man", our lands have seen corruption and totalitarianism grow. The sound and performative gesture becomes a way to subvert reality and produce meaning from unconventional forms, a sound language made of the pieces of a broken system, portrait of a phantom future, the sound of those who grew up watching utopia die.</p>
+
+        <p>The technical aspects of the project are quite straightforward.</p>
+
+        <p>Use piezoelectric microphones to capture the signal from the music boxes and send the resulting signal to my sound card. From there, import the signal simultaneously into Isadora and Ableton Live. Once the performance has started, an Isadora patch will accumulate the sound of flies if no action occurs on the instrument, simulating what would happen with a decomposing corpse. At the same time, in Ableton Live, I control various sound parameters via MIDI to nuance and spatialize the sound of each individual box. Both signals are then sent to four amplifiers.</p>
+
+        <p>The system can work in a unified manner, functioning as a single instrument with several elements performed by one person. Alternatively, it can be separated and played independently by different parts. This flexibility allows the work to be scaled and presented in various formats and spaces. In a future iteration of the project, I intend to play the instrument together with other Cuban artists and this characteristic of the instrument has been designed to fulfill that specific goal.</p>
+
+        <p>The project takes as its main reference the electroacoustic experiences promoted in Cuba by the composer Juan Blanco in the 1960s. It is also inspired by experimental devices such as Yevgeny Murzin's ANS synthesizer, Thaddeus Cahill's Telharmonium and the modular functioning of electronic synthesizers such as the Moog Modular of 1965 or the Moog IIIP of 1968. Concepts such as remix and mash up are pertinent when describing the logic that underlies the work, insofar as both use the distortion and mixture of references linked to culture as raw material for a new original sound product. In terms of time management, techniques such as scratching and beat juggling have been a strong influence in all my sound work.</p>
+      </div>
+
+      <!-- ===== VIDEOS ===== -->
+      <!-- 🔧 El wrapper .video-embed mantiene la proporción 16:9 sin importar
+           el ancho de pantalla. Adentro va un <iframe> normal de YouTube/Vimeo,
+           el mismo código que te da "Compartir → Insertar" en esas plataformas. -->
+      <div class="project-videos">
+        <div class="video-embed">
+          <iframe
+            src="https://youtube.com/embed/jz5lx5pnKCI?rel=0&showinfo=0"
+            title="The Spiral of Formicidae — YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="video-embed">
+          <iframe
+            src="https://player.vimeo.com/video/1008833208?badge=0&byline=0&portrait=0&title=0"
+            title="The Spiral of Formicidae — Vimeo"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ===== GALERÍA DE IMÁGENES ===== -->
+      <!-- 🔧 Cada <button> es una miniatura. Al hacer click, se abre en grande
+           en el "lightbox" de abajo. Reemplazá las rutas "images/..." por
+           tus fotos reales (mismo patrón de carpetas que usamos en Bio). -->
+      <div class="project-gallery">
+        <button class="gallery-thumb" data-full="images/proyectos/spiral/1.png">
+          <img src="images/proyectos/spiral/1.png" alt="The Spiral of Formicidae — foto 1" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/spiral/2.png">
+          <img src="images/proyectos/spiral/2.png" alt="The Spiral of Formicidae — foto 2" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/spiral/3.png">
+          <img src="images/proyectos/spiral/3.png" alt="The Spiral of Formicidae — foto 3" />
+        </button>
+        <button class="gallery-thumb" data-full="images/proyectos/spiral/4.png">
+          <img src="images/proyectos/spiral/4.png" alt="The Spiral of Formicidae — foto 4" />
+        </button>
+      </div>
+
+      <!-- ===== LIGHTBOX (la vista ampliada) ===== -->
+      <!-- 🔧 Este bloque vive escondido (display:none vía CSS) hasta que el
+           JS de abajo lo activa. Es el mismo elemento para TODAS las fotos:
+           el JS simplemente le cambia la imagen que muestra. -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+        <img src="" alt="" id="lightboxImage" />
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+      </div>
+
+      <!-- ===== CRÉDITOS ===== -->
+      <div class="project-credits">
+        <p><strong>Credits:</strong></p>
+        <p>Photographs: Pavel Méndez &amp; Nicolás Sánchez Noa</p>
+        <p>Video Documentation: Pavel Méndez &amp; Clemens Hornemann</p>
+      </div>
+
+      <!-- ===== VOLVER ===== -->
+      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT DEL LIGHTBOX ===== -->
+  <!-- 🔧 Va al final del <body> para que el navegador ya haya "leído" todo
+       el HTML de arriba antes de que el script intente buscarlo. -->
+  <script>
+    // 1. Referencias a los elementos que vamos a manipular.
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const thumbs = document.querySelectorAll('.gallery-thumb');
+
+    // 2. 🔧 Convertimos las miniaturas en un array de rutas de imagen,
+    //    en el mismo orden en que aparecen en el HTML.
+    const images = Array.from(thumbs).map((thumb) => thumb.dataset.full);
+
+    // 3. Guardamos en qué posición del array estamos parados.
+    let currentIndex = 0;
+
+    // 4. Función reutilizable: muestra la imagen que esté en currentIndex
+    function showImage(index) {
+      currentIndex = index;
+      lightboxImage.src = images[currentIndex];
+    }
+
+    // 5. Al hacer click en una miniatura, abrimos el lightbox en ESA posición
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        showImage(index);
+        lightbox.classList.add('is-open');
+      });
+    });
+
+    // 6. Botón siguiente, con wrap-around
+    lightboxNext.addEventListener('click', () => {
+      showImage((currentIndex + 1) % images.length);
+    });
+
+    // 7. Botón anterior, con wrap-around
+    lightboxPrev.addEventListener('click', () => {
+      showImage((currentIndex - 1 + images.length) % images.length);
+    });
+
+    // 8. Cerrar al hacer click en la ✕
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('is-open');
+    });
+
+    // 9. Cerrar si hacen click en el fondo oscuro
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        lightbox.classList.remove('is-open');
+      }
+    });
+
+    // 10. Teclado: Escape cierra, flechas izq/der navegan
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('is-open')) return;
+
+      if (event.key === 'Escape') {
+        lightbox.classList.remove('is-open');
+      } else if (event.key === 'ArrowRight') {
+        showImage((currentIndex + 1) % images.length);
+      } else if (event.key === 'ArrowLeft') {
+        showImage((currentIndex - 1 + images.length) % images.length);
+      }
+    });
+    // 11. 🔧 NUEVO: cuando un video entra en pantalla completa, el navegador
+    //     "asciende" ese mismo <iframe> a fullscreen — sigue siendo el mismo
+    //     elemento, así que el filter: invert() lo acompaña ahí también.
+    //     Detectamos el cambio y le sacamos el filtro mientras dure.
+    function handleFullscreenChange() {
+      // document.fullscreenElement (o su versión con prefijo en Safari) nos
+      // dice CUÁL elemento está en pantalla completa ahora mismo, o "null"
+      // si no hay ninguno.
+      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+
+      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
+        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
+      });
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange); // Safari
+
+    // 12. Cerrar el menú desplegable de navegación al hacer click afuera
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    // 13. 🔧 NUEVO: cerrar todos los desplegables abiertos apenas se scrollea
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
