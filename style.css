@@ -1,0 +1,1113 @@
+/* =========================================================
+   1. TOKENS DE DISEÑO
+   ========================================================= */
+:root {
+  --bg: #000000;           /* 🎨 negro puro */
+  --bg-raised: #000000;    /* 🎨 igual al fondo — el panel del menú se distingue solo por el borde */
+  --text: #ECE8E3;
+  --text-muted: #8A8680;
+  --accent: #d80c9e;       /* 🎨 magenta */
+  --line: #ffffff;         /* 🎨 líneas blancas */
+
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'IBM Plex Sans', sans-serif;
+}
+
+/* =========================================================
+   2. RESET BÁSICO
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   3. HEADER / NAVEGACIÓN
+   ========================================================= */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+}
+/*
+.logo span {
+  color: var(--accent);
+}
+*/
+
+.main-nav {
+  display: flex;
+  gap: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.main-nav a.active {
+  color: var(--accent);
+}
+
+.nav-dropdown summary {
+  cursor: pointer;
+  list-style: none;
+}
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-panel {
+  position: absolute;
+  top: 1.8rem;
+  right: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 160px;
+}
+.dropdown-panel a:hover {
+  color: var(--accent);
+}
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  padding: 6rem 2rem 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-frame {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 12vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-family: var(--font-mono);
+  margin-top: 1.5rem;
+  max-width: 40ch;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.9rem 1.75rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.cta-button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* =========================================================
+   4b. HERO CON FONDO DE FOTOS (variante del Home)
+   ========================================================= */
+.hero-bg {
+  position: relative;
+  min-height: 85vh;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bg-slideshow {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: heroSlideshow 20s infinite;
+}
+
+@keyframes heroSlideshow {
+  0%   { opacity: 0; }
+  5%   { opacity: 1; }
+  20%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.hero-bg-slide:nth-child(1) { animation-delay: 0s; }
+.hero-bg-slide:nth-child(2) { animation-delay: 5s; }
+.hero-bg-slide:nth-child(3) { animation-delay: 10s; }
+.hero-bg-slide:nth-child(4) { animation-delay: 15s; }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.368);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0;
+  width: 100%;
+}
+
+.hero-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .hero-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.hero-content .hero-subtitle {
+  color: var(--text-muted);
+  max-width: 40ch;
+  font-size: 0.75rem;
+}
+
+.hero-content .cta-button {
+  margin-top: 0rem;
+}
+
+/* =========================================================
+   4d. FRASE DESPLEGABLE AL LADO DEL BOTÓN (Home)
+   ========================================================= */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  width: 100%;   /* 🔧 antes 150% (un parche) — 100% es el valor correcto,
+                     ya no hace falta desbordar la fila para "ganar espacio" */
+}
+
+.hero-cta-row .cta-button {
+  flex-shrink: 0;   /* el botón nunca se achica */
+}
+
+/* 🔧 LA FORMA CORRECTA: esta caja mide su ancho final DESDE EL INICIO
+   (flex: 1 = "todo el espacio que sobre", calculado normal por el
+   navegador — 100% responsive, se recalcula solo en cualquier tamaño
+   de pantalla). Lo que animamos es un "recorte" (clip-path), no el
+   ancho — así el texto NUNCA se recalcula durante la animación. */
+.keyword-deploy-wrap {
+  flex: 1;
+  min-width: 0;
+  padding-left: 2rem;
+  clip-path: inset(0 100% 0 0);   /* 🔧 recortado al 100% desde la derecha = invisible */
+  transition: clip-path 0.6s ease;
+}
+
+.cta-button:hover + .keyword-deploy-wrap {
+  clip-path: inset(0 0% 0 0);     /* 🔧 recorte en 0% = totalmente visible */
+}
+
+.keyword-sentence {
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  /* 🔧 SIN "white-space: nowrap" — el texto puede partirse en líneas
+     libremente si hace falta, y como ya no estamos animando el ancho,
+     eso ya no causa ningún glitch. En pantallas chicas, se acomoda solo. */
+}
+
+.hero-content .intro-text {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+.hero-content .intro-text strong {
+  color: var(--text);
+}
+
+/* =========================================================
+   5. INTRO
+   ========================================================= */
+.intro {
+  padding: 4rem 2rem;
+  max-width: 60ch;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  /* text-transform: uppercase; */
+  color: var(--text-muted);
+}
+.intro-text strong {
+  color: var(--text);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2px;
+}
+.text-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* =========================================================
+   5b. PÁGINAS INTERNAS (Bio, CV, etc.)
+   ========================================================= */
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin-bottom: 3rem;
+}
+
+.bio-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bio-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.bio-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--bg-raised);
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.bio-photo:hover {
+  filter: none;
+}
+
+.bio-text p {
+  font-family: var(--font-mono);
+  margin-bottom: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+.bio-text strong {
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .bio-layout {
+    grid-template-columns: 1fr;
+  }
+  .bio-photo {
+    max-width: 240px;
+  }
+}
+
+/* =========================================================
+   5c. ÍNDICE DE PROYECTOS (Main Projects)
+   ========================================================= */
+.projects-header {
+  padding: 4rem 2rem 2rem;
+}
+
+.project-index {
+  padding: 0 2rem;
+}
+
+.project-index ol {
+  list-style: none;
+}
+
+.project-item {
+  border-top: 1px solid var(--line);
+}
+.project-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.project-item a {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  transition: padding-left 0.2s ease, color 0.2s ease;
+}
+
+.project-item a:hover {
+  padding-left: 1rem;
+  color: var(--accent);
+}
+
+.project-number {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  width: 2ch;
+}
+
+.project-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  flex: 1;
+}
+
+.project-arrow {
+  font-family: var(--font-mono);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.project-item a:hover .project-arrow {
+  opacity: 1;
+}
+
+.project-item-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  cursor: default;
+  transition: padding-left 0.2s ease, color 0.2s ease;
+}
+.feature-row-item:hover .project-item-row {
+  padding-left: 1rem;
+  color: var(--accent);
+}
+.feature-row-item:hover .project-arrow {
+  opacity: 1;
+}
+.feature-row-item:hover .feature-deploy-wrap {
+  grid-template-rows: 1fr;
+}
+
+.projects-footer-link {
+  padding: 3rem 2rem 4rem;
+}
+
+/* =========================================================
+   5d. DETALLE DE PROYECTO (Buzludzha, Nyx, etc.)
+   ========================================================= */
+.project-detail {
+  padding: 4rem 2rem 6rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.project-detail-header {
+  margin-bottom: 2.5rem;
+}
+.project-detail-header .page-title {
+  margin-bottom: 0;
+}
+
+.project-body p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.project-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-raised);
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.video-embed:hover iframe {
+  filter: none;
+}
+
+.video-embed iframe.is-fullscreen {
+  filter: none;
+}
+
+/* =========================================================
+   5e. GALERÍA DE IMÁGENES + LIGHTBOX
+   ========================================================= */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin: 3rem 0;
+}
+
+.gallery-thumb {
+  aspect-ratio: 1 / 1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--bg-raised);
+  overflow: hidden;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-thumb:hover img {
+  filter: none;
+  transform: scale(1.05);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text);
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.lightbox-close:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text);
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.lightbox-nav:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.lightbox-prev {
+  left: 1.5rem;
+}
+.lightbox-next {
+  right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .lightbox-nav {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.1rem;
+  }
+  .lightbox-prev {
+    left: 0.5rem;
+  }
+  .lightbox-next {
+    right: 0.5rem;
+  }
+}
+
+/* =========================================================
+   5f. CAJITA DE PREMIO / EXHIBICIÓN DESTACADA
+   ========================================================= */
+.project-award {
+  border: 1px solid var(--accent);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.project-award-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.project-award-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   5g. IMÁGENES DE REFERENCIA (2 fijas, con filtro invertido)
+   ========================================================= */
+.project-reference {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0rem;
+  margin: 2.5rem 0;
+}
+
+.reference-image {
+  position: relative;
+  background: var(--bg-raised);
+}
+
+.reference-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.reference-image:hover img {
+  filter: none;
+}
+
+.reference-label-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.reference-image:hover .reference-label-wrap {
+  grid-template-rows: 1fr;
+}
+
+.reference-label {
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  padding-top: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .project-reference {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   5h. REPRODUCTOR DE AUDIO (piezas sonoras narrativas)
+   ========================================================= */
+.project-audio {
+  border: 1px solid var(--line);
+  padding: 2rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.project-audio-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.project-audio-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.project-audio-embed {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.project-audio-embed iframe {
+  width: 100%;
+  border: 1px solid var(--line);
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.project-audio-embed:hover iframe {
+  filter: none;
+}
+
+/* =========================================================
+   5i. FICHA DE PIEZA INDIVIDUAL (para series con varias obras, ej. Old Prints)
+   ========================================================= */
+.project-piece {
+  margin: 3rem 0 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.project-piece-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.project-piece-specs {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   5i. SUB-OBRAS (Old Prints: varias piezas en una sola página)
+   ========================================================= */
+.project-subwork {
+  margin: 3rem 0 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.project-subwork-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.project-subwork-specs {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   5j. CV
+   ========================================================= */
+.cv-section {
+  padding: 4rem 2rem 6rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.cv-block {
+  margin-bottom: 2.5rem;
+}
+
+.cv-block-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cv-list {
+  list-style: none;
+}
+
+.cv-list li {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.cv-list li strong {
+  color: var(--text);
+}
+
+/* =========================================================
+   5k. AXIS.VISUAL LAB — landing page
+   ========================================================= */
+.lab-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+  align-items: start;
+}
+
+.lab-layout .lab-intro,
+.lab-layout .lab-features {
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .lab-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lab-intro {
+  padding: 4rem 2rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.lab-intro p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.lab-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+.lab-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  border: 1px solid var(--line);
+  padding: 1.75rem;
+}
+
+.lab-feature-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .lab-feature {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-deploy-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.lab-feature:hover .feature-deploy-wrap {
+  grid-template-rows: 1fr;
+}
+
+.feature-deploy-inner {
+  overflow: hidden;
+}
+
+.feature-deploy-inner img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  margin-top: 1rem;
+}
+
+.feature-deploy-inner .reference-label {
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+.lab-feature-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--bg-raised);
+  margin-bottom: 1.25rem;
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+.lab-feature:hover .lab-feature-image {
+  filter: none;
+}
+
+.lab-feature-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.lab-feature-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.lab-team {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+}
+
+.lab-team-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.lab-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--bg-raised);
+  margin-bottom: 0.75rem;
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+.team-member:hover img {
+  filter: none;
+}
+
+.team-member-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.lab-contact {
+  text-align: center;
+  padding: 3rem 2rem 4rem;
+}
+
+.lab-contact-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---- Variante "editorial" del equipo: fotos grandes alternadas ---- */
+.lab-team-editorial {
+  padding: 3rem 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.team-member-editorial {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  border-top: 1px solid var(--line);
+}
+.team-member-editorial:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.team-photo-large {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--bg-raised);
+  filter: grayscale(1) invert(1);
+  transition: filter 0.3s ease;
+}
+.team-member-editorial:hover .team-photo-large {
+  filter: none;
+}
+
+.team-name-large {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.team-role {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .team-member-editorial {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-credits {
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+.project-credits p {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+.project-credits strong {
+  color: var(--text);
+}
+
+/* =========================================================
+   6. FOOTER
+   ========================================================= */
+.site-footer {
+  padding: 2rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   7. RESPONSIVE
+   ========================================================= */
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .main-nav {
+    gap: 1.25rem;
+  }
+}

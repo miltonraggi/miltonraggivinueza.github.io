@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milton Raggi Vinueza — Artista Visual</title>
+
+  <!-- Fuentes de Google Fonts: una condensada para títulos (look de monumento/stencil),
+       una mono para etiquetas técnicas, y una sans limpia para el texto de cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVEGACIÓN ===== -->
+  <!-- <header> agrupa la marca de identidad + navegación del sitio -->
+  <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
+
+    <!-- <nav> le dice al navegador (y a lectores de pantalla) "esto es un menú de navegación" -->
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+
+      <!-- Un menú desplegable simple: un <details> nativo de HTML, sin JavaScript -->
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html">LAT</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <main>
+    <!-- 🔧 Fondo de fotos de proyectos rotando en loop, sin JS — puro CSS
+         con @keyframes. Cada <img> se hace visible/invisible en un momento
+         distinto del ciclo, creando el efecto de crossfade. -->
+    <section class="hero hero-bg">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/proyectos/buzludzha/2.jpg" alt="" />
+        <img class="hero-bg-slide" src="images/proyectos/state/1.jpg" alt="" />
+        <img class="hero-bg-slide" src="images/proyectos/spiral/1.png" alt="" />
+        <img class="hero-bg-slide" src="images/proyectos/nyx/3.jpg" alt="" />
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-cta-row">
+          <a href="main-projects.html" class="cta-button">art Projects →</a>
+
+          <!-- 🔧 Este bloque arranca colapsado a 0 de ancho. El selector
+               ".cta-button:hover + .keyword-deploy-wrap" en el CSS dice:
+               "cuando el elemento CON ESTA CLASE esté en hover, el elemento
+               INMEDIATAMENTE DESPUÉS de él (el +) hace esto" — sin JS. -->
+          <div class="keyword-deploy-wrap">
+            <div class="keyword-deploy-inner">
+              <p class="keyword-sentence">Inspired by my origins, my work delves into history, the collapse of utopian ideals, and the disintegration of shared dreams</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PIE DE PÁGINA ===== -->
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT DE NAVEGACIÓN ===== -->
+  <script>
+    // 🔧 <details> nativo solo se cierra si volvés a tocar el mismo botón.
+    //    Este script lo cierra también si hacés click en cualquier otro
+    //    lugar de la página — comportamiento esperado en un menú.
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        // dropdown.contains(event.target): ¿el click fue DENTRO de este
+        // desplegable? Si no, lo cerramos.
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    // 🔧 NUEVO: cerrar todos los desplegables abiertos apenas se scrollea
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
