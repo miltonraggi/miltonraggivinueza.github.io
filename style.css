@@ -235,32 +235,32 @@ a {
 /* =========================================================
    4d. FRASE DESPLEGABLE AL LADO DEL BOTÓN (Home)
    ========================================================= */
+.hero-cta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .hero-cta-row {
   display: flex;
   align-items: center;
-  width: 100%;   /* 🔧 antes 150% (un parche) — 100% es el valor correcto,
-                     ya no hace falta desbordar la fila para "ganar espacio" */
+  width: 100%;
 }
 
 .hero-cta-row .cta-button {
-  flex-shrink: 0;   /* el botón nunca se achica */
+  flex-shrink: 0;
 }
 
-/* 🔧 LA FORMA CORRECTA: esta caja mide su ancho final DESDE EL INICIO
-   (flex: 1 = "todo el espacio que sobre", calculado normal por el
-   navegador — 100% responsive, se recalcula solo en cualquier tamaño
-   de pantalla). Lo que animamos es un "recorte" (clip-path), no el
-   ancho — así el texto NUNCA se recalcula durante la animación. */
 .keyword-deploy-wrap {
   flex: 1;
   min-width: 0;
   padding-left: 2rem;
-  clip-path: inset(0 100% 0 0);   /* 🔧 recortado al 100% desde la derecha = invisible */
+  clip-path: inset(0 100% 0 0);
   transition: clip-path 0.6s ease;
 }
 
 .cta-button:hover + .keyword-deploy-wrap {
-  clip-path: inset(0 0% 0 0);     /* 🔧 recorte en 0% = totalmente visible */
+  clip-path: inset(0 0% 0 0);
 }
 
 .keyword-sentence {
@@ -269,9 +269,6 @@ a {
   font-size: 0.75rem;
   line-height: 1.6;
   color: var(--text-muted);
-  /* 🔧 SIN "white-space: nowrap" — el texto puede partirse en líneas
-     libremente si hace falta, y como ya no estamos animando el ancho,
-     eso ya no causa ningún glitch. En pantallas chicas, se acomoda solo. */
 }
 
 .hero-content .intro-text {
@@ -841,6 +838,73 @@ a {
 /* =========================================================
    5k. AXIS.VISUAL LAB — landing page
    ========================================================= */
+
+/* ---- Texto estático sobre las fotos, con fade al hover de los botones ---- */
+.axis-intro-static {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  right: 2rem;
+  max-width: 600px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: start;
+  transition: opacity 0.4s ease;
+}
+
+.axis-logo {
+  width: 80%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+}
+
+.axis-intro-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.axis-intro-text {
+  font-family: var(--font-mono);
+  /* text-transform: uppercase; */
+  font-size: 0.63rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.axis-intro-text strong {
+  /* color: var(--accent); */
+}
+
+@media (max-width: 700px) {
+  .axis-intro-static {
+    grid-template-columns: 1fr;
+  }
+  .axis-logo {
+    max-width: 140px;
+  }
+}
+
+.axis-intro-text p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1rem;
+}
+
+.axis-intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-bg:has(.cta-button:hover) .axis-intro-static {
+  opacity: 1;
+}
+
 .lab-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1109,5 +1173,64 @@ a {
   }
   .main-nav {
     gap: 1.25rem;
+  }
+}
+
+/* =========================================================
+   7b. RESPONSIVE — HERO CON FONDO DE FOTOS (Home + AXIS)
+   Mobile no tiene "hover" confiable, así que acá cambiamos la lógica:
+   en vez de ocultar cosas hasta el hover, las mostramos directo.
+   ========================================================= */
+@media (max-width: 700px) {
+  /* 🔧 El botón y su texto desplegable pasan de ir en fila a apilarse,
+     y el texto queda SIEMPRE visible (sin esperar un hover que en
+     touch no existe de forma confiable) */
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .keyword-deploy-wrap {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0.75rem;
+    clip-path: inset(0 0 0 0) !important;   /* siempre visible en mobile */
+  }
+
+  .hero-cta-list {
+    gap: 2rem;   /* más aire entre las 3 filas, ya que ahora cada una mide más alto */
+  }
+
+  /* 🔧 El hero con fondo de fotos: en vez de forzar 85vh fijo (que en
+     celulares chicos puede recortar el contenido), dejamos que la
+     altura se adapte a lo que el contenido necesite, con un piso
+     mínimo razonable */
+  .hero-bg {
+    display: block;
+    min-height: 60vh;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content {
+    position: relative;
+    padding: 1.5rem;
+  }
+
+  /* 🔧 El texto estático de AXIS pasa de "flotar" sobre la foto con
+     posición fija (que en pantallas chicas puede superponerse con los
+     botones de abajo) a vivir en el flujo normal de la página */
+  .axis-intro-static {
+    position: relative;
+    max-width: none;
+    /* 🔧 NUEVO: "left" y "right" venían heredados de la versión de
+       escritorio (donde tienen sentido porque ahí SÍ es position:absolute).
+       Bajo "relative", esos mismos valores significan "corré el elemento
+       2rem" — eso era lo que lo desalineaba y lo hacía desbordar por la
+       derecha. Los anulamos acá. */
+    left: auto;
+    right: auto;
+    margin: 4rem 1.5rem 3rem;   /* 🔧 antes "...1.5rem" de margen inferior —
+                                    ahora 3rem, más aire antes del primer botón */
   }
 }
