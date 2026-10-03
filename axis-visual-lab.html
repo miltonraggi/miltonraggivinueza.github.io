@@ -38,70 +38,69 @@
   </header>
 
   <main>
-    <!-- ===== INTRO ===== -->
-    <section class="lab-intro">
-      <p class="eyebrow">// WORK</p>
-      <h1 class="page-title">AXIS.Visual Lab</h1>
+    <!-- ===== HERO CON FONDO DE FOTOS (mismo patrón que el Home) ===== -->
+    <section class="hero hero-bg">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/proyectos/BETA 1/WEB/4.jpg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/proyectos/BETA 1/WEB/3.jpg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/proyectos/BETA 1/WEB/2.jpg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="" />
+      </div>
+      <div class="hero-overlay"></div>
 
-      <p><strong style="color: var(--text);">AXIS.Visual Lab</strong> is an independent artists' collective founded in 2013 by Aaron R. Moreno (Onerom) and Milton Raggi. Guided by a deep interest in technology, the collective explores its creative potential as both a medium and a source of artistic inquiry.</p>
+      <!-- 🔧 Texto estático, fijo arriba de las fotos. El CSS
+           ".hero-bg:has(.cta-button:hover)" hace que se desvanezca
+           cuando el mouse está sobre CUALQUIERA de los 3 botones de
+           abajo — sin JavaScript, usando el selector moderno :has().
+           Texto completo (sin resumir), justificado a ambos lados. -->
+      <div class="axis-intro-static">
+        <!-- 🔧 Logo vertical angosto, a la izquierda. Reemplazá la ruta
+             por tu logo real (idealmente una imagen alta y angosta,
+             como el "AXIS" apilado letra por letra que me mostraste). -->
+        <img src="images/axis/axislogo.webp" alt="AXIS.Visual Lab" class="axis-logo" />
 
-      <p>Its practice encompasses audiovisual, interactive, and immersive experiences, with a particular emphasis on video mapping and the transformation of public spaces. AXIS.Visual Lab also collaborates with artists, curators, and cultural institutions across a wide range of interdisciplinary projects and exhibition platforms.</p>
+        <div class="axis-intro-text">
+          <p class="axis-intro-heading">AXIS.Visual Lab</p>
 
-      <p>Dedicated to advancing technology-based art within Cuba's contemporary art scene, AXIS.Visual Lab works to increase the visibility of digital and new media practices, foster interdisciplinary exchange, and contribute to the development of a growing network of artists and practitioners working at the intersection of art and technology.</p>
-    </section>
+          <p><strong>AXIS.Visual Lab</strong> is an independent artists' collective founded in 2013 by Milton Raggi and Aaron R. Moreno. Guided by a deep interest in technology, the collective explores its creative potential as both a medium and a source of artistic inquiry.</p>
 
-    <!-- ===== 3 ÁREAS DE TRABAJO ===== -->
-    <!-- 🔧 Mismo formato de lista que Main Projects / Curatorial Work
-         (.project-index), pero cada fila esconde un bloque de
-         imagen+descripción+"Learn more" que se despliega al pasar el
-         mouse sobre el encabezado — no hace falta clickear nada. -->
-    <section class="project-index" style="margin-top: 2rem;">
-      <ol>
-        <li class="project-item feature-row-item">
-          <div class="project-item-row">
-            <span class="project-number">01</span>
-            <span class="project-name">Main Projects</span>
-            <span class="project-arrow">→</span>
-          </div>
-          <div class="feature-deploy-wrap">
-            <div class="feature-deploy-inner">
-              <img src="images/axis/feature-main-projects.png" alt="Main Projects" />
-              <p class="reference-label">In this section you will find large scale projection mappings, immersive audiovisual installations, sound art and a lot of other cool stuff.</p>
-              <a href="video-mappings.html" class="text-link">Learn more →</a>
+          <p>Its practice encompasses audiovisual, interactive, and immersive experiences, with a particular emphasis on video mapping and the transformation of public spaces. AXIS.Visual Lab also collaborates with artists, curators, and cultural institutions across a wide range of interdisciplinary projects and exhibition platforms.</p>
+
+          <p>Dedicated to advancing technology-based art within Cuba's contemporary art scene, AXIS.Visual Lab works to increase the visibility of digital and new media practices, foster interdisciplinary exchange, and contribute to the development of a growing network of artists and practitioners working at the intersection of art and technology.</p>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <!-- ===== 3 FILAS: botón + texto desplegable, mismo patrón que el Home ===== -->
+        <div class="hero-cta-list">
+          <div class="hero-cta-row">
+            <a href="video-mappings.html" class="cta-button">SELECTED Projects →</a>
+            <div class="keyword-deploy-wrap">
+              <div class="keyword-deploy-inner">
+                <p class="keyword-sentence">In this section you will find large scale projection mappings, immersive audiovisual installations, sound art and a lot of other cool stuff.</p>
+              </div>
             </div>
           </div>
-        </li>
 
-        <li class="project-item feature-row-item">
-          <div class="project-item-row">
-            <span class="project-number">02</span>
-            <span class="project-name">Production &amp; Collaboration</span>
-            <span class="project-arrow">→</span>
-          </div>
-          <div class="feature-deploy-wrap">
-            <div class="feature-deploy-inner">
-              <img src="images/axis/feature-production.png" alt="Production & Collaboration" />
-              <p class="reference-label">In the continuous pursuit of growing our community, we help visual artist colleagues to produce their works and exhibitions. We also collaborate with institutions and curators in diverse art spaces.</p>
-              <a href="product-collab.html" class="text-link">Learn more →</a>
+          <div class="hero-cta-row">
+            <a href="product-collab.html" class="cta-button">Production &amp; Collaboration →</a>
+            <div class="keyword-deploy-wrap">
+              <div class="keyword-deploy-inner">
+                <p class="keyword-sentence">In the continuous pursuit of growing our community, we help visual artist colleagues to produce their works and exhibitions. We also collaborate with institutions and curators in diverse art spaces.</p>
+              </div>
             </div>
           </div>
-        </li>
 
-        <li class="project-item feature-row-item">
-          <div class="project-item-row">
-            <span class="project-number">03</span>
-            <span class="project-name">Education</span>
-            <span class="project-arrow">→</span>
-          </div>
-          <div class="feature-deploy-wrap">
-            <div class="feature-deploy-inner">
-              <img src="images/axis/feature-education.png" alt="Education" />
-              <p class="reference-label">We at AXIS.Visual Lab know very well what isolation and lack of resources mean, so we believe in sharing information and growing together. One of our main objectives is to educate interested members of our community.</p>
-              <a href="lat.html" class="text-link">Learn more →</a>
+          <div class="hero-cta-row">
+            <a href="lat.html" class="cta-button">Educational Programs →</a>
+            <div class="keyword-deploy-wrap">
+              <div class="keyword-deploy-inner">
+                <p class="keyword-sentence">We at AXIS.Visual Lab know very well what isolation and lack of resources mean, so we believe in sharing information and growing together. One of our main objectives is to educate interested members of our community.</p>
+              </div>
             </div>
           </div>
-        </li>
-      </ol>
+        </div>
+      </div>
     </section>
 
     <!-- ===== EQUIPO ===== -->
