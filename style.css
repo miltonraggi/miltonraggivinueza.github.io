@@ -1177,35 +1177,25 @@ a {
 }
 
 /* =========================================================
-   7b. RESPONSIVE — HERO CON FONDO DE FOTOS (Home + AXIS)
-   Mobile no tiene "hover" confiable, así que acá cambiamos la lógica:
-   en vez de ocultar cosas hasta el hover, las mostramos directo.
+   7b. RESPONSIVE — COMPOSICIÓN DEDICADA PARA MOBILE (Home + AXIS)
+   No es solo "achicar todo": en mobile estos 2 heroes usan una
+   composición distinta, pensada para pantalla chica, siguiendo la
+   misma paleta/tipografía del resto del sitio.
    ========================================================= */
 @media (max-width: 700px) {
-  /* 🔧 El botón y su texto desplegable pasan de ir en fila a apilarse,
-     y el texto queda SIEMPRE visible (sin esperar un hover que en
-     touch no existe de forma confiable) */
-  .hero-cta-row {
-    flex-direction: column;
-    align-items: flex-start;
+  /* ---- 1. El fondo de fotos: degradado en vez de oscurecido parejo ----
+     Más oscuro ABAJO (donde está el texto) y más claro arriba, para que
+     se siga viendo la foto pero el texto tenga buen contraste siempre,
+     sin importar qué tan clara sea la foto del ciclo en ese momento. */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.55) 55%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
   }
 
-  .keyword-deploy-wrap {
-    flex: none;
-    width: 100%;
-    padding-left: 0;
-    margin-top: 0.75rem;
-    clip-path: inset(0 0 0 0) !important;   /* siempre visible en mobile */
-  }
-
-  .hero-cta-list {
-    gap: 2rem;   /* más aire entre las 3 filas, ya que ahora cada una mide más alto */
-  }
-
-  /* 🔧 El hero con fondo de fotos: en vez de forzar 85vh fijo (que en
-     celulares chicos puede recortar el contenido), dejamos que la
-     altura se adapte a lo que el contenido necesite, con un piso
-     mínimo razonable */
   .hero-bg {
     display: block;
     min-height: 60vh;
@@ -1217,20 +1207,77 @@ a {
     padding: 1.5rem;
   }
 
-  /* 🔧 El texto estático de AXIS pasa de "flotar" sobre la foto con
-     posición fija (que en pantallas chicas puede superponerse con los
-     botones de abajo) a vivir en el flujo normal de la página */
+  /* ---- 2. Botones a ancho completo — más fáciles de tocar en celular,
+     convención estándar de mobile (vs. botones angostos tipo desktop) ---- */
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-row .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-cta-list {
+    gap: 2rem;
+  }
+
+  /* ---- 3. La frase descriptiva: ya no "se despliega" (no hay hover en
+     touch) — se muestra como una cita fija, con línea arriba, separada
+     visualmente del botón en vez de pegada a su lado ---- */
+  .keyword-deploy-wrap {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    clip-path: inset(0 0 0 0) !important;
+  }
+
+  /* =========================================================
+     AXIS — composición específica para mobile
+     ========================================================= */
+
+  /* El hero de AXIS en mobile queda COMPACTO: solo logo + título sobre
+     la foto. El texto largo (3 párrafos) se esconde acá... */
+  .axis-intro-paragraphs {
+    display: none;
+  }
+
   .axis-intro-static {
     position: relative;
     max-width: none;
-    /* 🔧 NUEVO: "left" y "right" venían heredados de la versión de
-       escritorio (donde tienen sentido porque ahí SÍ es position:absolute).
-       Bajo "relative", esos mismos valores significan "corré el elemento
-       2rem" — eso era lo que lo desalineaba y lo hacía desbordar por la
-       derecha. Los anulamos acá. */
     left: auto;
     right: auto;
-    margin: 4rem 1.5rem 3rem;   /* 🔧 antes "...1.5rem" de margen inferior —
-                                    ahora 3rem, más aire antes del primer botón */
+    margin: 3rem 1.5rem 2.5rem;
   }
+
+  .axis-intro-heading {
+    font-size: 1.5rem;   /* un poco más grande ya que ahora es casi todo el hero-text */
+  }
+
+  /* ...y reaparece ACÁ, debajo del hero, con fondo sólido y el mismo
+     estilo de lectura que usás en las páginas de proyecto — mucho más
+     cómodo de leer en el celular que texto largo arriba de una foto */
+  .axis-mobile-about {
+    display: block;
+    padding: 3rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .axis-mobile-about .project-body {
+    margin: 0;
+  }
+
+  .axis-mobile-about .project-body strong {
+    color: var(--accent);
+  }
+}
+
+/* 🔧 En desktop, la sección de lectura mobile queda escondida — ahí el
+   texto ya se lee directamente sobre la foto, arriba */
+.axis-mobile-about {
+  display: none;
 }
