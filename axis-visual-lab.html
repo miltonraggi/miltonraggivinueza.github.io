@@ -62,11 +62,18 @@
         <div class="axis-intro-text">
           <p class="axis-intro-heading">AXIS.Visual Lab</p>
 
-          <p><strong>AXIS.Visual Lab</strong> is an independent artists' collective founded in 2013 by Milton Raggi and Aaron R. Moreno. Guided by a deep interest in technology, the collective explores its creative potential as both a medium and a source of artistic inquiry.</p>
+          <!-- 🔧 NUEVO: los 3 párrafos van en su propio div. En mobile,
+               ".axis-intro-paragraphs" se esconde (queda solo el logo +
+               título arriba de la foto) y el mismo texto reaparece más
+               abajo, en ".axis-mobile-about" — con fondo sólido, mucho
+               más legible en pantalla chica que texto largo sobre una foto. -->
+          <div class="axis-intro-paragraphs">
+            <p><strong>AXIS.Visual Lab</strong> is an independent artists' collective founded in 2013 by Aaron R. Moreno (Onerom) and Milton Raggi. Guided by a deep interest in technology, the collective explores its creative potential as both a medium and a source of artistic inquiry.</p>
 
-          <p>Its practice encompasses audiovisual, interactive, and immersive experiences, with a particular emphasis on video mapping and the transformation of public spaces. AXIS.Visual Lab also collaborates with artists, curators, and cultural institutions across a wide range of interdisciplinary projects and exhibition platforms.</p>
+            <p>Its practice encompasses audiovisual, interactive, and immersive experiences, with a particular emphasis on video mapping and the transformation of public spaces. AXIS.Visual Lab also collaborates with artists, curators, and cultural institutions across a wide range of interdisciplinary projects and exhibition platforms.</p>
 
-          <p>Dedicated to advancing technology-based art within Cuba's contemporary art scene, AXIS.Visual Lab works to increase the visibility of digital and new media practices, foster interdisciplinary exchange, and contribute to the development of a growing network of artists and practitioners working at the intersection of art and technology.</p>
+            <p>Dedicated to advancing technology-based art within Cuba's contemporary art scene, AXIS.Visual Lab works to increase the visibility of digital and new media practices, foster interdisciplinary exchange, and contribute to the development of a growing network of artists and practitioners working at the intersection of art and technology.</p>
+          </div>
         </div>
       </div>
 
@@ -74,7 +81,10 @@
         <!-- ===== 3 FILAS: botón + texto desplegable, mismo patrón que el Home ===== -->
         <div class="hero-cta-list">
           <div class="hero-cta-row">
-            <a href="video-mappings.html" class="cta-button">SELECTED Projects →</a>
+            <!-- 🔧 Solo se ve en mobile (.hero-cta-image está oculta por
+                 defecto, ver CSS). Reemplazá la ruta por tu foto real. -->
+            <img src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="Main Projects" class="hero-cta-image" />
+            <a href="video-mappings.html" class="cta-button">Main Projects →</a>
             <div class="keyword-deploy-wrap">
               <div class="keyword-deploy-inner">
                 <p class="keyword-sentence">In this section you will find large scale projection mappings, immersive audiovisual installations, sound art and a lot of other cool stuff.</p>
@@ -83,6 +93,7 @@
           </div>
 
           <div class="hero-cta-row">
+            <img src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="Production & Collaboration" class="hero-cta-image" />
             <a href="product-collab.html" class="cta-button">Production &amp; Collaboration →</a>
             <div class="keyword-deploy-wrap">
               <div class="keyword-deploy-inner">
@@ -92,7 +103,8 @@
           </div>
 
           <div class="hero-cta-row">
-            <a href="lat.html" class="cta-button">Educational Programs →</a>
+            <img src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="Education" class="hero-cta-image" />
+            <a href="lat.html" class="cta-button">Education →</a>
             <div class="keyword-deploy-wrap">
               <div class="keyword-deploy-inner">
                 <p class="keyword-sentence">We at AXIS.Visual Lab know very well what isolation and lack of resources mean, so we believe in sharing information and growing together. One of our main objectives is to educate interested members of our community.</p>
@@ -103,16 +115,33 @@
       </div>
     </section>
 
+    <!-- ===== TEXTO COMPLETO — SOLO VISIBLE EN MOBILE ===== -->
+    <!-- 🔧 Oculta en desktop por defecto (donde el texto ya se lee arriba,
+         sobre la foto). En mobile aparece acá: fondo sólido, texto a la
+         izquierda (no justificado) — mismo estilo de lectura que usás en
+         las páginas de proyecto (.project-body), para que sea cómodo de
+         leer en una pantalla chica. -->
+    <section class="axis-mobile-about">
+      <p class="eyebrow">// ABOUT</p>
+      <div class="project-body">
+        <p><strong>AXIS.Visual Lab</strong> is an independent artists' collective founded in 2013 by Aaron R. Moreno (Onerom) and Milton Raggi. Guided by a deep interest in technology, the collective explores its creative potential as both a medium and a source of artistic inquiry.</p>
+
+        <p>Its practice encompasses audiovisual, interactive, and immersive experiences, with a particular emphasis on video mapping and the transformation of public spaces. AXIS.Visual Lab also collaborates with artists, curators, and cultural institutions across a wide range of interdisciplinary projects and exhibition platforms.</p>
+
+        <p>Dedicated to advancing technology-based art within Cuba's contemporary art scene, AXIS.Visual Lab works to increase the visibility of digital and new media practices, foster interdisciplinary exchange, and contribute to the development of a growing network of artists and practitioners working at the intersection of art and technology.</p>
+      </div>
+    </section>
+
     <!-- ===== EQUIPO ===== -->
     <section class="lab-team">
       <p class="lab-team-title">Meet the Team</p>
       <div class="lab-team-grid">
         <div class="team-member">
-          <img src="images/axis/aaron.png" alt="Aaron R. Moreno" />
+          <img src="images/axis/the team/aaronrmoreno.jpg" alt="Aaron R. Moreno" />
           <p class="team-member-name">Aaron R. Moreno</p>
         </div>
         <div class="team-member">
-          <img src="images/axis/milton.png" alt="Milton Raggi Vinueza" />
+          <img src="images/axis/the team/milton-foto.jpg" alt="Milton Raggi Vinueza" />
           <p class="team-member-name">Milton Raggi Vinueza</p>
         </div>
       </div>

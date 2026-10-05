@@ -247,6 +247,13 @@ a {
   width: 100%;
 }
 
+/* 🔧 NUEVO: imagen vertical antes de cada botón — escondida en desktop
+   (ahí ese lugar lo ocupa el texto que se despliega al lado del botón),
+   solo aparece en la composición mobile (ver @media más abajo). */
+.hero-cta-image {
+  display: none;
+}
+
 .hero-cta-row .cta-button {
   flex-shrink: 0;
 }
@@ -1214,6 +1221,17 @@ a {
     align-items: stretch;
   }
 
+  /* 🔧 NUEVO: la imagen aparece acá, ESTÁTICA (sin animación de
+     diapositiva como el fondo del hero), en formato vertical tipo
+     pantalla de teléfono (9:16) — ocupa todo el ancho disponible. */
+  .hero-cta-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
   .hero-cta-row .cta-button {
     width: 100%;
     text-align: center;
@@ -1240,10 +1258,20 @@ a {
      AXIS — composición específica para mobile
      ========================================================= */
 
+  /* 🔧 NUEVO: en AXIS (y SOLO en AXIS — ":has()" distingue esta página
+     de Home, que comparte la misma clase .hero-bg pero sí debe seguir
+     mostrando las fotos) el fondo de fotos desaparece por completo en
+     mobile. Como el fondo del sitio ya es negro puro, alcanza con
+     esconder la foto y el degradado — no hace falta pintar nada nuevo. */
+  .hero-bg:has(.axis-intro-static) .hero-bg-slideshow,
+  .hero-bg:has(.axis-intro-static) .hero-overlay {
+    display: none;
+  }
+
   /* El hero de AXIS en mobile queda COMPACTO: solo logo + título sobre
      la foto. El texto largo (3 párrafos) se esconde acá... */
   .axis-intro-paragraphs {
-    display: none;
+    //display: none;
   }
 
   .axis-intro-static {
@@ -1251,7 +1279,20 @@ a {
     max-width: none;
     left: auto;
     right: auto;
-    margin: 3rem 1.5rem 2.5rem;
+    margin: 3rem 1.5rem 7rem;   /* 🔧 aún más aire antes del primer botón */
+  }
+
+  /* 🔧 NUEVO: en AXIS (identificado porque contiene .axis-intro-static),
+     el fondo de fotos desaparece por completo en mobile — queda solo
+     negro sólido. Uso ":has()" para que esto NO afecte al Home, que
+     comparte la misma clase .hero-bg pero SÍ quiere seguir viendo las
+     fotos en mobile. */
+  .hero-bg:has(.axis-intro-static) .hero-bg-slideshow,
+  .hero-bg:has(.axis-intro-static) .hero-overlay {
+    display: none;
+  }
+  .hero-bg:has(.axis-intro-static) {
+    background: var(--bg);
   }
 
   .axis-intro-heading {
