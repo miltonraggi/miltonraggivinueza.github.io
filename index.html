@@ -19,13 +19,6 @@
   <header class="site-header">
     <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-      <!-- Botón de navegación exclusivo para mobile -->
-    <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <!-- <nav> le dice al navegador (y a lectores de pantalla) "esto es un menú de navegación" -->
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
@@ -88,35 +81,8 @@
     <p>© 2026 Milton Raggi Vinueza.</p>
   </footer>
 
- 
   <!-- ===== JAVASCRIPT DE NAVEGACIÓN ===== -->
   <script>
-    // ===== MENÚ MOBILE =====
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNavigation = document.querySelector('.main-nav');
-
-    function closeMobileMenu() {
-      mainNavigation.classList.remove('is-open');
-      mobileMenuToggle.classList.remove('is-open');
-      mobileMenuToggle.setAttribute('aria-expanded', 'false');
-      mobileMenuToggle.setAttribute('aria-label', 'Open menu');
-    }
-
-    mobileMenuToggle.addEventListener('click', (event) => {
-      event.stopPropagation();
-      const isOpen = mainNavigation.classList.toggle('is-open');
-      mobileMenuToggle.classList.toggle('is-open', isOpen);
-      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
-      mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-    });
-
-    // Cerrar el menú mobile al seleccionar un enlace normal.
-    mainNavigation.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        closeMobileMenu();
-      });
-    });
-
     // 🔧 <details> nativo solo se cierra si volvés a tocar el mismo botón.
     //    Este script lo cierra también si hacés click en cualquier otro
     //    lugar de la página — comportamiento esperado en un menú.
@@ -130,19 +96,11 @@
       });
     });
 
-    // Cerrar el menú mobile al tocar fuera de él.
-    document.addEventListener('click', (event) => {
-      if (!mainNavigation.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-        closeMobileMenu();
-      }
-    });
-
     // 🔧 NUEVO: cerrar todos los desplegables abiertos apenas se scrollea
     window.addEventListener('scroll', () => {
       document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
         dropdown.removeAttribute('open');
       });
-      closeMobileMenu();
     });
   </script>
 
