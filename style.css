@@ -1204,10 +1204,16 @@ a {
   }
 
   .hero-bg {
-    display: block;
-    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 90dvh;
     padding-bottom: 2.5rem;
-  }
+ }
+
+ .hero-bg:not(:has(.axis-intro-static)) .hero-content {
+    padding-bottom: 1rem;
+ }
 
   .hero-content {
     position: relative;
@@ -1232,8 +1238,9 @@ a {
     margin-bottom: 1rem;
   }
 
+
   .hero-cta-row .cta-button {
-    width: 100%;
+    width:100%;
     text-align: center;
   }
 
@@ -1253,6 +1260,8 @@ a {
     border-top: 1px solid var(--line);
     clip-path: inset(0 0 0 0) !important;
   }
+
+
 
   /* =========================================================
      AXIS — composición específica para mobile
