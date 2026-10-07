@@ -1204,16 +1204,10 @@ a {
   }
 
   .hero-bg {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 90dvh;
+    display: block;
+    min-height: 60vh;
     padding-bottom: 2.5rem;
- }
-
- .hero-bg:not(:has(.axis-intro-static)) .hero-content {
-    padding-bottom: 1rem;
- }
+  }
 
   .hero-content {
     position: relative;
@@ -1332,3 +1326,125 @@ a {
   display: none;
 }
 
+
+/* =========================================================
+   MOBILE NAVIGATION — CSS ONLY / SIN JAVASCRIPT
+   ========================================================= */
+
+.mobile-nav { display: none; }
+.mobile-nav-toggle { list-style: none; }
+.mobile-nav-toggle::-webkit-details-marker { display: none; }
+
+@media (max-width: 640px) {
+  /* Logo + hamburger permanecen en la misma línea. */
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+  }
+
+  /* Oculta la navegación desktop en mobile. */
+  .site-header > .main-nav {
+    display: none;
+  }
+
+  /* Muestra el menú mobile. */
+  .mobile-nav {
+    display: block;
+    position: relative;
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Tres barras. El margen derecho coincide con el del logo/header. */
+  .mobile-nav-toggle {
+    width: 2rem;
+    height: 1.5rem;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .mobile-nav-toggle span {
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--text);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+
+  .mobile-nav-toggle:hover span {
+    background: var(--accent);
+  }
+
+  /* Al abrir <details>, las barras se convierten en X. */
+  .mobile-nav[open] > .mobile-nav-toggle span:nth-child(1) {
+    transform: translateY(0.75rem) rotate(45deg);
+  }
+  .mobile-nav[open] > .mobile-nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-nav[open] > .mobile-nav-toggle span:nth-child(3) {
+    transform: translateY(-0.75rem) rotate(-45deg);
+  }
+
+  /* Panel que aparece debajo del hamburger. */
+  .mobile-nav-panel {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 0;
+    width: max-content;
+    min-width: 180px;
+    padding: 0.75rem 0;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav-panel > a,
+  .mobile-nav-panel > .nav-dropdown > summary {
+    display: block;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+  }
+
+  .mobile-nav-panel > a:hover,
+  .mobile-nav-panel > .nav-dropdown > summary:hover {
+    color: var(--accent);
+  }
+
+  /* About y Work también funcionan con <details>, sin JS. */
+  .mobile-nav-panel .nav-dropdown {
+    position: relative;
+  }
+
+  .mobile-nav-panel .dropdown-panel {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    padding: 0 1rem 0.5rem 2rem;
+    border: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .mobile-nav-panel .dropdown-panel a {
+    display: block;
+    padding: 0.35rem 0;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-nav { display: none !important; }
+}
