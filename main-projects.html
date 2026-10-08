@@ -7,46 +7,100 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+  <!-- =====================================================
+       HEADER / NAVEGACIÓN
+       ===================================================== -->
+
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <!--
+      MENÚ PRINCIPAL SIN JAVASCRIPT
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      La flecha abre y cierra el menú.
+      Este mismo bloque puede copiarse a las demás páginas.
+    -->
+
+    <details class="menu-toggle">
+
+      <!-- BOTÓN / FLECHA -->
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <!-- MENÚ -->
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <!-- ABOUT -->
+        <details class="nav-dropdown">
+
+          <summary>About</summary>
+
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+
+        </details>
+
+
+        <!-- WORK -->
+        <details class="nav-dropdown">
+
+          <summary class="active">Work</summary>
+
+          <div class="dropdown-panel">
+            <a href="main-projects.html" class="active">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
   <main>
+
     <section class="projects-header">
+
       <p class="eyebrow">// WORK</p>
-      <p class="hero-subtitle">A selection of my solo works.</p>
+
+      <p class="hero-subtitle">
+        A selection of my solo works.
+      </p>
+
     </section>
 
-    <!-- 👇 Cada <li> es un proyecto. El número (01, 02...) es solo texto,
-         no se genera solo — lo escribís vos en cada uno. -->
+
+    <!-- =====================================================
+         PROJECT INDEX
+         ===================================================== -->
+
     <section class="project-index">
+
       <ol>
+
         <li class="project-item">
           <a href="the-spiral-of-formicidae.html">
             <span class="project-number">01</span>
@@ -54,6 +108,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="nyx.html">
             <span class="project-number">02</span>
@@ -61,6 +116,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="the-requiem-of-ulam.html">
             <span class="project-number">03</span>
@@ -68,6 +124,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="maelstrom.html">
             <span class="project-number">04</span>
@@ -75,6 +132,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="buzludzha.html">
             <span class="project-number">05</span>
@@ -82,6 +140,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="state-phase02.html">
             <span class="project-number">06</span>
@@ -89,6 +148,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="180-echo.html">
             <span class="project-number">07</span>
@@ -96,6 +156,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="the-gold-of-seaborg.html">
             <span class="project-number">08</span>
@@ -103,6 +164,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="how-to-make-trees-grow-in-the-sand.html">
             <span class="project-number">09</span>
@@ -110,6 +172,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="the-sound-of-our-parents.html">
             <span class="project-number">10</span>
@@ -117,6 +180,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="the-fields-of-mars.html">
             <span class="project-number">11</span>
@@ -124,6 +188,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="c-r-e-e-s.html">
             <span class="project-number">12</span>
@@ -131,6 +196,7 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
         <li class="project-item">
           <a href="old-prints.html">
             <span class="project-number">13</span>
@@ -138,35 +204,39 @@
             <span class="project-arrow">→</span>
           </a>
         </li>
+
       </ol>
+
     </section>
+
+
+    <!-- =====================================================
+         FOOTER LINK
+         ===================================================== -->
 
     <section class="projects-footer-link">
-      <a href="axis-visual-lab.html" class="cta-button">See more of my work at AXIS.Visual Lab →</a>
+
+      <a href="axis-visual-lab.html" class="cta-button">
+        See more of my work at AXIS.Visual Lab →
+      </a>
+
     </section>
+
   </main>
 
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
   <footer class="site-footer">
-    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+
+    <p>
+      © 2026 Milton Raggi Vinueza — Todos los derechos reservados.
+    </p>
+
   </footer>
 
-  <!-- ===== JAVASCRIPT DE NAVEGACIÓN ===== -->
-  <script>
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
-
-    // 🔧 NUEVO: cerrar todos los desplegables abiertos apenas se scrollea
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
-  </script>
 
 </body>
 </html>

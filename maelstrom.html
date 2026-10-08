@@ -11,30 +11,49 @@
 </head>
 <body>
 
+  <!-- =========================================================
+       NAVEGACIÓN SIN JAVASCRIPT
+       La flecha abre/cierra el menú.
+       NO necesitas copiar ningún JavaScript para el menú.
+       ========================================================= -->
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <details class="nav-dropdown">
+          <summary>About</summary>
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+        </details>
+
+        <details class="nav-dropdown">
+          <summary class="active">Work</summary>
+          <div class="dropdown-panel">
+            <a href="main-projects.html" class="active">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
   <main>
@@ -79,11 +98,10 @@
       </div>
 
       <!-- ===== REPRODUCTOR DE SOUNDCLOUD ===== -->
-      <!-- 🔧 Mismo filtro invertido que los videos de YouTube/Vimeo — un
-           iframe es un iframe, no importa de qué plataforma venga. -->
       <div class="project-audio">
         <p class="project-audio-title">M A E L S T R O M</p>
         <p class="project-audio-subtitle">A narrative sound experience.</p>
+
         <div class="project-audio-embed">
           <iframe
             width="100%"
@@ -99,32 +117,59 @@
 
       <!-- ===== GALERÍA DE IMÁGENES ===== -->
       <div class="project-gallery">
+
         <button class="gallery-thumb" data-full="images/proyectos/maelstrom/1.jpg">
           <img src="images/proyectos/maelstrom/1.jpg" alt="Maelstrom — foto 1" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/maelstrom/2.jpg">
           <img src="images/proyectos/maelstrom/2.jpg" alt="Maelstrom — foto 2" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/maelstrom/3.jpg">
           <img src="images/proyectos/maelstrom/3.jpg" alt="Maelstrom — foto 3" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/maelstrom/4.jpg">
           <img src="images/proyectos/maelstrom/4.jpg" alt="Maelstrom — foto 4" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/maelstrom/6.jpg">
-          <img src="images/proyectos/maelstrom/6.jpg" alt="Maelstrom — foto 3" />
+          <img src="images/proyectos/maelstrom/6.jpg" alt="Maelstrom — foto 5" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/maelstrom/7.jpg">
-          <img src="images/proyectos/maelstrom/7.jpg" alt="Maelstrom — foto 4" />
+          <img src="images/proyectos/maelstrom/7.jpg" alt="Maelstrom — foto 6" />
         </button>
+
       </div>
 
       <!-- ===== LIGHTBOX ===== -->
       <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          aria-label="Cerrar">
+          ✕
+        </button>
+
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Foto anterior">
+          ‹
+        </button>
+
         <img src="" alt="" id="lightboxImage" />
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Foto siguiente">
+          ›
+        </button>
+
       </div>
 
       <!-- ===== CRÉDITOS ===== -->
@@ -134,7 +179,9 @@
       </div>
 
       <!-- ===== VOLVER ===== -->
-      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+      <a href="main-projects.html" class="cta-button">
+        ← Back to Main Projects
+      </a>
 
     </article>
   </main>
@@ -143,82 +190,151 @@
     <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+
+  <!-- =========================================================
+       JAVASCRIPT
+       
+       IMPORTANTE:
+       Este JavaScript NO controla el menú.
+       Se mantiene porque es necesario para:
+       1. Lightbox de las imágenes
+       2. Navegación anterior/siguiente
+       3. Cerrar con ESC
+       4. Fullscreen de los videos
+       
+       NO eliminar este bloque.
+       ========================================================= -->
   <script>
+
+    /* ===== LIGHTBOX ===== */
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
+
     const thumbs = document.querySelectorAll('.gallery-thumb');
     const images = Array.from(thumbs).map((thumb) => thumb.dataset.full);
+
     let currentIndex = 0;
+
 
     function showImage(index) {
       currentIndex = index;
       lightboxImage.src = images[currentIndex];
     }
 
+
     thumbs.forEach((thumb, index) => {
+
       thumb.addEventListener('click', () => {
+
         showImage(index);
+
         lightbox.classList.add('is-open');
+
       });
+
     });
+
 
     lightboxNext.addEventListener('click', () => {
-      showImage((currentIndex + 1) % images.length);
+
+      showImage(
+        (currentIndex + 1) % images.length
+      );
+
     });
+
 
     lightboxPrev.addEventListener('click', () => {
-      showImage((currentIndex - 1 + images.length) % images.length);
+
+      showImage(
+        (currentIndex - 1 + images.length) % images.length
+      );
+
     });
+
 
     lightboxClose.addEventListener('click', () => {
+
       lightbox.classList.remove('is-open');
+
     });
+
 
     lightbox.addEventListener('click', (event) => {
+
       if (event.target === lightbox) {
+
         lightbox.classList.remove('is-open');
+
       }
+
     });
+
 
     document.addEventListener('keydown', (event) => {
+
       if (!lightbox.classList.contains('is-open')) return;
 
+
       if (event.key === 'Escape') {
+
         lightbox.classList.remove('is-open');
-      } else if (event.key === 'ArrowRight') {
-        showImage((currentIndex + 1) % images.length);
-      } else if (event.key === 'ArrowLeft') {
-        showImage((currentIndex - 1 + images.length) % images.length);
+
       }
+
+      else if (event.key === 'ArrowRight') {
+
+        showImage(
+          (currentIndex + 1) % images.length
+        );
+
+      }
+
+      else if (event.key === 'ArrowLeft') {
+
+        showImage(
+          (currentIndex - 1 + images.length) % images.length
+        );
+
+      }
+
     });
+
+
+    /* ===== FULLSCREEN DE VIDEOS ===== */
 
     function handleFullscreenChange() {
-      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+
+      const fullscreenEl =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement;
+
       document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
-        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
+
+        iframe.classList.toggle(
+          'is-fullscreen',
+          iframe === fullscreenEl
+        );
+
       });
+
     }
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
 
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
+    document.addEventListener(
+      'fullscreenchange',
+      handleFullscreenChange
+    );
 
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
+    document.addEventListener(
+      'webkitfullscreenchange',
+      handleFullscreenChange
+    );
+
   </script>
 
 </body>

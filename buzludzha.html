@@ -11,30 +11,48 @@
 </head>
 <body>
 
+  <!-- =========================================================
+       NAVEGACIÓN SIN JAVASCRIPT
+       La flecha abre/cierra el menú.
+       ========================================================= -->
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <details class="nav-dropdown">
+          <summary>About</summary>
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+        </details>
+
+        <details class="nav-dropdown">
+          <summary class="active">Work</summary>
+          <div class="dropdown-panel">
+            <a href="main-projects.html" class="active">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
   <main>
@@ -57,27 +75,40 @@
         <p>The project uses technology to generate an atmosphere where the relation of power and control of the performer (covering the cameras with their hands and trying to create a harmonic sense) is fragmented and decomposed, in a violent succession of sound alterations that are integrated and juxtapose in space. In the context of the work, sound becomes a tool that invades space through a succession of waves, impacting the walls or dissipating into the air.</p>
       </div>
 
-      <!-- ===== IMÁGENES DE REFERENCIA (ambas visibles, con filtro invertido) ===== -->
-      <!-- 🔧 Mismo efecto que la galería y los videos: blanco y negro
-           invertido por defecto, se revela el color real al hacer hover.
-           Ahora también aparece una etiqueta con el nombre del lugar. -->
+      <!-- ===== IMÁGENES DE REFERENCIA ===== -->
       <div class="project-reference">
+
         <div class="reference-image">
-          <img src="images/proyectos/buzludzha/ref-buzludzha.png" alt="Ruinas del monumento de Buzludzha" />
+          <img
+            src="images/proyectos/buzludzha/ref-buzludzha.png"
+            alt="Ruinas del monumento de Buzludzha"
+          />
+
           <div class="reference-label-wrap">
-            <p class="reference-label">Ruins of Buzludzha, former soviet congress hall of Bulgaria.</p>
+            <p class="reference-label">
+              Ruins of Buzludzha, former soviet congress hall of Bulgaria.
+            </p>
           </div>
         </div>
+
         <div class="reference-image">
-          <img src="images/proyectos/buzludzha/ref-isa.png" alt="Ruinas de la Escuela Nacional de Ballet, ISA, Cuba" />
+          <img
+            src="images/proyectos/buzludzha/ref-isa.png"
+            alt="Ruinas de la Escuela Nacional de Ballet, ISA, Cuba"
+          />
+
           <div class="reference-label-wrap">
-            <p class="reference-label">Ruins of the School of Ballet at the University of the Arts of Cuba.</p>
+            <p class="reference-label">
+              Ruins of the School of Ballet at the University of the Arts of Cuba.
+            </p>
           </div>
         </div>
+
       </div>
 
       <!-- ===== VIDEO ===== -->
       <div class="project-videos">
+
         <div class="video-embed">
           <iframe
             src="https://youtube.com/embed/Tt2CtnuJq1Y?rel=0&showinfo=0"
@@ -86,38 +117,98 @@
             allowfullscreen>
           </iframe>
         </div>
+
       </div>
 
       <!-- ===== GALERÍA DE IMÁGENES ===== -->
-      <!-- 🔧 Este proyecto tiene 6 fotos en vez de 4 — el grid se acomoda
-           solo sin que tengas que tocar el CSS -->
       <div class="project-gallery">
-        <button class="gallery-thumb" data-full="images/proyectos/buzludzha/2.jpg">
-          <img src="images/proyectos/buzludzha/2.jpg" alt="Buzludzha — foto 1" />
+
+        <button
+          class="gallery-thumb"
+          data-full="images/proyectos/buzludzha/2.jpg">
+          <img
+            src="images/proyectos/buzludzha/2.jpg"
+            alt="Buzludzha — foto 1"
+          />
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/buzludzha/3.jpg">
-          <img src="images/proyectos/buzludzha/3.jpg" alt="Buzludzha — foto 2" />
+
+        <button
+          class="gallery-thumb"
+          data-full="images/proyectos/buzludzha/3.jpg">
+          <img
+            src="images/proyectos/buzludzha/3.jpg"
+            alt="Buzludzha — foto 2"
+          />
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/buzludzha/5.jpg">
-          <img src="images/proyectos/buzludzha/5.jpg" alt="Buzludzha — foto 3" />
+
+        <button
+          class="gallery-thumb"
+          data-full="images/proyectos/buzludzha/5.jpg">
+          <img
+            src="images/proyectos/buzludzha/5.jpg"
+            alt="Buzludzha — foto 3"
+          />
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/buzludzha/4.jpg">
-          <img src="images/proyectos/buzludzha/4.jpg" alt="Buzludzha — foto 4" />
+
+        <button
+          class="gallery-thumb"
+          data-full="images/proyectos/buzludzha/4.jpg">
+          <img
+            src="images/proyectos/buzludzha/4.jpg"
+            alt="Buzludzha — foto 4"
+          />
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/buzludzha/1.jpg">
-          <img src="images/proyectos/buzludzha/1.jpg" alt="Buzludzha — foto 5" />
+
+        <button
+          class="gallery-thumb"
+          data-full="images/proyectos/buzludzha/1.jpg">
+          <img
+            src="images/proyectos/buzludzha/1.jpg"
+            alt="Buzludzha — foto 5"
+          />
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/buzludzha/6.jpg">
-          <img src="images/proyectos/buzludzha/6.jpg" alt="Buzludzha — foto 6" />
+
+        <button
+          class="gallery-thumb"
+          data-full="images/proyectos/buzludzha/6.jpg">
+          <img
+            src="images/proyectos/buzludzha/6.jpg"
+            alt="Buzludzha — foto 6"
+          />
         </button>
+
       </div>
 
       <!-- ===== LIGHTBOX ===== -->
       <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
-        <img src="" alt="" id="lightboxImage" />
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          aria-label="Cerrar">
+          ✕
+        </button>
+
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Foto anterior">
+          ‹
+        </button>
+
+        <img
+          src=""
+          alt=""
+          id="lightboxImage"
+        />
+
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Foto siguiente">
+          ›
+        </button>
+
       </div>
 
       <!-- ===== CRÉDITOS ===== -->
@@ -128,7 +219,11 @@
       </div>
 
       <!-- ===== VOLVER ===== -->
-      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+      <a
+        href="main-projects.html"
+        class="cta-button">
+        ← Back to Main Projects
+      </a>
 
     </article>
   </main>
@@ -137,82 +232,156 @@
     <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+
+  <!-- =========================================================
+       JAVASCRIPT
+       
+       IMPORTANTE:
+       Este JavaScript NO controla el menú.
+       Se mantiene porque es necesario para:
+       1. Lightbox de las imágenes
+       2. Navegación anterior/siguiente
+       3. Cerrar con ESC
+       4. Fullscreen de los videos
+       ========================================================= -->
   <script>
+
+    /* ===== LIGHTBOX ===== */
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
+
     const thumbs = document.querySelectorAll('.gallery-thumb');
-    const images = Array.from(thumbs).map((thumb) => thumb.dataset.full);
+    const images = Array.from(thumbs).map(
+      (thumb) => thumb.dataset.full
+    );
+
     let currentIndex = 0;
 
+
     function showImage(index) {
+
       currentIndex = index;
+
       lightboxImage.src = images[currentIndex];
+
     }
+
 
     thumbs.forEach((thumb, index) => {
+
       thumb.addEventListener('click', () => {
+
         showImage(index);
+
         lightbox.classList.add('is-open');
+
       });
+
     });
+
 
     lightboxNext.addEventListener('click', () => {
-      showImage((currentIndex + 1) % images.length);
+
+      showImage(
+        (currentIndex + 1) % images.length
+      );
+
     });
+
 
     lightboxPrev.addEventListener('click', () => {
-      showImage((currentIndex - 1 + images.length) % images.length);
+
+      showImage(
+        (currentIndex - 1 + images.length) % images.length
+      );
+
     });
+
 
     lightboxClose.addEventListener('click', () => {
+
       lightbox.classList.remove('is-open');
+
     });
+
 
     lightbox.addEventListener('click', (event) => {
+
       if (event.target === lightbox) {
+
         lightbox.classList.remove('is-open');
+
       }
+
     });
+
 
     document.addEventListener('keydown', (event) => {
+
       if (!lightbox.classList.contains('is-open')) return;
 
+
       if (event.key === 'Escape') {
+
         lightbox.classList.remove('is-open');
-      } else if (event.key === 'ArrowRight') {
-        showImage((currentIndex + 1) % images.length);
-      } else if (event.key === 'ArrowLeft') {
-        showImage((currentIndex - 1 + images.length) % images.length);
+
       }
+
+      else if (event.key === 'ArrowRight') {
+
+        showImage(
+          (currentIndex + 1) % images.length
+        );
+
+      }
+
+      else if (event.key === 'ArrowLeft') {
+
+        showImage(
+          (currentIndex - 1 + images.length) % images.length
+        );
+
+      }
+
     });
+
+
+    /* ===== FULLSCREEN DE VIDEOS ===== */
 
     function handleFullscreenChange() {
-      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
-      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
-        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
-      });
+
+      const fullscreenEl =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement;
+
+      document
+        .querySelectorAll('.video-embed iframe')
+        .forEach((iframe) => {
+
+          iframe.classList.toggle(
+            'is-fullscreen',
+            iframe === fullscreenEl
+          );
+
+        });
+
     }
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
 
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
+    document.addEventListener(
+      'fullscreenchange',
+      handleFullscreenChange
+    );
 
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
+    document.addEventListener(
+      'webkitfullscreenchange',
+      handleFullscreenChange
+    );
+
   </script>
 
 </body>

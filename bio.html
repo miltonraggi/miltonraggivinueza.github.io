@@ -5,58 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bio — Milton Raggi Vinueza</title>
 
-  <!-- 👇 Este bloque de <head> es IDÉNTICO al de index.html. Siempre se copia igual. -->
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- 👇 Ojo acá: como bio.html está en la MISMA carpeta que style.css,
-       la ruta sigue siendo "style.css" sin cambios -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- ===== NAVEGACIÓN ===== -->
-  <!-- 👇 Este <header> completo es COPIADO tal cual de index.html.
-       Único cambio: quitamos class="active" de Home, porque ahora
-       estamos parados en "About", no en Home. -->
+  <!-- =========================================================
+       NAVEGACIÓN SIN JAVASCRIPT
+       ========================================================= -->
+
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown" open>
-        <summary class="active">About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html" class="active">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <!--
+      Este details reemplaza el antiguo JavaScript de navegación.
+      Al hacer click en la flecha se abre/cierra el menú.
+    -->
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown">
-        <summary>Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <!-- ABOUT -->
+        <details class="nav-dropdown">
+
+          <summary class="active">About</summary>
+
+          <div class="dropdown-panel">
+            <a href="bio.html" class="active">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+
+        </details>
+
+        <!-- WORK -->
+        <details class="nav-dropdown">
+
+          <summary>Work</summary>
+
+          <div class="dropdown-panel">
+            <a href="main-projects.html">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
-  <!-- ===== CONTENIDO PROPIO DE ESTA PÁGINA ===== -->
-  <!-- 👇 Acá empieza lo ÚNICO de bio.html. Todo lo de arriba era repetido. -->
+
+  <!-- =========================================================
+       CONTENIDO PROPIO DE BIO
+       ========================================================= -->
+
   <main>
+
     <section class="bio-section">
+
       <p class="eyebrow">// ABOUT</p>
-      
+
       <div class="bio-layout">
-        <!-- 🔧 La foto vive en la carpeta images/. Reemplazá "milton-foto.jpg"
-             por el nombre EXACTO de tu archivo (respetando mayúsculas/minúsculas) -->
-        <img src="images/milton-foto.jpg" alt="Retrato de Milton Raggi Vinueza" class="bio-photo" />
+
+        <img
+          src="images/milton-foto.jpg"
+          alt="Retrato de Milton Raggi Vinueza"
+          class="bio-photo"
+        />
 
         <div class="bio-text">
+
           <p>
             Milton Raggi Vinueza (Havana, 1991) is a Cuban visual artist,
             curator, and educator. He completed his studies at the San
@@ -69,6 +104,7 @@
             further refined his expertise in the integration of art and
             technology.
           </p>
+
           <p>
             Raggi Vinueza's artistic practice engages with complex themes
             such as power dynamics, control, systems, hierarchies, and
@@ -83,6 +119,7 @@
             ideologies, questioning their ongoing relevance in
             contemporary contexts.
           </p>
+
           <p>
             In 2013, Raggi Vinueza co-founded <strong>AXIS.Visual Lab</strong>
             with Aaron Moreno, an interdisciplinary collective focused on
@@ -92,6 +129,7 @@
             creative expression with cutting-edge technological practices
             to create groundbreaking, site-specific experiences.
           </p>
+
           <p>
             Since 2017, with support from the Ludwig Foundation of Cuba,
             Raggi Vinueza, in collaboration with AXIS.Visual Lab, has
@@ -101,6 +139,7 @@
             professional development of emerging creators and engage new
             audiences across Cuba.
           </p>
+
           <p>
             Raggi has received numerous accolades throughout his career,
             including the La Joven Estampa Award (Casa de las Américas,
@@ -112,35 +151,34 @@
             Fontanals Art Foundation (CIFO, 2020) and the HfK
             Hochschulpreise (Hochschule für Künste Bremen, 2025).
           </p>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <!-- 👇 Copiado tal cual de index.html -->
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
   <footer class="site-footer">
     <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
 
 
-  <!-- ===== JAVASCRIPT DE NAVEGACIÓN ===== -->
-  <script>
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
+  <!--
+    =========================================================
+    IMPORTANTE:
+    NO HAY JAVASCRIPT DE NAVEGACIÓN EN ESTA PÁGINA.
 
-    // 🔧 NUEVO: cerrar todos los desplegables abiertos apenas se scrollea
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
-  </script>
+    El menú funciona mediante <details> y <summary>,
+    por lo que no necesita JavaScript.
+    =========================================================
+  -->
 
 </body>
 </html>

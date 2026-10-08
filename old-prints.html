@@ -12,29 +12,44 @@
 <body>
 
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <!-- ===== MENÚ SIN JAVASCRIPT ===== -->
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <details class="nav-dropdown">
+          <summary>About</summary>
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+        </details>
+
+        <details class="nav-dropdown">
+          <summary class="active">Work</summary>
+          <div class="dropdown-panel">
+            <a href="main-projects.html" class="active">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
   <main>
@@ -62,13 +77,16 @@
         <p class="project-subwork-title">Cero</p>
         <p class="project-subwork-specs">Silkscreen over acetate paper<br />5 m x 1,20 m</p>
       </div>
+
       <div class="project-gallery">
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/1.jpg">
           <img src="images/proyectos/old-prints/1.jpg" alt="Cero — foto 1" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/2.jpg">
           <img src="images/proyectos/old-prints/2.jpg" alt="Cero — foto 2" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/3.jpg">
           <img src="images/proyectos/old-prints/3.jpg" alt="Cero — foto 3" />
         </button>
@@ -79,13 +97,16 @@
         <p class="project-subwork-title">Aire</p>
         <p class="project-subwork-specs">Silkscreen over acetate paper<br />2,50 m x 1,50 m</p>
       </div>
+
       <div class="project-gallery">
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/4.jpg">
           <img src="images/proyectos/old-prints/4.jpg" alt="Aire — foto 1" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/5.png">
           <img src="images/proyectos/old-prints/5.png" alt="Aire — foto 2" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/6.jpg">
           <img src="images/proyectos/old-prints/6.jpg" alt="Aire — foto 3" />
         </button>
@@ -96,31 +117,57 @@
         <p class="project-subwork-title">Abrir y Cerrar los Ojos</p>
         <p class="project-subwork-specs">Silkscreen over acetate paper<br />2,10 m x 1,20 m</p>
       </div>
+
       <div class="project-gallery">
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/7.jpg">
           <img src="images/proyectos/old-prints/7.jpg" alt="Abrir y Cerrar los Ojos — foto 1" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/8.jpg">
           <img src="images/proyectos/old-prints/8.jpg" alt="Abrir y Cerrar los Ojos — foto 2" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/old-prints/9.jpg">
           <img src="images/proyectos/old-prints/9.jpg" alt="Abrir y Cerrar los Ojos — foto 3" />
         </button>
       </div>
 
       <!-- ===== LIGHTBOX ===== -->
-      <!-- 🔧 Uno solo para TODA la página: agarra las miniaturas de las 3
-           galerías juntas, así que las flechas navegan a través de las
-           3 obras en orden -->
+      <!--
+        Un solo lightbox para TODA la página.
+        Las flechas recorren las 3 galerías en orden.
+      -->
       <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          aria-label="Cerrar">
+          ✕
+        </button>
+
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Foto anterior">
+          ‹
+        </button>
+
         <img src="" alt="" id="lightboxImage" />
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Foto siguiente">
+          ›
+        </button>
+
       </div>
 
       <!-- ===== VOLVER ===== -->
-      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+      <a href="main-projects.html" class="cta-button">
+        ← Back to Main Projects
+      </a>
 
     </article>
   </main>
@@ -129,7 +176,11 @@
     <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+  <!-- ===== JAVASCRIPT DEL LIGHTBOX ===== -->
+  <!--
+    Este JavaScript se conserva porque controla exclusivamente
+    la galería y NO el menú.
+  -->
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -181,21 +232,8 @@
         showImage((currentIndex - 1 + images.length) % images.length);
       }
     });
-
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
-
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
   </script>
 
 </body>
 </html>
+

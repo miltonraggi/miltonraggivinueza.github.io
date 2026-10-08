@@ -9,42 +9,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+  <!-- =========================================================
+       NAVEGACIÓN SIN JAVASCRIPT
+       ========================================================= -->
+
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown" open>
-        <summary class="active">About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html" class="active">CV</a>
-        </div>
-      </details>
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown">
-        <summary>Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <!-- ABOUT -->
+        <details class="nav-dropdown">
+
+          <summary class="active">About</summary>
+
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html" class="active">CV</a>
+          </div>
+
+        </details>
+
+        <!-- WORK -->
+        <details class="nav-dropdown">
+
+          <summary>Work</summary>
+
+          <div class="dropdown-panel">
+            <a href="main-projects.html">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
+
+  <!-- =========================================================
+       CONTENIDO DEL CV
+       ========================================================= -->
+
   <main>
+
     <section class="cv-section">
+
       <p class="eyebrow">// ABOUT</p>
+
       <h1 class="page-title">CV</h1>
 
+
       <!-- ===== STUDIES ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Studies</p>
+
         <ul class="cv-list">
           <li><strong>2022–present:</strong> Student in the Master's Program in Digital Media at the University of the Arts Bremen HFK.</li>
           <li><strong>2011–2017:</strong> Graduate of the Faculty of Visual Arts at the University of the Arts of Cuba, ISA.</li>
@@ -52,9 +90,12 @@
         </ul>
       </div>
 
+
       <!-- ===== WORK ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Work</p>
+
         <ul class="cv-list">
           <li><strong>2017–present:</strong> Founder, teacher, and coordinator of Art and Technology Laboratories (LAT).</li>
           <li><strong>2013–present:</strong> Founder and active member of AXIS Visual Lab.</li>
@@ -65,9 +106,12 @@
         </ul>
       </div>
 
+
       <!-- ===== SOLO EXHIBITIONS ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Solo Exhibitions</p>
+
         <ul class="cv-list">
           <li><strong>2017:</strong> "Buzludzha". Ruins of the Ballet Faculty of the University of the Arts, Havana, Cuba.</li>
           <li><strong>2011:</strong> "Estado". Center for Arts and Design, Havana, Cuba.</li>
@@ -75,9 +119,12 @@
         </ul>
       </div>
 
+
       <!-- ===== COLLECTIVE EXHIBITIONS ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Collective Exhibitions</p>
+
         <ul class="cv-list">
           <li><strong>2025:</strong> "LAB.30". Kulturhaus Abraxas, Augsburg, Germany.</li>
           <li><strong>2025:</strong> "REM". Jeżyckie Centrum Kultury, Poznan, Poland.</li>
@@ -122,9 +169,12 @@
         </ul>
       </div>
 
+
       <!-- ===== AWARDS ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Awards</p>
+
         <ul class="cv-list">
           <li><strong>2025:</strong> Honorary Mention – National Curatorship Award 2024. National Council of the Arts, Havana, Cuba.</li>
           <li><strong>2025:</strong> Second Prize – HfK Hochschulpreise, University of the Arts Bremen HFK, Bremen, Germany.</li>
@@ -138,18 +188,24 @@
         </ul>
       </div>
 
+
       <!-- ===== SCHOLARSHIPS & RESIDENCIES ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Scholarships &amp; Residencies</p>
+
         <ul class="cv-list">
           <li><strong>2018:</strong> D21 Residency. Kunstraum D21, Leipzig, Germany.</li>
           <li><strong>2015:</strong> DAAD-STIBET Scholarship for Bachelor's in Art Therapy. Alanus University of Arts and Social Sciences, Bonn, Germany.</li>
         </ul>
       </div>
 
+
       <!-- ===== PUBLIC INTERVENTIONS & VIDEO MAPPING ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Public Interventions &amp; Video Mapping / AXIS Visual Lab</p>
+
         <ul class="cv-list">
           <li><strong>2017:</strong> "Buzludzha". Ruins of the Ballet Faculty of the University of the Arts, Havana, Cuba.</li>
           <li><strong>2017:</strong> "Leviathan". Charles Chaplin Cinema, Havana, Cuba.</li>
@@ -165,9 +221,12 @@
         </ul>
       </div>
 
+
       <!-- ===== CURATORIAL WORK ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Curatorial Work</p>
+
         <ul class="cv-list">
           <li><strong>2023:</strong> "OUTSIDER" solo exhibition by Fidel García, National Museum of Fine Arts, Havana, Cuba.</li>
           <li><strong>2020:</strong> "EL ESCAPISTA" solo exhibition by Pavel Méndez (curated in collaboration with Pavel Méndez), National Museum of Fine Arts, Havana, Cuba.</li>
@@ -184,9 +243,12 @@
         </ul>
       </div>
 
+
       <!-- ===== COLLECTIONS ===== -->
+
       <div class="cv-block">
         <p class="cv-block-title">Collections</p>
+
         <ul class="cv-list">
           <li>Cisneros Fontanals Art Foundation CIFO, Miami, United States.</li>
           <li>Casa de las Américas, Havana, Cuba.</li>
@@ -194,29 +256,28 @@
       </div>
 
     </section>
+
   </main>
 
-  <!-- ===== FOOTER ===== -->
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
   <footer class="site-footer">
     <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
-  <script>
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
 
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
-  </script>
+  <!--
+    =========================================================
+    IMPORTANTE:
+    NO HAY JAVASCRIPT DE NAVEGACIÓN EN ESTA PÁGINA.
+
+    El menú funciona mediante <details> y <summary>,
+    por lo que no necesita JavaScript.
+    ========================================================= -->
 
 </body>
 </html>
+

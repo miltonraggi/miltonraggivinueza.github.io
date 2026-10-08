@@ -9,218 +9,581 @@
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+  <!-- =========================================================
+       HEADER / NAVEGACIÓN
+       El menú funciona SIN JavaScript.
+       ========================================================= -->
+
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <!-- FLECHA PRINCIPAL DEL MENÚ -->
+
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+
+        <!-- ABOUT -->
+
+        <details class="nav-dropdown">
+
+          <summary>About</summary>
+
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+
+        </details>
+
+
+        <!-- WORK -->
+
+        <details class="nav-dropdown">
+
+          <summary class="active">Work</summary>
+
+          <div class="dropdown-panel">
+
+            <a href="main-projects.html" class="active">
+              Main Projects
+            </a>
+
+            <a href="curatorial-work.html">
+              Curatorial Work
+            </a>
+
+            <a href="axis-visual-lab.html">
+              AXIS.Visual Lab
+            </a>
+
+            <a href="lat.html">
+              LAT
+            </a>
+
+          </div>
+
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
+
   <main>
+
     <article class="project-detail">
 
-      <!-- ===== CABECERA DEL PROYECTO ===== -->
+
+      <!-- =====================================================
+           CABECERA DEL PROYECTO
+           ===================================================== -->
+
       <div class="project-detail-header">
-        <p class="eyebrow">// PROJECT 02</p>
-        <h1 class="page-title">Nyx</h1>
+
+        <p class="eyebrow">
+          // PROJECT 02
+        </p>
+
+        <h1 class="page-title">
+          Nyx
+        </h1>
+
       </div>
 
-      <!-- ===== TEXTO DEL PROYECTO ===== -->
+
+      <!-- =====================================================
+           TEXTO DEL PROYECTO
+           ===================================================== -->
+
       <div class="project-body">
-        <p>Nyx, is a heavy instrument that uses the kinetic energy produced by pedaling, as a source of electricity. Such a condition makes it possible that, with great physical effort, a mobile light projection system (Soviet slide projectors) can be kept active.</p>
 
-        <p>The project was designed and built in collaboration with self-taught Cuban mechanics, using objects acquired on national black market networks. Its design is based on tricycles produced by hand to carry out loading and distribution of construction materials, food and urban transport. It is made up of obsolete components of various origins, which symbolically represent political powers with which our country has interacted in its recent history (USSR, GDR, USA, China); vestiges of bygone ages.</p>
+        <p>
+          Nyx, is a heavy instrument that uses the kinetic energy produced by pedaling, as a source of electricity. Such a condition makes it possible that, with great physical effort, a mobile light projection system (Soviet slide projectors) can be kept active.
+        </p>
 
-        <p>The concept of the work assumes the recycling and re-functionalization of objects as part of the socio-cultural behavior of the Cuban nation. In it ingenuity subverts the living conditions of objects and produces beautiful combinations that exude will. Nyx is the portrait of the nation from a present marked by inventiveness as a means of subsistence. A tribute to our past-present, to the ability to be dissatisfied and irreverent while dragging and sustaining a long and heavy history.</p>
+        <p>
+          The project was designed and built in collaboration with self-taught Cuban mechanics, using objects acquired on national black market networks. Its design is based on tricycles produced by hand to carry out loading and distribution of construction materials, food and urban transport. It is made up of obsolete components of various origins, which symbolically represent political powers with which our country has interacted in its recent history (USSR, GDR, USA, China); vestiges of bygone ages.
+        </p>
 
-        <p>While stuck in the street, the energy produced by the constant movement of a man in technological hybridity - sweat, strength, will, wear - make the light from the projectors to collide, fragment and dissipate in the space.</p>
+        <p>
+          The concept of the work assumes the recycling and re-functionalization of objects as part of the socio-cultural behavior of the Cuban nation. In it ingenuity subverts the living conditions of objects and produces beautiful combinations that exude will. Nyx is the portrait of the nation from a present marked by inventiveness as a means of subsistence. A tribute to our past-present, to the ability to be dissatisfied and irreverent while dragging and sustaining a long and heavy history.
+        </p>
+
+        <p>
+          While stuck in the street, the energy produced by the constant movement of a man in technological hybridity - sweat, strength, will, wear - make the light from the projectors to collide, fragment and dissipate in the space.
+        </p>
+
       </div>
 
-      <!-- ===== VIDEO 1 ===== -->
+
+      <!-- =====================================================
+           VIDEO 1
+           ===================================================== -->
+
       <div class="project-videos">
+
         <div class="video-embed">
+
           <iframe
             src="https://youtube.com/embed/6jrGtDNS5ek?rel=0&showinfo=0"
             title="Nyx — YouTube 1"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
+
         </div>
+
       </div>
 
-      <!-- ===== MENCIÓN DE PREMIO / EXHIBICIÓN ===== -->
-      <!-- 🔧 Elemento nuevo que Spiral no tenía: una cajita destacada con
-           borde de acento, para premios, becas o exhibiciones asociadas
-           al proyecto. Reutilizá este bloque en cualquier otro proyecto
-           que tenga esta info. -->
+
+      <!-- =====================================================
+           PREMIO / EXHIBICIÓN
+           ===================================================== -->
+
       <div class="project-award">
-        <p class="project-award-title">“Habitar / Inhabit”</p>
+
+        <p class="project-award-title">
+          “Habitar / Inhabit”
+        </p>
+
         <p class="project-award-text">
           2020 CIFO Grants and Commissions Award. Cisneros Fontanals Art Foundation CIFO.<br />
           Museum of Contemporary Art MARCO, Monterrey, Mexico.
         </p>
-        <a href="https://www.cifo.org/oldest-exhibitions/habitar-(inhabit)" target="_blank" rel="noopener" class="text-link">More info →</a>
+
+        <a
+          href="https://www.cifo.org/oldest-exhibitions/habitar-(inhabit)"
+          target="_blank"
+          rel="noopener"
+          class="text-link"
+        >
+          More info →
+        </a>
+
       </div>
 
-      <!-- ===== VIDEO 2 ===== -->
+
+      <!-- =====================================================
+           VIDEO 2
+           ===================================================== -->
+
       <div class="project-videos">
+
         <div class="video-embed">
+
           <iframe
             src="https://youtube.com/embed/st-GCeGz9_k?rel=0&showinfo=0&start=110"
             title="Nyx — YouTube 2"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
+
         </div>
+
       </div>
 
-      <!-- ===== GALERÍA DE IMÁGENES ===== -->
-      <!-- 🔧 Mismo patrón que Spiral. Poné tus fotos en images/proyectos/nyx/ -->
+
+      <!-- =====================================================
+           GALERÍA DE IMÁGENES
+           ===================================================== -->
+
       <div class="project-gallery">
-        <button class="gallery-thumb" data-full="images/proyectos/nyx/4.jpg">
-          <img src="images/proyectos/nyx/4.jpg" alt="Nyx — foto 1" />
+
+        <button
+          class="gallery-thumb"
+          type="button"
+          data-full="images/proyectos/nyx/4.jpg">
+
+          <img
+            src="images/proyectos/nyx/4.jpg"
+            alt="Nyx — foto 1"
+          />
+
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/nyx/3.jpg">
-          <img src="images/proyectos/nyx/3.jpg" alt="Nyx — foto 2" />
+
+
+        <button
+          class="gallery-thumb"
+          type="button"
+          data-full="images/proyectos/nyx/3.jpg">
+
+          <img
+            src="images/proyectos/nyx/3.jpg"
+            alt="Nyx — foto 2"
+          />
+
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/nyx/5.jpg">
-          <img src="images/proyectos/nyx/5.jpg" alt="Nyx — foto 3" />
+
+
+        <button
+          class="gallery-thumb"
+          type="button"
+          data-full="images/proyectos/nyx/5.jpg">
+
+          <img
+            src="images/proyectos/nyx/5.jpg"
+            alt="Nyx — foto 3"
+          />
+
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/nyx/9.jpg">
-          <img src="images/proyectos/nyx/9.jpg" alt="Nyx — foto 4" />
+
+
+        <button
+          class="gallery-thumb"
+          type="button"
+          data-full="images/proyectos/nyx/9.jpg">
+
+          <img
+            src="images/proyectos/nyx/9.jpg"
+            alt="Nyx — foto 4"
+          />
+
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/nyx/7.jpg">
-          <img src="images/proyectos/nyx/7.jpg" alt="Nyx — foto 3" />
+
+
+        <button
+          class="gallery-thumb"
+          type="button"
+          data-full="images/proyectos/nyx/7.jpg">
+
+          <img
+            src="images/proyectos/nyx/7.jpg"
+            alt="Nyx — foto 5"
+          />
+
         </button>
-        <button class="gallery-thumb" data-full="images/proyectos/nyx/10.jpg">
-          <img src="images/proyectos/nyx/10.jpg" alt="Nyx — foto 4" />
+
+
+        <button
+          class="gallery-thumb"
+          type="button"
+          data-full="images/proyectos/nyx/10.jpg">
+
+          <img
+            src="images/proyectos/nyx/10.jpg"
+            alt="Nyx — foto 6"
+          />
+
         </button>
+
       </div>
 
-      <!-- ===== LIGHTBOX ===== -->
+
+      <!-- =====================================================
+           LIGHTBOX
+           ===================================================== -->
+
       <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
-        <img src="" alt="" id="lightboxImage" />
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          aria-label="Cerrar">
+          ✕
+        </button>
+
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Foto anterior">
+          ‹
+        </button>
+
+        <img
+          src=""
+          alt=""
+          id="lightboxImage"
+        />
+
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Foto siguiente">
+          ›
+        </button>
+
       </div>
 
-      <!-- ===== CRÉDITOS ===== -->
+
+      <!-- =====================================================
+           CRÉDITOS
+           ===================================================== -->
+
       <div class="project-credits">
-        <p><strong>Credits:</strong></p>
-        <p>Construction and Engineering: Alberto Medell &amp; Daniel Medell</p>
-        <p>Photographs: Germán&amp;Gerardo &amp; Adam Valencillo</p>
-        <p>Video Documentation: Pavel Méndez &amp; Pablo Victor Bordón</p>
+
+        <p>
+          <strong>Credits:</strong>
+        </p>
+
+        <p>
+          Construction and Engineering: Alberto Medell &amp; Daniel Medell
+        </p>
+
+        <p>
+          Photographs: Germán&amp;Gerardo &amp; Adam Valencillo
+        </p>
+
+        <p>
+          Video Documentation: Pavel Méndez &amp; Pablo Victor Bordón
+        </p>
+
       </div>
 
-      <!-- ===== VOLVER ===== -->
-      <a href="main-projects.html" class="cta-button">← Back to Main Projects</a>
+
+      <!-- =====================================================
+           VOLVER
+           ===================================================== -->
+
+      <a
+        href="main-projects.html"
+        class="cta-button">
+        ← Back to Main Projects
+      </a>
 
     </article>
+
   </main>
 
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
   <footer class="site-footer">
-    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
+
+    <p>
+      © 2026 Milton Raggi Vinueza — Todos los derechos reservados.
+    </p>
+
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+
+  <!-- =========================================================
+       JAVASCRIPT
+       
+       SOLO controla:
+       - Lightbox
+       - Navegación entre imágenes
+       - Cerrar lightbox
+       - Teclado
+       - Fullscreen del video
+       
+       NO controla el menú.
+       ========================================================= -->
+
   <script>
+
+    /* =========================================================
+       LIGHTBOX
+       ========================================================= */
+
     const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-    const thumbs = document.querySelectorAll('.gallery-thumb');
-    const images = Array.from(thumbs).map((thumb) => thumb.dataset.full);
+
+    const lightboxImage =
+      document.getElementById('lightboxImage');
+
+    const lightboxClose =
+      document.getElementById('lightboxClose');
+
+    const lightboxPrev =
+      document.getElementById('lightboxPrev');
+
+    const lightboxNext =
+      document.getElementById('lightboxNext');
+
+    const thumbs =
+      document.querySelectorAll('.gallery-thumb');
+
+
+    /* Obtener las rutas de todas las imágenes */
+
+    const images = Array.from(thumbs).map(
+      (thumb) => thumb.dataset.full
+    );
+
+
+    /* Imagen actual */
+
     let currentIndex = 0;
 
+
+    /* =========================================================
+       MOSTRAR IMAGEN
+       ========================================================= */
+
     function showImage(index) {
+
       currentIndex = index;
-      lightboxImage.src = images[currentIndex];
+
+      lightboxImage.src =
+        images[currentIndex];
+
     }
+
+
+    /* =========================================================
+       ABRIR LIGHTBOX
+       ========================================================= */
 
     thumbs.forEach((thumb, index) => {
+
       thumb.addEventListener('click', () => {
+
         showImage(index);
+
         lightbox.classList.add('is-open');
+
       });
+
     });
+
+
+    /* =========================================================
+       SIGUIENTE
+       ========================================================= */
 
     lightboxNext.addEventListener('click', () => {
-      showImage((currentIndex + 1) % images.length);
+
+      showImage(
+        (currentIndex + 1) % images.length
+      );
+
     });
+
+
+    /* =========================================================
+       ANTERIOR
+       ========================================================= */
 
     lightboxPrev.addEventListener('click', () => {
-      showImage((currentIndex - 1 + images.length) % images.length);
+
+      showImage(
+        (currentIndex - 1 + images.length) % images.length
+      );
+
     });
+
+
+    /* =========================================================
+       CERRAR
+       ========================================================= */
 
     lightboxClose.addEventListener('click', () => {
+
       lightbox.classList.remove('is-open');
+
     });
+
+
+    /* =========================================================
+       CERRAR HACIENDO CLICK EN EL FONDO
+       ========================================================= */
 
     lightbox.addEventListener('click', (event) => {
+
       if (event.target === lightbox) {
+
         lightbox.classList.remove('is-open');
+
       }
+
     });
+
+
+    /* =========================================================
+       TECLADO
+       ========================================================= */
 
     document.addEventListener('keydown', (event) => {
+
       if (!lightbox.classList.contains('is-open')) return;
 
+
+      /* Escape */
+
       if (event.key === 'Escape') {
+
         lightbox.classList.remove('is-open');
-      } else if (event.key === 'ArrowRight') {
-        showImage((currentIndex + 1) % images.length);
-      } else if (event.key === 'ArrowLeft') {
-        showImage((currentIndex - 1 + images.length) % images.length);
+
       }
+
+
+      /* Flecha derecha */
+
+      else if (event.key === 'ArrowRight') {
+
+        showImage(
+          (currentIndex + 1) % images.length
+        );
+
+      }
+
+
+      /* Flecha izquierda */
+
+      else if (event.key === 'ArrowLeft') {
+
+        showImage(
+          (currentIndex - 1 + images.length) % images.length
+        );
+
+      }
+
     });
+
+
+    /* =========================================================
+       FULLSCREEN DEL VIDEO
+       ========================================================= */
 
     function handleFullscreenChange() {
-      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
-      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
-        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
-      });
+
+      const fullscreenEl =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement;
+
+      document
+        .querySelectorAll('.video-embed iframe')
+        .forEach((iframe) => {
+
+          iframe.classList.toggle(
+            'is-fullscreen',
+            iframe === fullscreenEl
+          );
+
+        });
+
     }
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
 
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
+    document.addEventListener(
+      'fullscreenchange',
+      handleFullscreenChange
+    );
 
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
+    document.addEventListener(
+      'webkitfullscreenchange',
+      handleFullscreenChange
+    );
+
   </script>
 
 </body>
 </html>
+

@@ -12,29 +12,44 @@
 <body>
 
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <!-- ===== MENÚ SIN JAVASCRIPT ===== -->
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <details class="nav-dropdown">
+          <summary>About</summary>
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+        </details>
+
+        <details class="nav-dropdown">
+          <summary class="active">Work</summary>
+          <div class="dropdown-panel">
+            <a href="main-projects.html" class="active">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
   <main>
@@ -61,10 +76,7 @@
         <p>The work has gone through two parts. A first stage in which I programmed and tested the system as an immersive environment in architectural spaces where ideological antagonisms and the substitution of cultural policies had occurred. The present phase of the project has focused on the construction of a portable system that allows me to interact with the reality of the streets and film various results that I intend to compile in a film.</p>
       </div>
 
-      <!-- ===== IMÁGENES CON TEXTO DESPLEGABLE (mismo patrón que Buzludzha) ===== -->
-      <!-- 🔧 Reutiliza las clases .project-reference / .reference-image /
-           .reference-label-wrap que ya viven en style.css — no hizo falta
-           tocar el CSS para nada, el hover-push funciona igual acá. -->
+      <!-- ===== IMÁGENES CON TEXTO DESPLEGABLE ===== -->
       <div class="project-reference">
         <div class="reference-image">
           <img src="images/proyectos/crees/1.png" alt="C.R.E.E.S — imagen de referencia 1" />
@@ -72,6 +84,7 @@
             <p class="reference-label">Reemplazá este texto con la descripción de esta imagen.</p>
           </div>
         </div>
+
         <div class="reference-image">
           <img src="images/proyectos/crees/2.png" alt="C.R.E.E.S — imagen de referencia 2" />
           <div class="reference-label-wrap">
@@ -82,50 +95,82 @@
 
       <!-- ===== GALERÍA 1 ===== -->
       <div class="project-subwork">
-        <p class="project-subwork-title">V2</p>
-      </div>
-      <div class="project-gallery">
-        <button class="gallery-thumb" data-full="images/proyectos/crees/5.jpeg">
-          <img src="images/proyectos/crees/5.jpeg" alt="C.R.E.E.S — V2, foto 1" />
-        </button>
-        <button class="gallery-thumb" data-full="images/proyectos/crees/8.jpeg">
-          <img src="images/proyectos/crees/8.jpeg" alt="C.R.E.E.S — V2, foto 2" />
-        </button>
-        <button class="gallery-thumb" data-full="images/proyectos/crees/6.jpeg">
-          <img src="images/proyectos/crees/6.jpeg" alt="C.R.E.E.S — V2, foto 3" />
-        </button>
-        <button class="gallery-thumb" data-full="images/proyectos/crees/9.jpeg">
-          <img src="images/proyectos/crees/9.jpeg" alt="C.R.E.E.S — V2, foto 4" />
-        </button>
+        <p class="project-subwork-title">V1</p>
       </div>
 
+      <div class="project-gallery">
+        <button class="gallery-thumb" data-full="images/proyectos/crees/5.JPG">
+          <img src="images/proyectos/crees/5.JPG" alt="C.R.E.E.S — V1, foto 1" />
+        </button>
+
+        <button class="gallery-thumb" data-full="images/proyectos/crees/9.JPG">
+          <img src="images/proyectos/crees/9.JPG" alt="C.R.E.E.S — V1, foto 2" />
+        </button>
+
+        <button class="gallery-thumb" data-full="images/proyectos/crees/7.JPG">
+          <img src="images/proyectos/crees/7.JPG" alt="C.R.E.E.S — V1, foto 3" />
+        </button>
+
+        <button class="gallery-thumb" data-full="images/proyectos/crees/8.jpg">
+          <img src="images/proyectos/crees/8.jpg" alt="C.R.E.E.S — V1, foto 4" />
+        </button>
+
+        <button class="gallery-thumb" data-full="images/proyectos/crees/10.JPG">
+          <img src="images/proyectos/crees/10.JPG" alt="C.R.E.E.S — V1, foto 3" />
+        </button>
+
+        <button class="gallery-thumb" data-full="images/proyectos/crees/11.jpg">
+          <img src="images/proyectos/crees/11.jpg" alt="C.R.E.E.S — V1, foto 4" />
+        </button>
+      </div>
 
       <!-- ===== GALERÍA 2 ===== -->
       <div class="project-subwork">
         <p class="project-subwork-title">V2</p>
       </div>
+
       <div class="project-gallery">
         <button class="gallery-thumb" data-full="images/proyectos/crees/1.png">
           <img src="images/proyectos/crees/1.png" alt="C.R.E.E.S — V2, foto 1" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/crees/2.png">
           <img src="images/proyectos/crees/2.png" alt="C.R.E.E.S — V2, foto 2" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/crees/3.png">
           <img src="images/proyectos/crees/3.png" alt="C.R.E.E.S — V2, foto 3" />
         </button>
+
         <button class="gallery-thumb" data-full="images/proyectos/crees/4.png">
           <img src="images/proyectos/crees/4.png" alt="C.R.E.E.S — V2, foto 4" />
         </button>
       </div>
 
       <!-- ===== LIGHTBOX ===== -->
-      <!-- 🔧 Uno solo para toda la página: navega a través de las 2 galerías seguidas -->
+      <!--
+        El JavaScript del lightbox SE CONSERVA.
+        Este JavaScript es necesario para que la galería
+        funcione correctamente.
+      -->
       <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Foto anterior">
+          ‹
+        </button>
+
         <img src="" alt="" id="lightboxImage" />
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Foto siguiente">
+          ›
+        </button>
       </div>
 
       <!-- ===== VOLVER ===== -->
@@ -138,7 +183,12 @@
     <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+  <!-- ===== JAVASCRIPT DEL LIGHTBOX ===== -->
+  <!--
+    IMPORTANTE:
+    Este JavaScript NO controla el menú.
+    Se mantiene porque es necesario para la galería.
+  -->
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -190,21 +240,8 @@
         showImage((currentIndex - 1 + images.length) % images.length);
       }
     });
-
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
-
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
   </script>
 
 </body>
 </html>
+

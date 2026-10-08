@@ -12,29 +12,44 @@
 <body>
 
   <header class="site-header">
-    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
+    <a href="index.html" class="logo">
+      MILTON <span> RAGGI </span> VINUEZA
+    </a>
 
-      <details class="nav-dropdown">
-        <summary>About</summary>
-        <div class="dropdown-panel">
-          <a href="bio.html">Bio</a>
-          <a href="cv.html">CV</a>
-        </div>
-      </details>
+    <!-- ===== MENÚ SIN JAVASCRIPT ===== -->
+    <details class="menu-toggle">
 
-      <details class="nav-dropdown" open>
-        <summary class="active">Work</summary>
-        <div class="dropdown-panel">
-          <a href="main-projects.html" class="active">Main Projects</a>
-          <a href="curatorial-work.html">Curatorial Work</a>
-          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-          <a href="lat.html">LAT</a>
-        </div>
-      </details>
-    </nav>
+      <summary class="menu-arrow">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+
+        <details class="nav-dropdown">
+          <summary>About</summary>
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+        </details>
+
+        <details class="nav-dropdown">
+          <summary class="active">Work</summary>
+          <div class="dropdown-panel">
+            <a href="main-projects.html" class="active">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+        </details>
+
+      </nav>
+
+    </details>
+
   </header>
 
   <main>
@@ -80,31 +95,39 @@
   </footer>
 
   <!-- ===== JAVASCRIPT ===== -->
+  <!--
+    SOLO se mantiene el JavaScript necesario para
+    detectar el fullscreen del video.
+    
+    El JavaScript del menú fue eliminado.
+  -->
   <script>
     function handleFullscreenChange() {
-      const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
-      document.querySelectorAll('.video-embed iframe').forEach((iframe) => {
-        iframe.classList.toggle('is-fullscreen', iframe === fullscreenEl);
-      });
+      const fullscreenEl =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement;
+
+      document
+        .querySelectorAll('.video-embed iframe')
+        .forEach((iframe) => {
+          iframe.classList.toggle(
+            'is-fullscreen',
+            iframe === fullscreenEl
+          );
+        });
     }
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener(
+      'fullscreenchange',
+      handleFullscreenChange
+    );
 
-    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.removeAttribute('open');
-        }
-      });
-    });
-
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
-        dropdown.removeAttribute('open');
-      });
-    });
+    document.addEventListener(
+      'webkitfullscreenchange',
+      handleFullscreenChange
+    );
   </script>
 
 </body>
 </html>
+

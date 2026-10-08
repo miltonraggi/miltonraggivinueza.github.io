@@ -1,22 +1,24 @@
 /* =========================================================
    1. TOKENS DE DISEÑO
    ========================================================= */
+
 :root {
-  --bg: #000000;           /* 🎨 negro puro */
-  --bg-raised: #000000;    /* 🎨 igual al fondo — el panel del menú se distingue solo por el borde */
+  --bg: #000000;
+  --bg-raised: #000000;
   --text: #ECE8E3;
   --text-muted: #8A8680;
-  --accent: #d80c9e;       /* 🎨 magenta */
-  --line: #ffffff;         /* 🎨 líneas blancas */
-
+  --accent: #d80c9e;
+  --line: #ffffff;
   --font-display: 'Big Shoulders Display', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --font-body: 'IBM Plex Sans', sans-serif;
 }
 
+
 /* =========================================================
    2. RESET BÁSICO
    ========================================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -35,9 +37,11 @@ a {
   text-decoration: none;
 }
 
+
 /* =========================================================
    3. HEADER / NAVEGACIÓN
    ========================================================= */
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -55,54 +59,283 @@ a {
   font-size: 0.85rem;
   letter-spacing: 0.35em;
 }
-/*
-.logo span {
-  color: var(--accent);
-}
-*/
 
-.main-nav {
-  display: flex;
-  gap: 2rem;
+
+/* =========================================================
+   MENÚ PRINCIPAL SIN JAVASCRIPT
+   ========================================================= */
+
+.menu-toggle {
+  position: relative;
   font-family: var(--font-mono);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.main-nav a.active {
+
+/* =========================================================
+   FLECHA DEL MENÚ
+   ========================================================= */
+
+.menu-arrow {
+  cursor: pointer;
+  list-style: none;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--text);
+  border: 1px solid transparent;
+  background: transparent !important;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none !important;
+  box-shadow: none !important;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.menu-arrow::-webkit-details-marker {
+  display: none;
+}
+
+.menu-arrow::marker {
+  display: none;
+  content: "";
+}
+
+.menu-arrow span {
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.menu-toggle[open] > .menu-arrow span {
+  transform: rotate(180deg);
+}
+
+.menu-arrow:hover {
   color: var(--accent);
 }
 
-.nav-dropdown summary {
+
+/* =========================================================
+   ELIMINAR ESTADOS NATIVOS DEL NAVEGADOR
+   ========================================================= */
+
+.menu-arrow:focus,
+.menu-arrow:focus-visible,
+.menu-arrow:active {
+  color: var(--text);
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.menu-arrow:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   MENÚ HOME / ABOUT / WORK
+   ========================================================= */
+
+.menu-toggle > .main-nav {
+  position: absolute;
+  top: 3.4rem;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-width: 190px;
+  padding: 0.75rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  z-index: 1000;
+}
+
+
+/* Home / About / Work */
+
+.menu-toggle > .main-nav > a,
+.menu-toggle > .main-nav > .nav-dropdown > summary {
+  display: block;
+  padding: 0.45rem 0.5rem;
+  color: var(--text);
   cursor: pointer;
   list-style: none;
+  background: transparent !important;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none !important;
+  box-shadow: none !important;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
 }
-.nav-dropdown summary::-webkit-details-marker {
+
+.menu-toggle > .main-nav > .nav-dropdown > summary::-webkit-details-marker {
   display: none;
 }
+
+.menu-toggle > .main-nav > .nav-dropdown > summary::marker {
+  display: none;
+  content: "";
+}
+
+.menu-toggle > .main-nav > a:hover,
+.menu-toggle > .main-nav > .nav-dropdown > summary:hover {
+  color: var(--accent);
+  background: transparent !important;
+}
+
+.menu-toggle > .main-nav a.active,
+.menu-toggle > .main-nav > .nav-dropdown > summary.active {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   FOCUS / ACTIVE
+   ========================================================= */
+
+.menu-toggle > .main-nav > a:focus,
+.menu-toggle > .main-nav > a:focus-visible,
+.menu-toggle > .main-nav > a:active,
+.menu-toggle > .main-nav > .nav-dropdown > summary:focus,
+.menu-toggle > .main-nav > .nav-dropdown > summary:focus-visible,
+.menu-toggle > .main-nav > .nav-dropdown > summary:active {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.menu-toggle > .main-nav > a:hover,
+.menu-toggle > .main-nav > .nav-dropdown > summary:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   ABOUT / WORK
+   ========================================================= */
+
 .nav-dropdown {
   position: relative;
 }
-.dropdown-panel {
-  position: absolute;
-  top: 1.8rem;
-  right: 0;
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  min-width: 160px;
+
+.nav-dropdown > summary::after {
+  content: "→";
+  float: right;
+  margin-left: 1rem;
+  color: var(--text-muted);
 }
+
+.nav-dropdown[open] > summary::after {
+  content: "↓";
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   SUBMENÚ
+   ========================================================= */
+
+.dropdown-panel {
+  display: none;
+  position: static;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0 0.5rem 1rem;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.nav-dropdown[open] > .dropdown-panel {
+  display: flex;
+}
+
+.dropdown-panel a {
+  display: block;
+  padding: 0.35rem 0;
+  color: var(--text-muted);
+  background: transparent !important;
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+  box-shadow: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .dropdown-panel a:hover {
   color: var(--accent);
 }
 
+.dropdown-panel a:focus,
+.dropdown-panel a:focus-visible,
+.dropdown-panel a:active {
+  color: var(--text-muted);
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.dropdown-panel a.active {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   PREVENIR RESALTADO NATIVO
+   ========================================================= */
+
+.menu-toggle,
+.menu-toggle *,
+.main-nav,
+.main-nav * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle,
+.menu-toggle summary,
+.menu-toggle a {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.menu-toggle ::selection {
+  background: transparent;
+  color: inherit;
+}
+
+.menu-toggle details,
+.menu-toggle summary {
+  background-color: transparent;
+}
+
+.menu-toggle details summary {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
 /* =========================================================
    4. HERO
    ========================================================= */
+
 .hero {
   position: relative;
   padding: 6rem 2rem 4rem;
@@ -146,16 +379,21 @@ a {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
+
 .cta-button:hover {
   background: var(--accent);
   color: var(--bg);
 }
 
+
 /* =========================================================
-   4b. HERO CON FONDO DE FOTOS (variante del Home)
+   4b. HERO CON FONDO DE FOTOS
    ========================================================= */
+
 .hero-bg {
   position: relative;
   min-height: 85vh;
@@ -181,17 +419,44 @@ a {
 }
 
 @keyframes heroSlideshow {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  20%  { opacity: 1; }
-  25%  { opacity: 0; }
-  100% { opacity: 0; }
+
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
 }
 
-.hero-bg-slide:nth-child(1) { animation-delay: 0s; }
-.hero-bg-slide:nth-child(2) { animation-delay: 5s; }
-.hero-bg-slide:nth-child(3) { animation-delay: 10s; }
-.hero-bg-slide:nth-child(4) { animation-delay: 15s; }
+.hero-bg-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.hero-bg-slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.hero-bg-slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.hero-bg-slide:nth-child(4) {
+  animation-delay: 15s;
+}
 
 .hero-overlay {
   position: absolute;
@@ -216,10 +481,12 @@ a {
 }
 
 @media (max-width: 700px) {
+
   .hero-content-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
 }
 
 .hero-content .hero-subtitle {
@@ -232,9 +499,11 @@ a {
   margin-top: 0rem;
 }
 
+
 /* =========================================================
-   4d. FRASE DESPLEGABLE AL LADO DEL BOTÓN (Home)
+   4d. FRASE DESPLEGABLE AL LADO DEL BOTÓN
    ========================================================= */
+
 .hero-cta-list {
   display: flex;
   flex-direction: column;
@@ -247,9 +516,6 @@ a {
   width: 100%;
 }
 
-/* 🔧 NUEVO: imagen vertical antes de cada botón — escondida en desktop
-   (ahí ese lugar lo ocupa el texto que se despliega al lado del botón),
-   solo aparece en la composición mobile (ver @media más abajo). */
 .hero-cta-image {
   display: none;
 }
@@ -282,13 +548,16 @@ a {
   color: var(--text-muted);
   font-size: 0.75rem;
 }
+
 .hero-content .intro-text strong {
   color: var(--text);
 }
 
+
 /* =========================================================
    5. INTRO
    ========================================================= */
+
 .intro {
   padding: 4rem 2rem;
   max-width: 60ch;
@@ -305,9 +574,9 @@ a {
 .intro-text {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  /* text-transform: uppercase; */
   color: var(--text-muted);
 }
+
 .intro-text strong {
   color: var(--text);
 }
@@ -320,14 +589,17 @@ a {
   border-bottom: 1px solid var(--line);
   padding-bottom: 2px;
 }
+
 .text-link:hover {
   color: var(--accent);
   border-color: var(--accent);
 }
 
+
 /* =========================================================
-   5b. PÁGINAS INTERNAS (Bio, CV, etc.)
+   5b. PÁGINAS INTERNAS
    ========================================================= */
+
 .page-title {
   font-family: var(--font-display);
   font-weight: 800;
@@ -368,22 +640,28 @@ a {
   color: var(--text-muted);
   font-size: 0.75rem;
 }
+
 .bio-text strong {
   color: var(--text);
 }
 
 @media (max-width: 640px) {
+
   .bio-layout {
     grid-template-columns: 1fr;
   }
+
   .bio-photo {
     max-width: 240px;
   }
+
 }
 
+
 /* =========================================================
-   5c. ÍNDICE DE PROYECTOS (Main Projects)
+   5c. ÍNDICE DE PROYECTOS
    ========================================================= */
+
 .projects-header {
   padding: 4rem 2rem 2rem;
 }
@@ -399,6 +677,7 @@ a {
 .project-item {
   border-top: 1px solid var(--line);
 }
+
 .project-item:last-child {
   border-bottom: 1px solid var(--line);
 }
@@ -408,7 +687,9 @@ a {
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem 0;
-  transition: padding-left 0.2s ease, color 0.2s ease;
+  transition:
+    padding-left 0.2s ease,
+    color 0.2s ease;
 }
 
 .project-item a:hover {
@@ -436,6 +717,7 @@ a {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
+
 .project-item a:hover .project-arrow {
   opacity: 1;
 }
@@ -446,15 +728,20 @@ a {
   gap: 1.5rem;
   padding: 1.5rem 0;
   cursor: default;
-  transition: padding-left 0.2s ease, color 0.2s ease;
+  transition:
+    padding-left 0.2s ease,
+    color 0.2s ease;
 }
+
 .feature-row-item:hover .project-item-row {
   padding-left: 1rem;
   color: var(--accent);
 }
+
 .feature-row-item:hover .project-arrow {
   opacity: 1;
 }
+
 .feature-row-item:hover .feature-deploy-wrap {
   grid-template-rows: 1fr;
 }
@@ -463,9 +750,11 @@ a {
   padding: 3rem 2rem 4rem;
 }
 
+
 /* =========================================================
-   5d. DETALLE DE PROYECTO (Buzludzha, Nyx, etc.)
+   5d. DETALLE DE PROYECTO
    ========================================================= */
+
 .project-detail {
   padding: 4rem 2rem 6rem;
   max-width: 720px;
@@ -475,6 +764,7 @@ a {
 .project-detail-header {
   margin-bottom: 2.5rem;
 }
+
 .project-detail-header .page-title {
   margin-bottom: 0;
 }
@@ -519,12 +809,17 @@ a {
   filter: none;
 }
 
+
 /* =========================================================
-   5e. GALERÍA DE IMÁGENES + LIGHTBOX
+   5e. GALERÍA
    ========================================================= */
+
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(160px, 1fr)
+  );
   gap: 0.75rem;
   margin: 3rem 0;
 }
@@ -544,7 +839,9 @@ a {
   object-fit: cover;
   display: block;
   filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
 .gallery-thumb:hover img {
@@ -584,8 +881,11 @@ a {
   height: 2.5rem;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
+
 .lightbox-close:hover {
   color: var(--accent);
   border-color: var(--accent);
@@ -602,36 +902,47 @@ a {
   height: 3rem;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
+
 .lightbox-nav:hover {
   color: var(--accent);
   border-color: var(--accent);
 }
+
 .lightbox-prev {
   left: 1.5rem;
 }
+
 .lightbox-next {
   right: 1.5rem;
 }
 
 @media (max-width: 640px) {
+
   .lightbox-nav {
     width: 2.25rem;
     height: 2.25rem;
     font-size: 1.1rem;
   }
+
   .lightbox-prev {
     left: 0.5rem;
   }
+
   .lightbox-next {
     right: 0.5rem;
   }
+
 }
 
+
 /* =========================================================
-   5f. CAJITA DE PREMIO / EXHIBICIÓN DESTACADA
+   5f. CAJITA DE PREMIO
    ========================================================= */
+
 .project-award {
   border: 1px solid var(--accent);
   padding: 1.5rem;
@@ -655,9 +966,11 @@ a {
   line-height: 1.7;
 }
 
+
 /* =========================================================
-   5g. IMÁGENES DE REFERENCIA (2 fijas, con filtro invertido)
+   5g. IMÁGENES DE REFERENCIA
    ========================================================= */
+
 .project-reference {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -702,14 +1015,18 @@ a {
 }
 
 @media (max-width: 640px) {
+
   .project-reference {
     grid-template-columns: 1fr;
   }
+
 }
 
+
 /* =========================================================
-   5h. REPRODUCTOR DE AUDIO (piezas sonoras narrativas)
+   5h. REPRODUCTOR DE AUDIO
    ========================================================= */
+
 .project-audio {
   border: 1px solid var(--line);
   padding: 2rem;
@@ -749,9 +1066,11 @@ a {
   filter: none;
 }
 
+
 /* =========================================================
-   5i. FICHA DE PIEZA INDIVIDUAL (para series con varias obras, ej. Old Prints)
+   5i. FICHA DE PIEZA INDIVIDUAL
    ========================================================= */
+
 .project-piece {
   margin: 3rem 0 1rem;
   padding-top: 2rem;
@@ -775,9 +1094,11 @@ a {
   margin-bottom: 1.5rem;
 }
 
+
 /* =========================================================
-   5i. SUB-OBRAS (Old Prints: varias piezas en una sola página)
+   5i. SUB-OBRAS
    ========================================================= */
+
 .project-subwork {
   margin: 3rem 0 1rem;
   padding-top: 2rem;
@@ -801,9 +1122,11 @@ a {
   margin-bottom: 1.5rem;
 }
 
+
 /* =========================================================
    5j. CV
    ========================================================= */
+
 .cv-section {
   padding: 4rem 2rem 6rem;
   max-width: 720px;
@@ -842,11 +1165,11 @@ a {
   color: var(--text);
 }
 
+
 /* =========================================================
-   5k. AXIS.VISUAL LAB — landing page
+   5k. AXIS.VISUAL LAB
    ========================================================= */
 
-/* ---- Texto estático sobre las fotos, con fade al hover de los botones ---- */
 .axis-intro-static {
   position: absolute;
   top: 3rem;
@@ -879,23 +1202,9 @@ a {
 
 .axis-intro-text {
   font-family: var(--font-mono);
-  /* text-transform: uppercase; */
   font-size: 0.63rem;
   line-height: 1.7;
   color: var(--text);
-}
-
-.axis-intro-text strong {
-  /* color: var(--accent); */
-}
-
-@media (max-width: 700px) {
-  .axis-intro-static {
-    grid-template-columns: 1fr;
-  }
-  .axis-logo {
-    max-width: 140px;
-  }
 }
 
 .axis-intro-text p {
@@ -911,6 +1220,11 @@ a {
 .hero-bg:has(.cta-button:hover) .axis-intro-static {
   opacity: 1;
 }
+
+
+/* =========================================================
+   AXIS LAB LAYOUT
+   ========================================================= */
 
 .lab-layout {
   display: grid;
@@ -930,9 +1244,11 @@ a {
 }
 
 @media (max-width: 900px) {
+
   .lab-layout {
     grid-template-columns: 1fr;
   }
+
 }
 
 .lab-intro {
@@ -973,9 +1289,11 @@ a {
 }
 
 @media (max-width: 640px) {
+
   .lab-feature {
     grid-template-columns: 1fr;
   }
+
 }
 
 .feature-deploy-wrap {
@@ -1014,6 +1332,7 @@ a {
   filter: grayscale(1) invert(1);
   transition: filter 0.3s ease;
 }
+
 .lab-feature:hover .lab-feature-image {
   filter: none;
 }
@@ -1035,6 +1354,11 @@ a {
   margin-bottom: 1.25rem;
 }
 
+
+/* =========================================================
+   AXIS TEAM
+   ========================================================= */
+
 .lab-team {
   padding: 2rem;
   max-width: 1100px;
@@ -1052,7 +1376,8 @@ a {
 
 .lab-team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
 }
 
@@ -1069,6 +1394,7 @@ a {
   filter: grayscale(1) invert(1);
   transition: filter 0.3s ease;
 }
+
 .team-member:hover img {
   filter: none;
 }
@@ -1092,7 +1418,11 @@ a {
   margin-bottom: 1rem;
 }
 
-/* ---- Variante "editorial" del equipo: fotos grandes alternadas ---- */
+
+/* =========================================================
+   VARIANTE EDITORIAL DEL EQUIPO
+   ========================================================= */
+
 .lab-team-editorial {
   padding: 3rem 0;
   max-width: 1100px;
@@ -1107,6 +1437,7 @@ a {
   padding: 2rem;
   border-top: 1px solid var(--line);
 }
+
 .team-member-editorial:last-child {
   border-bottom: 1px solid var(--line);
 }
@@ -1119,6 +1450,7 @@ a {
   filter: grayscale(1) invert(1);
   transition: filter 0.3s ease;
 }
+
 .team-member-editorial:hover .team-photo-large {
   filter: none;
 }
@@ -1138,9 +1470,11 @@ a {
 }
 
 @media (max-width: 640px) {
+
   .team-member-editorial {
     grid-template-columns: 1fr;
   }
+
 }
 
 .project-credits {
@@ -1148,19 +1482,23 @@ a {
   padding-top: 1.5rem;
   margin-bottom: 3rem;
 }
+
 .project-credits p {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--text-muted);
   margin-bottom: 0.4rem;
 }
+
 .project-credits strong {
   color: var(--text);
 }
 
+
 /* =========================================================
    6. FOOTER
    ========================================================= */
+
 .site-footer {
   padding: 2rem;
   border-top: 1px solid var(--line);
@@ -1169,31 +1507,44 @@ a {
   color: var(--text-muted);
 }
 
-/* =========================================================
-   7. RESPONSIVE
-   ========================================================= */
-@media (max-width: 640px) {
-  .site-header {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .main-nav {
-    gap: 1.25rem;
-  }
-}
 
 /* =========================================================
-   7b. RESPONSIVE — COMPOSICIÓN DEDICADA PARA MOBILE (Home + AXIS)
-   No es solo "achicar todo": en mobile estos 2 heroes usan una
-   composición distinta, pensada para pantalla chica, siguiendo la
-   misma paleta/tipografía del resto del sitio.
+   7. RESPONSIVE GENERAL
    ========================================================= */
+
+@media (max-width: 640px) {
+
+  .site-header {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.25rem;
+  }
+
+  .logo {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+  }
+
+  .menu-toggle > .main-nav {
+    top: 3rem;
+    right: 0;
+    min-width: 180px;
+  }
+
+}
+
+
+/* =========================================================
+   7b. RESPONSIVE — HOME + AXIS
+   ========================================================= */
+
 @media (max-width: 700px) {
-  /* ---- 1. El fondo de fotos: degradado en vez de oscurecido parejo ----
-     Más oscuro ABAJO (donde está el texto) y más claro arriba, para que
-     se siga viendo la foto pero el texto tenga buen contraste siempre,
-     sin importar qué tan clara sea la foto del ciclo en ese momento. */
+
+  /* -------------------------------------------------------
+     HOME — OVERLAY
+     ------------------------------------------------------- */
+
   .hero-overlay {
     background: linear-gradient(
       to bottom,
@@ -1203,33 +1554,38 @@ a {
     );
   }
 
+
+  /* -------------------------------------------------------
+     HOME — HERO MOBILE
+     ------------------------------------------------------- */
+
   .hero-bg {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     min-height: 90dvh;
     padding-bottom: 2.5rem;
- }
+  }
 
- .hero-bg:not(:has(.axis-intro-static)) .hero-content {
+  .hero-bg:not(:has(.axis-intro-static)) .hero-content {
     padding-bottom: 1rem;
- }
+  }
 
   .hero-content {
     position: relative;
     padding: 1.5rem;
   }
 
-  /* ---- 2. Botones a ancho completo — más fáciles de tocar en celular,
-     convención estándar de mobile (vs. botones angostos tipo desktop) ---- */
+
+  /* -------------------------------------------------------
+     HOME — BOTONES MOBILE
+     ------------------------------------------------------- */
+
   .hero-cta-row {
     flex-direction: column;
     align-items: stretch;
   }
 
-  /* 🔧 NUEVO: la imagen aparece acá, ESTÁTICA (sin animación de
-     diapositiva como el fondo del hero), en formato vertical tipo
-     pantalla de teléfono (9:16) — ocupa todo el ancho disponible. */
   .hero-cta-image {
     display: block;
     width: 100%;
@@ -1238,9 +1594,8 @@ a {
     margin-bottom: 1rem;
   }
 
-
   .hero-cta-row .cta-button {
-    width:100%;
+    width: 100%;
     text-align: center;
   }
 
@@ -1248,9 +1603,6 @@ a {
     gap: 2rem;
   }
 
-  /* ---- 3. La frase descriptiva: ya no "se despliega" (no hay hover en
-     touch) — se muestra como una cita fija, con línea arriba, separada
-     visualmente del botón en vez de pegada a su lado ---- */
   .keyword-deploy-wrap {
     flex: none;
     width: 100%;
@@ -1262,73 +1614,177 @@ a {
   }
 
 
+  /* =======================================================
+     AXIS — COMPOSICIÓN ESPECÍFICA MOBILE
+     ======================================================= */
 
-  /* =========================================================
-     AXIS — composición específica para mobile
-     ========================================================= */
+  /*
+     IMPORTANTE:
 
-  /* 🔧 NUEVO: en AXIS (y SOLO en AXIS — ":has()" distingue esta página
-     de Home, que comparte la misma clase .hero-bg pero sí debe seguir
-     mostrando las fotos) el fondo de fotos desaparece por completo en
-     mobile. Como el fondo del sitio ya es negro puro, alcanza con
-     esconder la foto y el degradado — no hace falta pintar nada nuevo. */
+     Todo lo que sigue está limitado a AXIS.
+     El Home conserva las reglas anteriores.
+  */
+
+
+  /* -------------------------------------------------------
+     AXIS — FONDO
+     ------------------------------------------------------- */
+
+  .hero-bg:has(.axis-intro-static) {
+    background: var(--bg);
+
+    /*
+       Solo AXIS empieza desde arriba.
+       El Home sigue usando justify-content: flex-end.
+    */
+    justify-content: flex-start;
+
+    /*
+       Solo AXIS deja de tener la altura forzada del Home.
+    */
+    min-height: auto;
+  }
+
+
+  /* -------------------------------------------------------
+     AXIS — SIN SLIDESHOW EN MOBILE
+     ------------------------------------------------------- */
+
   .hero-bg:has(.axis-intro-static) .hero-bg-slideshow,
   .hero-bg:has(.axis-intro-static) .hero-overlay {
     display: none;
   }
 
-  /* El hero de AXIS en mobile queda COMPACTO: solo logo + título sobre
-     la foto. El texto largo (3 párrafos) se esconde acá... */
-  .axis-intro-paragraphs {
-    //display: none;
-  }
+
+  /* -------------------------------------------------------
+     AXIS — INTRO
+     ------------------------------------------------------- */
 
   .axis-intro-static {
     position: relative;
-    max-width: none;
+
+    top: auto;
     left: auto;
     right: auto;
-    margin: 3rem 1.5rem 7rem;   /* 🔧 aún más aire antes del primer botón */
+
+    width: auto;
+    max-width: none;
+
+    margin: 3rem 1.5rem 3rem;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+
+    align-items: start;
   }
 
-  /* 🔧 NUEVO: en AXIS (identificado porque contiene .axis-intro-static),
-     el fondo de fotos desaparece por completo en mobile — queda solo
-     negro sólido. Uso ":has()" para que esto NO afecte al Home, que
-     comparte la misma clase .hero-bg pero SÍ quiere seguir viendo las
-     fotos en mobile. */
-  .hero-bg:has(.axis-intro-static) .hero-bg-slideshow,
-  .hero-bg:has(.axis-intro-static) .hero-overlay {
-    display: none;
+
+  /* -------------------------------------------------------
+     AXIS — LOGO
+     ------------------------------------------------------- */
+
+  .axis-logo {
+    width: 140px;
+    max-width: 70vw;
+    height: auto;
+
+    display: block;
+
+    margin-left: auto;
+    margin-right: auto;
   }
-  .hero-bg:has(.axis-intro-static) {
-    background: var(--bg);
+
+
+  /* -------------------------------------------------------
+     AXIS — TEXTO
+     ------------------------------------------------------- */
+
+  .axis-intro-text {
+    width: 100%;
+    min-width: 0;
+
+    font-size: 0.63rem;
+    line-height: 1.7;
+
+    text-align: left;
   }
+
+
+  /* -------------------------------------------------------
+     AXIS — TÍTULO
+     ------------------------------------------------------- */
 
   .axis-intro-heading {
-    font-size: 1.5rem;   /* un poco más grande ya que ahora es casi todo el hero-text */
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    margin-bottom: 1.5rem;
   }
 
-  /* ...y reaparece ACÁ, debajo del hero, con fondo sólido y el mismo
-     estilo de lectura que usás en las páginas de proyecto — mucho más
-     cómodo de leer en el celular que texto largo arriba de una foto */
-  .axis-mobile-about {
+
+  /* -------------------------------------------------------
+     AXIS — PÁRRAFOS
+     ------------------------------------------------------- */
+
+  /*
+     Antes estaban en display:none y luego se intentaban
+     mostrar en .axis-mobile-about.
+
+     Ahora permanecen directamente debajo del título.
+  */
+
+  .axis-intro-paragraphs {
     display: block;
-    padding: 3rem 1.5rem;
-    border-bottom: 1px solid var(--line);
   }
 
-  .axis-mobile-about .project-body {
-    margin: 0;
+  .axis-intro-paragraphs p {
+    text-align: left;
+
+    margin-bottom: 1.25rem;
   }
 
-  .axis-mobile-about .project-body strong {
-    color: var(--accent);
+
+  /* -------------------------------------------------------
+     AXIS — CONTENIDO DE PROYECTOS
+     ------------------------------------------------------- */
+
+  .hero-bg:has(.axis-intro-static) .hero-content {
+    position: relative;
+
+    width: 100%;
+
+    padding: 1.5rem;
   }
+
+
+  /* -------------------------------------------------------
+     AXIS — IMÁGENES DE LOS TRES PROYECTOS
+     -------------------------------------------------------
+
+     Esta excepción SOLO afecta a AXIS.
+
+     El Home conserva exactamente su 9 / 16 original.
+     */
+
+  .hero-bg:has(.axis-intro-static) .hero-cta-image {
+    width: 100%;
+
+    aspect-ratio: 9 / 12;
+
+    object-fit: cover;
+  }
+
+
+  /* -------------------------------------------------------
+     AXIS — LISTA DE PROYECTOS
+     ------------------------------------------------------- */
+
+  .hero-bg:has(.axis-intro-static) .hero-cta-list {
+    gap: 2rem;
+  }
+
 }
-
-/* 🔧 En desktop, la sección de lectura mobile queda escondida — ahí el
-   texto ya se lee directamente sobre la foto, arriba */
-.axis-mobile-about {
-  display: none;
-}
-
