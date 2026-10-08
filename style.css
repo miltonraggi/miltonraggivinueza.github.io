@@ -1280,7 +1280,7 @@ a {
   /* El hero de AXIS en mobile queda COMPACTO: solo logo + título sobre
      la foto. El texto largo (3 párrafos) se esconde acá... */
   .axis-intro-paragraphs {
-    //display: none;
+    /* display: none; */
   }
 
   .axis-intro-static {
@@ -1332,3 +1332,117 @@ a {
   display: none;
 }
 
+/* =========================================================
+   7c. MENÚ HAMBURGUESA (variante mobile del header)
+   Solo afecta a los headers que tengan la clase
+   .site-header--hamburger (por ahora, solo el Home).
+   Para llevarlo a otra página: agregarle esa clase a su <header>,
+   el <button class="nav-toggle"> y el id="mainNav" a su <nav>.
+   ========================================================= */
+
+/* 🔧 En desktop el botón NO existe visualmente: el menú se ve completo
+   como siempre */
+.nav-toggle {
+  display: none;
+}
+
+/* Las 3 líneas: cada <span> vacío es una línea fina, del mismo blanco
+   que el resto de los detalles del sitio */
+.nav-toggle span {
+  display: block;
+  width: 1.25rem;
+  height: 1px;
+  background: var(--text);
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* 🔧 Cuando el menú está abierto, el JS pone aria-expanded="true" en el
+   botón y estas reglas transforman las 3 líneas en una X:
+   - la línea de arriba baja y rota 45°
+   - la del medio desaparece
+   - la de abajo sube y rota -45°
+   (6px = 1px de alto de la línea + 5px de "gap" entre líneas) */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 640px) {
+  /* Logo y botón en la MISMA fila (la regla de la sección 7 los apilaba
+     en columna; acá la anulamos solo para el header con hamburguesa) */
+  .site-header.site-header--hamburger {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  /* Logo un poco más compacto para que entre cómodo junto al botón
+     en pantallas de ~360px de ancho */
+  .site-header--hamburger .logo {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    min-width: 0;
+  }
+
+  /* El botón de las 3 líneas aparece (display:flex para apilar los spans) */
+  .site-header--hamburger .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;      /* ~44px: tamaño mínimo recomendado para tocar con el dedo */
+    background: none;
+    border: 1px solid var(--line);
+    cursor: pointer;
+  }
+
+  /* 🔧 El menú: escondido por defecto, y cuando el JS le pone .is-open
+     se despliega COMO UN PANEL debajo del header (position:absolute),
+     tapando un poco el contenido en vez de empujarlo hacia abajo */
+  .site-header--hamburger .main-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);   /* justo debajo de la línea inferior del header */
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem 2rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;        /* si el menú es largo, scrollea adentro */
+    font-size: 0.95rem;
+  }
+
+  .site-header--hamburger .main-nav.is-open {
+    display: flex;
+  }
+
+  /* Los submenús (Bio/CV, Main Projects/etc.) dejan de "flotar" como
+     cajita y pasan a mostrarse en línea, con una raya magenta a la
+     izquierda que indica que pertenecen al ítem de arriba */
+  .site-header--hamburger .nav-dropdown {
+    position: static;
+  }
+
+  .site-header--hamburger .dropdown-panel {
+    position: static;
+    min-width: 0;
+    margin-top: 0.75rem;
+    padding: 0.25rem 0 0.25rem 1rem;
+    border: none;
+    border-left: 1px solid var(--accent);
+    gap: 0.75rem;
+  }
+}
