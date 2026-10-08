@@ -1,1448 +1,588 @@
 /* =========================================================
-   1. TOKENS DE DISEÑO
+   RESET
    ========================================================= */
-:root {
-  --bg: #000000;           /* 🎨 negro puro */
-  --bg-raised: #000000;    /* 🎨 igual al fondo — el panel del menú se distingue solo por el borde */
-  --text: #ECE8E3;
-  --text-muted: #8A8680;
-  --accent: #d80c9e;       /* 🎨 magenta */
-  --line: #ffffff;         /* 🎨 líneas blancas */
 
-  --font-display: 'Big Shoulders Display', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-  --font-body: 'IBM Plex Sans', sans-serif;
-}
-
-/* =========================================================
-   2. RESET BÁSICO
-   ========================================================= */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
+html,
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  background: #000;
+  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
 }
+
 
 /* =========================================================
-   3. HEADER / NAVEGACIÓN
+   HEADER
    ========================================================= */
+
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--line);
-  position: sticky;
+  position: fixed;
   top: 0;
-  background: var(--bg);
-  z-index: 10;
+  left: 0;
+
+  width: 100%;
+  height: 80px;
+
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 1000;
+
+  background: transparent;
 }
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
 
 .logo {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
+  color: #fff;
+  text-decoration: none;
+
+  font-family: "Big Shoulders Display", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
 }
-/*
+
 .logo span {
-  color: var(--accent);
+  font-weight: 600;
 }
-*/
 
-.main-nav {
+
+/* =========================================================
+   DESKTOP NAV
+   ========================================================= */
+
+.desktop-nav {
   display: flex;
-  gap: 2rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  align-items: center;
+  gap: 35px;
 }
 
-.main-nav a.active {
-  color: var(--accent);
-}
+.desktop-nav > a,
+.desktop-nav summary {
+  color: #fff;
 
-.nav-dropdown summary {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+
+  text-decoration: none;
+
   cursor: pointer;
+}
+
+.desktop-nav > a:hover,
+.desktop-nav summary:hover,
+.desktop-nav .active {
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   DETAILS RESET
+   ========================================================= */
+
+details {
+  position: relative;
+}
+
+summary {
   list-style: none;
 }
-.nav-dropdown summary::-webkit-details-marker {
+
+summary::-webkit-details-marker {
   display: none;
 }
+
+
+/* =========================================================
+   DESKTOP DROPDOWN
+   ========================================================= */
+
 .nav-dropdown {
   position: relative;
 }
+
 .dropdown-panel {
   position: absolute;
-  top: 1.8rem;
+
+  top: calc(100% + 18px);
   right: 0;
-  background: var(--bg-raised);
-  border: 1px solid var(--line);
-  padding: 0.75rem;
+
+  min-width: 190px;
+
+  padding: 15px 0;
+
+  background: rgba(0, 0, 0, 0.94);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-width: 160px;
-}
-.dropdown-panel a:hover {
-  color: var(--accent);
 }
 
+.dropdown-panel a {
+  padding: 8px 18px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+.dropdown-panel a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
 /* =========================================================
-   4. HERO
+   MOBILE MENU
    ========================================================= */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
 .hero {
   position: relative;
-  padding: 6rem 2rem 4rem;
-  border-bottom: 1px solid var(--line);
+
+  width: 100%;
+  height: 100vh;
+
+  min-height: 600px;
+
+  overflow: hidden;
 }
 
-.hero-frame {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  margin-bottom: 2rem;
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(3rem, 12vw, 8rem);
-  line-height: 0.9;
-  letter-spacing: -0.01em;
-}
-
-.hero-subtitle {
-  font-family: var(--font-mono);
-  margin-top: 1.5rem;
-  max-width: 40ch;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-}
-
-.cta-button {
-  display: inline-block;
-  margin-top: 2.5rem;
-  padding: 0.9rem 1.75rem;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.cta-button:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
 
 /* =========================================================
-   4b. HERO CON FONDO DE FOTOS (variante del Home)
+   BACKGROUND SLIDESHOW
    ========================================================= */
-.hero-bg {
-  position: relative;
-  min-height: 85vh;
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-}
 
 .hero-bg-slideshow {
   position: absolute;
+
   inset: 0;
+
+  width: 100%;
+  height: 100%;
 }
 
 .hero-bg-slide {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   opacity: 0;
+
   animation: heroSlideshow 20s infinite;
 }
 
-@keyframes heroSlideshow {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  20%  { opacity: 1; }
-  25%  { opacity: 0; }
-  100% { opacity: 0; }
+
+/* Cada imagen comienza en un momento diferente */
+
+.hero-bg-slide:nth-child(1) {
+  animation-delay: 0s;
 }
 
-.hero-bg-slide:nth-child(1) { animation-delay: 0s; }
-.hero-bg-slide:nth-child(2) { animation-delay: 5s; }
-.hero-bg-slide:nth-child(3) { animation-delay: 10s; }
-.hero-bg-slide:nth-child(4) { animation-delay: 15s; }
+.hero-bg-slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.hero-bg-slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.hero-bg-slide:nth-child(4) {
+  animation-delay: 15s;
+}
+
+
+@keyframes heroSlideshow {
+
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+   ========================================================= */
 
 .hero-overlay {
   position: absolute;
+
   inset: 0;
-  background: rgba(0, 0, 0, 0.368);
-}
 
-.hero-content {
-  position: relative;
+  background: rgba(0, 0, 0, 0.38);
+
   z-index: 2;
-  padding: 2rem;
-  max-width: 1100px;
-  margin: 0;
-  width: 100%;
 }
 
-.hero-content-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-@media (max-width: 700px) {
-  .hero-content-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-.hero-content .hero-subtitle {
-  color: var(--text-muted);
-  max-width: 40ch;
-  font-size: 0.75rem;
-}
-
-.hero-content .cta-button {
-  margin-top: 0rem;
-}
 
 /* =========================================================
-   4d. FRASE DESPLEGABLE AL LADO DEL BOTÓN (Home)
+   HERO CONTENT
    ========================================================= */
-.hero-cta-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+
+.hero-content {
+  position: absolute;
+
+  left: 40px;
+  bottom: 70px;
+
+  z-index: 3;
 }
 
 .hero-cta-row {
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
-/* 🔧 NUEVO: imagen vertical antes de cada botón — escondida en desktop
-   (ahí ese lugar lo ocupa el texto que se despliega al lado del botón),
-   solo aparece en la composición mobile (ver @media más abajo). */
-.hero-cta-image {
-  display: none;
+
+/* =========================================================
+   PORTFOLIO BUTTON
+   ========================================================= */
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+
+  height: 48px;
+
+  padding: 0 20px;
+
+  color: #fff;
+
+  border: 1px solid #fff;
+
+  text-decoration: none;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
-.hero-cta-row .cta-button {
-  flex-shrink: 0;
+.cta-button:hover {
+  background: #fff;
+  color: #000;
 }
+
+
+/* =========================================================
+   KEYWORD TEXT
+   ========================================================= */
 
 .keyword-deploy-wrap {
-  flex: 1;
-  min-width: 0;
-  padding-left: 2rem;
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.6s ease;
+  width: 0;
+
+  overflow: hidden;
+
+  transition: width 0.6s ease;
 }
+
+
+/*
+  IMPORTANTE:
+
+  Esto funciona SIN JAVASCRIPT.
+
+  Cuando el mouse está sobre PORTFOLIO,
+  el elemento inmediatamente posterior
+  (.keyword-deploy-wrap) aumenta su ancho.
+*/
 
 .cta-button:hover + .keyword-deploy-wrap {
-  clip-path: inset(0 0% 0 0);
+  width: min(650px, 60vw);
 }
+
+
+.keyword-deploy-inner {
+  width: min(650px, 60vw);
+
+  padding-left: 20px;
+}
+
 
 .keyword-sentence {
-  text-transform: uppercase;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.hero-content .intro-text {
-  color: var(--text-muted);
-  font-size: 0.75rem;
-}
-.hero-content .intro-text strong {
-  color: var(--text);
-}
-
-/* =========================================================
-   5. INTRO
-   ========================================================= */
-.intro {
-  padding: 4rem 2rem;
-  max-width: 60ch;
-}
-
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-}
-
-.intro-text {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  /* text-transform: uppercase; */
-  color: var(--text-muted);
-}
-.intro-text strong {
-  color: var(--text);
-}
-
-.text-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 2px;
-}
-.text-link:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-/* =========================================================
-   5b. PÁGINAS INTERNAS (Bio, CV, etc.)
-   ========================================================= */
-.page-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  margin-bottom: 3rem;
-}
-
-.bio-section {
-  padding: 4rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.bio-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.bio-photo {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  background: var(--bg-raised);
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-
-.bio-photo:hover {
-  filter: none;
-}
-
-.bio-text p {
-  font-family: var(--font-mono);
-  margin-bottom: 1.25rem;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-}
-.bio-text strong {
-  color: var(--text);
-}
-
-@media (max-width: 640px) {
-  .bio-layout {
-    grid-template-columns: 1fr;
-  }
-  .bio-photo {
-    max-width: 240px;
-  }
-}
-
-/* =========================================================
-   5c. ÍNDICE DE PROYECTOS (Main Projects)
-   ========================================================= */
-.projects-header {
-  padding: 4rem 2rem 2rem;
-}
-
-.project-index {
-  padding: 0 2rem;
-}
-
-.project-index ol {
-  list-style: none;
-}
-
-.project-item {
-  border-top: 1px solid var(--line);
-}
-.project-item:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.project-item a {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
-  transition: padding-left 0.2s ease, color 0.2s ease;
-}
-
-.project-item a:hover {
-  padding-left: 1rem;
-  color: var(--accent);
-}
-
-.project-number {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  width: 2ch;
-}
-
-.project-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  flex: 1;
-}
-
-.project-arrow {
-  font-family: var(--font-mono);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-.project-item a:hover .project-arrow {
-  opacity: 1;
-}
-
-.project-item-row {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
-  cursor: default;
-  transition: padding-left 0.2s ease, color 0.2s ease;
-}
-.feature-row-item:hover .project-item-row {
-  padding-left: 1rem;
-  color: var(--accent);
-}
-.feature-row-item:hover .project-arrow {
-  opacity: 1;
-}
-.feature-row-item:hover .feature-deploy-wrap {
-  grid-template-rows: 1fr;
-}
-
-.projects-footer-link {
-  padding: 3rem 2rem 4rem;
-}
-
-/* =========================================================
-   5d. DETALLE DE PROYECTO (Buzludzha, Nyx, etc.)
-   ========================================================= */
-.project-detail {
-  padding: 4rem 2rem 6rem;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.project-detail-header {
-  margin-bottom: 2.5rem;
-}
-.project-detail-header .page-title {
-  margin-bottom: 0;
-}
-
-.project-body p {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-}
-
-.project-videos {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.video-embed {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: var(--bg-raised);
-}
-
-.video-embed iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-
-.video-embed:hover iframe {
-  filter: none;
-}
-
-.video-embed iframe.is-fullscreen {
-  filter: none;
-}
-
-/* =========================================================
-   5e. GALERÍA DE IMÁGENES + LIGHTBOX
-   ========================================================= */
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 0.75rem;
-  margin: 3rem 0;
-}
-
-.gallery-thumb {
-  aspect-ratio: 1 / 1;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  background: var(--bg-raised);
-  overflow: hidden;
-}
-
-.gallery-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.gallery-thumb:hover img {
-  filter: none;
-  transform: scale(1.05);
-}
-
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.lightbox.is-open {
-  display: flex;
-}
-
-.lightbox img {
-  max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: none;
-  border: 1px solid var(--line);
-  color: var(--text);
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-.lightbox-close:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.lightbox-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: 1px solid var(--line);
-  color: var(--text);
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-.lightbox-nav:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-.lightbox-prev {
-  left: 1.5rem;
-}
-.lightbox-next {
-  right: 1.5rem;
-}
-
-@media (max-width: 640px) {
-  .lightbox-nav {
-    width: 2.25rem;
-    height: 2.25rem;
-    font-size: 1.1rem;
-  }
-  .lightbox-prev {
-    left: 0.5rem;
-  }
-  .lightbox-next {
-    right: 0.5rem;
-  }
-}
-
-/* =========================================================
-   5f. CAJITA DE PREMIO / EXHIBICIÓN DESTACADA
-   ========================================================= */
-.project-award {
-  border: 1px solid var(--accent);
-  padding: 1.5rem;
-  margin: 2rem 0;
-}
-
-.project-award-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.project-award-text {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-/* =========================================================
-   5g. IMÁGENES DE REFERENCIA (2 fijas, con filtro invertido)
-   ========================================================= */
-.project-reference {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0rem;
-  margin: 2.5rem 0;
-}
-
-.reference-image {
-  position: relative;
-  background: var(--bg-raised);
-}
-
-.reference-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-
-.reference-image:hover img {
-  filter: none;
-}
-
-.reference-label-wrap {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-}
-
-.reference-image:hover .reference-label-wrap {
-  grid-template-rows: 1fr;
-}
-
-.reference-label {
-  overflow: hidden;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-  padding-top: 0.6rem;
-}
-
-@media (max-width: 640px) {
-  .project-reference {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================================
-   5h. REPRODUCTOR DE AUDIO (piezas sonoras narrativas)
-   ========================================================= */
-.project-audio {
-  border: 1px solid var(--line);
-  padding: 2rem;
-  margin: 3rem 0;
-  text-align: center;
-}
-
-.project-audio-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: 0.3em;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.project-audio-subtitle {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-}
-
-.project-audio-embed {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.project-audio-embed iframe {
-  width: 100%;
-  border: 1px solid var(--line);
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-
-.project-audio-embed:hover iframe {
-  filter: none;
-}
-
-/* =========================================================
-   5i. FICHA DE PIEZA INDIVIDUAL (para series con varias obras, ej. Old Prints)
-   ========================================================= */
-.project-piece {
-  margin: 3rem 0 1rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-}
-
-.project-piece-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.75rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.project-piece-specs {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* =========================================================
-   5i. SUB-OBRAS (Old Prints: varias piezas en una sola página)
-   ========================================================= */
-.project-subwork {
-  margin: 3rem 0 1rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
-}
-
-.project-subwork-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.75rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.project-subwork-specs {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* =========================================================
-   5j. CV
-   ========================================================= */
-.cv-section {
-  padding: 4rem 2rem 6rem;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.cv-block {
-  margin-bottom: 2.5rem;
-}
-
-.cv-block-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.cv-list {
-  list-style: none;
-}
-
-.cv-list li {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 0.5rem;
-}
-
-.cv-list li strong {
-  color: var(--text);
-}
-
-/* =========================================================
-   5k. AXIS.VISUAL LAB — landing page
-   ========================================================= */
-
-/* ---- Texto estático sobre las fotos, con fade al hover de los botones ---- */
-.axis-intro-static {
-  position: absolute;
-  top: 3rem;
-  left: 2rem;
-  right: 2rem;
-  max-width: 600px;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 2rem;
-  align-items: start;
-  transition: opacity 0.4s ease;
-}
-
-.axis-logo {
-  width: 80%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--line);
-}
-
-.axis-intro-heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-
-.axis-intro-text {
-  font-family: var(--font-mono);
-  /* text-transform: uppercase; */
-  font-size: 0.63rem;
-  line-height: 1.7;
-  color: var(--text);
-}
-
-.axis-intro-text strong {
-  /* color: var(--accent); */
-}
-
-@media (max-width: 700px) {
-  .axis-intro-static {
-    grid-template-columns: 1fr;
-  }
-  .axis-logo {
-    max-width: 140px;
-  }
-}
-
-.axis-intro-text p {
-  text-align: justify;
-  text-justify: inter-word;
-  margin-bottom: 1rem;
-}
-
-.axis-intro-text p:last-child {
-  margin-bottom: 0;
-}
-
-.hero-bg:has(.cta-button:hover) .axis-intro-static {
-  opacity: 1;
-}
-
-.lab-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 2rem 2rem;
-  align-items: start;
-}
-
-.lab-layout .lab-intro,
-.lab-layout .lab-features {
-  padding: 0;
-  max-width: none;
   margin: 0;
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  color: #fff;
+
+  min-width: 500px;
 }
 
-@media (max-width: 900px) {
-  .lab-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.lab-intro {
-  padding: 4rem 2rem 2rem;
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.lab-intro p {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 1.25rem;
-}
-
-.lab-features {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 720px;
-  margin: 0 auto 2rem;
-}
-
-.lab-feature {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
-  border: 1px solid var(--line);
-  padding: 1.75rem;
-}
-
-.lab-feature-left {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-@media (max-width: 640px) {
-  .lab-feature {
-    grid-template-columns: 1fr;
-  }
-}
-
-.feature-deploy-wrap {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s ease;
-}
-
-.lab-feature:hover .feature-deploy-wrap {
-  grid-template-rows: 1fr;
-}
-
-.feature-deploy-inner {
-  overflow: hidden;
-}
-
-.feature-deploy-inner img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  margin-top: 1rem;
-}
-
-.feature-deploy-inner .reference-label {
-  padding-top: 0.75rem;
-  padding-bottom: 0.25rem;
-}
-
-.lab-feature-image {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: var(--bg-raised);
-  margin-bottom: 1.25rem;
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-.lab-feature:hover .lab-feature-image {
-  filter: none;
-}
-
-.lab-feature-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.lab-feature-text {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.25rem;
-}
-
-.lab-team {
-  padding: 2rem;
-  max-width: 1100px;
-  margin: 2rem auto;
-}
-
-.lab-team-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.lab-team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-}
-
-.team-member {
-  text-align: center;
-}
-
-.team-member img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  background: var(--bg-raised);
-  margin-bottom: 0.75rem;
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-.team-member:hover img {
-  filter: none;
-}
-
-.team-member-name {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text);
-}
-
-.lab-contact {
-  text-align: center;
-  padding: 3rem 2rem 4rem;
-}
-
-.lab-contact-title {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-/* ---- Variante "editorial" del equipo: fotos grandes alternadas ---- */
-.lab-team-editorial {
-  padding: 3rem 0;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.team-member-editorial {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 2rem;
-  align-items: center;
-  padding: 2rem;
-  border-top: 1px solid var(--line);
-}
-.team-member-editorial:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.team-photo-large {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  background: var(--bg-raised);
-  filter: grayscale(1) invert(1);
-  transition: filter 0.3s ease;
-}
-.team-member-editorial:hover .team-photo-large {
-  filter: none;
-}
-
-.team-name-large {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-.team-role {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-}
-
-@media (max-width: 640px) {
-  .team-member-editorial {
-    grid-template-columns: 1fr;
-  }
-}
-
-.project-credits {
-  border-top: 1px solid var(--line);
-  padding-top: 1.5rem;
-  margin-bottom: 3rem;
-}
-.project-credits p {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 0.4rem;
-}
-.project-credits strong {
-  color: var(--text);
-}
 
 /* =========================================================
-   6. FOOTER
+   FOOTER
    ========================================================= */
+
 .site-footer {
-  padding: 2rem;
-  border-top: 1px solid var(--line);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  position: fixed;
+
+  bottom: 20px;
+  right: 30px;
+
+  z-index: 10;
 }
 
+.site-footer p {
+  margin: 0;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+
+  opacity: 0.7;
+}
+
+
 /* =========================================================
-   7. RESPONSIVE
+   MOBILE
    ========================================================= */
-@media (max-width: 640px) {
+
+@media (max-width: 768px) {
+
+
+  /* HEADER */
+
   .site-header {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .main-nav {
-    gap: 1.25rem;
-  }
-}
+    height: 70px;
 
-/* =========================================================
-   7b. RESPONSIVE — COMPOSICIÓN DEDICADA PARA MOBILE (Home + AXIS)
-   No es solo "achicar todo": en mobile estos 2 heroes usan una
-   composición distinta, pensada para pantalla chica, siguiendo la
-   misma paleta/tipografía del resto del sitio.
-   ========================================================= */
-@media (max-width: 700px) {
-  /* ---- 1. El fondo de fotos: degradado en vez de oscurecido parejo ----
-     Más oscuro ABAJO (donde está el texto) y más claro arriba, para que
-     se siga viendo la foto pero el texto tenga buen contraste siempre,
-     sin importar qué tan clara sea la foto del ciclo en ese momento. */
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.25) 0%,
-      rgba(0, 0, 0, 0.55) 55%,
-      rgba(0, 0, 0, 0.85) 100%
-    );
+    padding: 0 20px;
   }
 
-  .hero-bg {
+
+  /* LOGO */
+
+  .logo {
+    font-size: 21px;
+  }
+
+
+  /* OCULTAR DESKTOP */
+
+  .desktop-nav {
+    display: none;
+  }
+
+
+  /* =====================================================
+     MOBILE HAMBURGER
+     ===================================================== */
+
+  .mobile-menu {
+    display: block;
+
+    position: relative;
+  }
+
+
+  .hamburger-button {
+    width: 34px;
+    height: 28px;
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    min-height: 90dvh;
-    padding-bottom: 2.5rem;
- }
 
- .hero-bg:not(:has(.axis-intro-static)) .hero-content {
-    padding-bottom: 1rem;
- }
-
-  .hero-content {
-    position: relative;
-    padding: 1.5rem;
-  }
-
-  /* ---- 2. Botones a ancho completo — más fáciles de tocar en celular,
-     convención estándar de mobile (vs. botones angostos tipo desktop) ---- */
-  .hero-cta-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* 🔧 NUEVO: la imagen aparece acá, ESTÁTICA (sin animación de
-     diapositiva como el fondo del hero), en formato vertical tipo
-     pantalla de teléfono (9:16) — ocupa todo el ancho disponible. */
-  .hero-cta-image {
-    display: block;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    object-fit: cover;
-    margin-bottom: 1rem;
-  }
-
-
-  .hero-cta-row .cta-button {
-    width:100%;
-    text-align: center;
-  }
-
-  .hero-cta-list {
-    gap: 2rem;
-  }
-
-  /* ---- 3. La frase descriptiva: ya no "se despliega" (no hay hover en
-     touch) — se muestra como una cita fija, con línea arriba, separada
-     visualmente del botón en vez de pegada a su lado ---- */
-  .keyword-deploy-wrap {
-    flex: none;
-    width: 100%;
-    padding-left: 0;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--line);
-    clip-path: inset(0 0 0 0) !important;
-  }
-
-
-
-  /* =========================================================
-     AXIS — composición específica para mobile
-     ========================================================= */
-
-  /* 🔧 NUEVO: en AXIS (y SOLO en AXIS — ":has()" distingue esta página
-     de Home, que comparte la misma clase .hero-bg pero sí debe seguir
-     mostrando las fotos) el fondo de fotos desaparece por completo en
-     mobile. Como el fondo del sitio ya es negro puro, alcanza con
-     esconder la foto y el degradado — no hace falta pintar nada nuevo. */
-  .hero-bg:has(.axis-intro-static) .hero-bg-slideshow,
-  .hero-bg:has(.axis-intro-static) .hero-overlay {
-    display: none;
-  }
-
-  /* El hero de AXIS en mobile queda COMPACTO: solo logo + título sobre
-     la foto. El texto largo (3 párrafos) se esconde acá... */
-  .axis-intro-paragraphs {
-    /* display: none; */
-  }
-
-  .axis-intro-static {
-    position: relative;
-    max-width: none;
-    left: auto;
-    right: auto;
-    margin: 3rem 1.5rem 7rem;   /* 🔧 aún más aire antes del primer botón */
-  }
-
-  /* 🔧 NUEVO: en AXIS (identificado porque contiene .axis-intro-static),
-     el fondo de fotos desaparece por completo en mobile — queda solo
-     negro sólido. Uso ":has()" para que esto NO afecte al Home, que
-     comparte la misma clase .hero-bg pero SÍ quiere seguir viendo las
-     fotos en mobile. */
-  .hero-bg:has(.axis-intro-static) .hero-bg-slideshow,
-  .hero-bg:has(.axis-intro-static) .hero-overlay {
-    display: none;
-  }
-  .hero-bg:has(.axis-intro-static) {
-    background: var(--bg);
-  }
-
-  .axis-intro-heading {
-    font-size: 1.5rem;   /* un poco más grande ya que ahora es casi todo el hero-text */
-  }
-
-  /* ...y reaparece ACÁ, debajo del hero, con fondo sólido y el mismo
-     estilo de lectura que usás en las páginas de proyecto — mucho más
-     cómodo de leer en el celular que texto largo arriba de una foto */
-  .axis-mobile-about {
-    display: block;
-    padding: 3rem 1.5rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .axis-mobile-about .project-body {
-    margin: 0;
-  }
-
-  .axis-mobile-about .project-body strong {
-    color: var(--accent);
-  }
-}
-
-/* 🔧 En desktop, la sección de lectura mobile queda escondida — ahí el
-   texto ya se lee directamente sobre la foto, arriba */
-.axis-mobile-about {
-  display: none;
-}
-
-/* =========================================================
-   7c. MENÚ HAMBURGUESA (variante mobile del header)
-   Solo afecta a los headers que tengan la clase
-   .site-header--hamburger (por ahora, solo el Home).
-   Para llevarlo a otra página: agregarle esa clase a su <header>,
-   el <button class="nav-toggle"> y el id="mainNav" a su <nav>.
-   ========================================================= */
-
-/* 🔧 En desktop el botón NO existe visualmente: el menú se ve completo
-   como siempre */
-.nav-toggle {
-  display: none;
-}
-
-/* Las 3 líneas: cada <span> vacío es una línea fina, del mismo blanco
-   que el resto de los detalles del sitio */
-.nav-toggle span {
-  display: block;
-  width: 1.25rem;
-  height: 1px;
-  background: var(--text);
-  transition: transform 0.3s ease, opacity 0.2s ease;
-}
-
-/* 🔧 Cuando el menú está abierto, el JS pone aria-expanded="true" en el
-   botón y estas reglas transforman las 3 líneas en una X:
-   - la línea de arriba baja y rota 45°
-   - la del medio desaparece
-   - la de abajo sube y rota -45°
-   (6px = 1px de alto de la línea + 5px de "gap" entre líneas) */
-.nav-toggle[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-@media (max-width: 640px) {
-  /* Logo y botón en la MISMA fila (la regla de la sección 7 los apilaba
-     en columna; acá la anulamos solo para el header con hamburguesa) */
-  .site-header.site-header--hamburger {
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-  }
 
-  /* Logo un poco más compacto para que entre cómodo junto al botón
-     en pantallas de ~360px de ancho */
-  .site-header--hamburger .logo {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    min-width: 0;
-  }
-
-  /* El botón de las 3 líneas aparece (display:flex para apilar los spans) */
-  .site-header--hamburger .nav-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
-    width: 2.75rem;
-    height: 2.75rem;      /* ~44px: tamaño mínimo recomendado para tocar con el dedo */
-    background: none;
-    border: 1px solid var(--line);
     cursor: pointer;
   }
 
-  /* 🔧 El menú: escondido por defecto, y cuando el JS le pone .is-open
-     se despliega COMO UN PANEL debajo del header (position:absolute),
-     tapando un poco el contenido en vez de empujarlo hacia abajo */
-  .site-header--hamburger .main-nav {
-    display: none;
+
+  .hamburger-button span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: #fff;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+
+  /* =====================================================
+     HAMBURGER → X
+     ===================================================== */
+
+  .mobile-menu[open] .hamburger-button span:nth-child(1) {
+    transform: translateY(13px) rotate(45deg);
+  }
+
+  .mobile-menu[open] .hamburger-button span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu[open] .hamburger-button span:nth-child(3) {
+    transform: translateY(-13px) rotate(-45deg);
+  }
+
+
+  /* =====================================================
+     MOBILE NAV
+     ===================================================== */
+
+  .mobile-nav {
     position: absolute;
-    top: calc(100% + 1px);   /* justo debajo de la línea inferior del header */
-    left: 0;
+
+    top: 48px;
     right: 0;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding: 1.5rem 1.25rem 2rem;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-    max-height: calc(100vh - 5rem);
-    overflow-y: auto;        /* si el menú es largo, scrollea adentro */
-    font-size: 0.95rem;
-  }
 
-  .site-header--hamburger .main-nav.is-open {
+    width: 230px;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
     display: flex;
+    flex-direction: column;
+
+    gap: 18px;
   }
 
-  /* Los submenús (Bio/CV, Main Projects/etc.) dejan de "flotar" como
-     cajita y pasan a mostrarse en línea, con una raya magenta a la
-     izquierda que indica que pertenecen al ítem de arriba */
-  .site-header--hamburger .nav-dropdown {
-    position: static;
+
+  .mobile-nav > a,
+  .mobile-nav summary {
+    color: #fff;
+
+    text-decoration: none;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13px;
+
+    cursor: pointer;
   }
 
-  .site-header--hamburger .dropdown-panel {
-    position: static;
-    min-width: 0;
-    margin-top: 0.75rem;
-    padding: 0.25rem 0 0.25rem 1rem;
-    border: none;
-    border-left: 1px solid var(--accent);
-    gap: 0.75rem;
+
+  .mobile-nav > a:hover,
+  .mobile-nav summary:hover {
+    opacity: 0.6;
   }
+
+
+  /* =====================================================
+     MOBILE SUBMENUS
+     ===================================================== */
+
+  .mobile-dropdown-panel {
+    display: flex;
+    flex-direction: column;
+
+    padding: 12px 0 0 15px;
+
+    gap: 12px;
+  }
+
+
+  .mobile-dropdown-panel a {
+    color: #fff;
+
+    text-decoration: none;
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+  }
+
+
+  .mobile-dropdown-panel a:hover {
+    opacity: 0.6;
+  }
+
+
+  /* =====================================================
+     HERO
+     ===================================================== */
+
+  .hero-content {
+    left: 20px;
+    right: 20px;
+    bottom: 60px;
+  }
+
+
+  .hero-cta-row {
+    align-items: flex-start;
+  }
+
+
+  /*
+    En mobile no intentamos desplegar el texto hacia
+    un lado porque el espacio es demasiado pequeño.
+  */
+
+  .keyword-deploy-wrap {
+    display: none;
+  }
+
+
+  /* FOOTER */
+
+  .site-footer {
+    right: 20px;
+    bottom: 15px;
+  }
+
 }
