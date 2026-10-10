@@ -1,234 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>LAT — Milton Raggi Vinueza</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <body class="lat-page">
-
   <header class="site-header">
+    <a href="index.html" class="logo">MILTON <span> RAGGI </span> VINUEZA</a>
 
-    <a href="index.html" class="logo">
-      MILTON <span>RAGGI</span> VINUEZA
-    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
 
-    <details class="menu-toggle">
-      <summary class="menu-arrow" aria-label="Open navigation">
-        <span>↓</span>
-      </summary>
+      <details class="nav-dropdown">
+        <summary>About</summary>
+        <div class="dropdown-panel">
+          <a href="bio.html">Bio</a>
+          <a href="cv.html">CV</a>
+        </div>
+      </details>
 
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-
-        <details class="nav-dropdown">
-          <summary>About</summary>
-          <div class="dropdown-panel">
-            <a href="bio.html">Bio</a>
-            <a href="cv.html">CV</a>
-          </div>
-        </details>
-
-        <details class="nav-dropdown">
-          <summary class="active">Work</summary>
-          <div class="dropdown-panel">
-            <a href="main-projects.html">Main Projects</a>
-            <a href="curatorial-work.html">Curatorial Work</a>
-            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
-            <a href="lat.html" class="active">LAT</a>
-          </div>
-        </details>
-      </nav>
-    </details>
-
+      <details class="nav-dropdown" open>
+        <summary class="active">Work</summary>
+        <div class="dropdown-panel">
+          <a href="main-projects.html">Main Projects</a>
+          <a href="curatorial-work.html">Curatorial Work</a>
+          <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+          <a href="lat.html" class="active">LAT</a>
+        </div>
+      </details>
+    </nav>
   </header>
 
   <main>
+    <section class="lab-intro">
+      <p class="eyebrow">// WORK</p>
+      <h1 class="page-title">LAT</h1>
+      <p class="hero-subtitle" style="margin-bottom: 2rem;">Art and Technology Laboratories</p>
 
-    <section class="hero hero-bg">
+      <!-- 🔧 PLACEHOLDER: no pude acceder al contenido real de esta página
+           en tu web original (el fetch falló repetidas veces). Este texto
+           lo armé con lo que se menciona de LAT en tu Bio y en la página
+           de AXIS.Visual Lab — reemplazalo por el texto real cuando lo
+           tengas a mano, o pasámelo y lo actualizo por vos. -->
+      <p>Since 2017, with support from the Ludwig Foundation of Cuba, Milton Raggi Vinueza, in collaboration with AXIS.Visual Lab, has developed the Art and Technology Laboratories (LAT) project.</p>
 
-      <div class="hero-bg-slideshow">
-        <img class="hero-bg-slide"
-             src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="" />
-        <img class="hero-bg-slide"
-             src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="" />
-        <img class="hero-bg-slide"
-             src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="" />
-        <img class="hero-bg-slide"
-             src="images/axis/proyectos/BETA 1/WEB/1.jpg" alt="" />
-      </div>
-
-      <div class="hero-overlay"></div>
-
-      <div class="lat-intro-static">
-
-        <img
-          src="images/axis/LAT logo.png"
-          alt="LAT — Art and Technology Laboratories"
-          class="lat-logo"
-        />
-
-        <div class="lat-intro-text">
-
-          <p class="lat-intro-heading">
-            LAT — Art and Technology Laboratories
-          </p>
-
-          <div class="lat-intro-paragraphs">
-            <p>
-              Since 2017, with support from the Ludwig Foundation of Cuba,
-              Milton Raggi Vinueza, in collaboration with AXIS.Visual Lab,
-              has developed the Art and Technology Laboratories (LAT) project.
-            </p>
-
-            <p>
-              LAT aims to promote workshops, collaborative initiatives, and
-              exchange platforms that foster the professional development
-              of emerging creators and engage new audiences across Cuba.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="hero-content">
-
-        <div class="hero-cta-list">
-
-          <!-- WORKSHOPS -->
-
-          <div class="hero-cta-row">
-
-            <img
-              src="images/axis/LAT/WORKSHOPS.jpg"
-              alt="LAT workshops"
-              class="hero-cta-image"
-            />
-
-            <a href="workshops.html" class="cta-button">
-              Workshops →
-            </a>
-
-            <div class="keyword-deploy-wrap">
-              <div class="keyword-deploy-inner">
-                <p class="keyword-sentence">
-                  Workshops and learning experiences exploring audiovisual
-                  tools, creative technologies, and experimental practices.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- PRODUCTION & COLLABORATION -->
-
-          <div class="hero-cta-row">
-
-            <img
-              src="images/axis/LAT/PRODUCTIONLAT.jpg"
-              alt="LAT production and collaboration"
-              class="hero-cta-image"
-            />
-
-            <a href="production-collaboration.html" class="cta-button">
-              Production &amp; Collaboration →
-            </a>
-
-            <div class="keyword-deploy-wrap">
-              <div class="keyword-deploy-inner">
-                <p class="keyword-sentence">
-                  We support artists in producing their works and exhibitions,
-                  collaborating with institutions and curators across diverse
-                  artistic contexts.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- TOOLS -->
-
-          <div class="hero-cta-row">
-
-            <img
-              src="images/axis/LAT/TOOLS2.png"
-              alt="LAT tools and resources"
-              class="hero-cta-image"
-            />
-
-            <a href="tools.html" class="cta-button">
-              Tools →
-            </a>
-
-            <div class="keyword-deploy-wrap">
-              <div class="keyword-deploy-inner">
-                <p class="keyword-sentence">
-                  A collection of tools, techniques, and resources developed
-                  through LAT's workshops and collaborative projects.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
+      <p>LAT aims to promote workshops, collaborative initiatives, and exchange platforms that foster the professional development of emerging creators and engage new audiences across Cuba.</p>
     </section>
-
-    <!--
-    <section class="lab-team">
-
-      <p class="lab-team-title">Meet the Team</p>
-
-      <div class="lab-team-grid">
-
-        <div class="team-member">
-          <img
-            src="images/axis/the team/aaronrmoreno.jpg"
-            alt="Aaron R. Moreno"
-          />
-          <p class="team-member-name">Aaron R. Moreno</p>
-        </div>
-
-        <div class="team-member">
-          <img
-            src="images/axis/the team/milton-foto.jpg"
-            alt="Milton Raggi Vinueza"
-          />
-          <p class="team-member-name">Milton Raggi Vinueza</p>
-        </div>
-
-      </div>
-    </section>
-    
-    <section class="lab-contact">
-
-      <p class="lab-contact-title">Get in Touch</p>
-
-      <a href="mailto:hello@miltonraggivinueza.com" class="cta-button">
-        Send an email
-      </a>
-
-    </section>
-    -->
-
   </main>
 
   <footer class="site-footer">
-    <p>
-      © 2026 Milton Raggi Vinueza — All rights reserved.
-    </p>
+    <p>© 2026 Milton Raggi Vinueza — Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute('open');
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach((dropdown) => {
+        dropdown.removeAttribute('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
