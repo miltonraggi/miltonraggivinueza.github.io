@@ -1854,7 +1854,7 @@ a {
   .hero-bg:has(
     .hero-cta-row:nth-child(1) .cta-button:hover
   )::before {
-    background-image: url("images/axis/proyectos/INMERSION2/WEB/DSC_0615.jpeg");
+    background-image: url("images/axis/proyectos/INMERSION2/web/DSC_0615.jpeg");
   }
 
   /* PRODUCTION & COLLABORATION */
