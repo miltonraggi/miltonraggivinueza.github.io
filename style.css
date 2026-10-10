@@ -1422,7 +1422,7 @@ a {
 
 .lab-contact {
   text-align: center;
-  padding: 3rem 2rem 4rem;
+  padding: 0.25rem 2rem 4rem;
 }
 
 .lab-contact-title {
@@ -1914,3 +1914,342 @@ a {
   }
 
 }
+
+
+/* =========================================================
+   LAT — INTRODUCCIÓN
+   Replica la composición de AXIS sin modificar AXIS
+   ========================================================= */
+
+body.lat-page .lat-intro-static {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  right: 2rem;
+  max-width: 700px;
+  z-index: 2;
+  display: flex;
+  gap: 2.5rem;
+  transition: opacity 0.4s ease;
+}
+
+body.lat-page .lat-logo {
+  flex: 0 0 auto;
+  width: 70%;
+  max-width: 400px;
+  height: auto;
+}
+
+body.lat-page .lat-intro-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+body.lat-page .lat-logo {
+  width: 40%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0;
+  border: 0px solid var(--line);
+}
+
+body.lat-page .lat-intro-text {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  line-height: 1.7;
+  color: var(--text);
+  align-self: start;
+}
+
+body.lat-page .lat-intro-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+
+body.lat-page .lat-intro-paragraphs {
+  display: block;
+}
+
+body.lat-page .lat-intro-text p {
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1rem;
+}
+
+body.lat-page .lat-intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* LAT: texto visible al pasar el ratón por el logo */
+@media (min-width: 701px) {
+  body.lat-page .lat-intro-text {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  body.lat-page .lat-intro-static:has(.lat-logo:hover)
+  .lat-intro-text {
+    opacity: 1;
+  }
+}
+
+body.lat-page .lat-intro-text {
+  align-self: center;
+}
+
+/* =========================================================
+   LAT — FONDO INTERACTIVO EN ESCRITORIO
+   ========================================================= */
+
+@media (min-width: 701px) {
+  body.lat-page .hero-bg:has(.lat-intro-static) {
+    isolation: isolate;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-bg-slideshow {
+    display: none;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: url("images/axis/.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-overlay {
+    z-index: 1;
+  }
+
+  body.lat-page .lat-intro-static,
+  body.lat-page .hero-content {
+    z-index: 2;
+  }
+
+  /* WORKSHOPS */
+  body.lat-page .hero-bg:has(
+    .hero-cta-row:nth-child(1) .cta-button:hover
+  )::before {
+    background-image: url("images/axis/LAT/.jpg");
+  }
+
+  /* PRODUCTION & COLLABORATION */
+  body.lat-page .hero-bg:has(
+    .hero-cta-row:nth-child(2) .cta-button:hover
+  )::before {
+    background-image: url("images/axis/LAT/.jpeg");
+  }
+
+  /* TOOLS */
+  body.lat-page .hero-bg:has(
+    .hero-cta-row:nth-child(3) .cta-button:hover
+  )::before {
+    background-image: url("images/axis/LAT/TOOLS.png");
+  }
+
+  /* Fondo predeterminado al pasar el ratón por el logo */
+  body.lat-page .hero-bg:has(.lat-intro-static:hover)::before {
+    background-image: url("images/axis/");
+  }
+
+  /* Descripciones desplegables */
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .keyword-deploy-wrap {
+  background: rgba(0, 0, 0, 0.95);
+  padding: 0 1rem;
+  margin-left: 0;
+
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .keyword-sentence {
+    color: #ECE8E3;
+  }
+
+  /* Evitar que el área del texto active el hover del contenedor */
+  body.lat-page .lat-intro-static {
+    pointer-events: none;
+  }
+
+  body.lat-page .lat-intro-static .lat-logo {
+    pointer-events: auto;
+  }
+}
+
+/* =========================================================
+   LAT — COMPOSICIÓN MÓVIL
+   ========================================================= */
+
+@media (max-width: 700px) {
+  body.lat-page .hero-bg:has(.lat-intro-static) {
+    background: var(--bg);
+    justify-content: flex-start;
+    min-height: auto;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-bg-slideshow,
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-overlay {
+    display: none;
+  }
+
+  body.lat-page .lat-intro-static {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+
+    width: auto;
+    max-width: none;
+    margin: 3rem 1.5rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  body.lat-page .lat-logo {
+    width: 440px;
+    max-width: 90vw;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.lat-page .lat-intro-text {
+    width: 100%;
+    min-width: 0;
+    font-size: 0.63rem;
+    line-height: 1.7;
+    opacity: 1;
+    transform: none;
+  }
+
+  body.lat-page .lat-intro-heading {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  body.lat-page .lat-intro-paragraphs {
+    display: block;
+  }
+
+  body.lat-page .lat-intro-paragraphs p {
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-content {
+    position: relative;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-cta-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 12;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-cta-row .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .hero-cta-list {
+    gap: 2rem;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .keyword-deploy-wrap {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    clip-path: inset(0 0 0 0) !important;
+    background: transparent;
+  }
+
+  body.lat-page .hero-bg:has(.lat-intro-static)
+  .keyword-sentence {
+    color: var(--text);
+  }
+}
+
+
+/* =========================================================
+   TEAM DIVIDER — LÍNEA ESTÁTICA
+   ========================================================= */
+
+.team-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 2rem 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.team-divider::before,
+.team-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #fff;
+}
+
+.team-divider span {
+  flex: 0 0 auto;
+}
+
+/* LAT — MOBILE: DISABLE BACKGROUND IMAGE TRANSITIONS */
+@media (max-width: 700px) {
+  body.lat-page .axis-background,
+  body.lat-page .axis-background img {
+    display: none !important;
+  }
+}
+
