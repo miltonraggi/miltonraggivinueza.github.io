@@ -1207,6 +1207,13 @@ a {
   color: var(--text);
 }
 
+/* AXIS: mover el texto hacia la derecha solo en desktop */
+@media (min-width: 701px) {
+  .axis-intro-text {
+    transform: translateX(-2rem);
+  }
+}
+
 .axis-intro-text p {
   text-align: justify;
   text-justify: inter-word;
@@ -1217,8 +1224,16 @@ a {
   margin-bottom: 0;
 }
 
-.hero-bg:has(.cta-button:hover) .axis-intro-static {
-  opacity: 1;
+/* AXIS: mostrar el texto al pasar el mouse sobre el logo */
+@media (min-width: 701px) {
+  .axis-intro-text {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .axis-intro-static:has(.axis-logo:hover) .axis-intro-text {
+    opacity: 1;
+  }
 }
 
 
@@ -1682,6 +1697,7 @@ a {
   }
 
 
+
   /* -------------------------------------------------------
      AXIS — LOGO
      ------------------------------------------------------- */
@@ -1785,6 +1801,116 @@ a {
 
   .hero-bg:has(.axis-intro-static) .hero-cta-list {
     gap: 2rem;
+  }
+
+}
+
+
+/* =========================================================
+   AXIS — FONDO INTERACTIVO DESKTOP
+   SIN JAVASCRIPT
+   Solo afecta a la página que contiene .axis-intro-static
+   ========================================================= */
+
+@media (min-width: 701px) {
+
+  /* Contenedor principal de AXIS */
+  .hero-bg:has(.axis-intro-static) {
+    isolation: isolate;
+  }
+
+  /* Ocultar el slideshow anterior únicamente en AXIS */
+  .hero-bg:has(.axis-intro-static) .hero-bg-slideshow {
+    display: none;
+  }
+
+  /* Imagen predeterminada */
+  .hero-bg:has(.axis-intro-static)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: url("images/axis/proyectos/BETA 1/WEB/4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background-image 0.2s ease;
+  }
+
+  /* Mantener la capa oscura sobre la fotografía */
+  .hero-bg:has(.axis-intro-static) .hero-overlay {
+    z-index: 1;
+  }
+
+  /* Mantener el logo, los textos y los botones por delante */
+  .hero-bg:has(.axis-intro-static) .axis-intro-static,
+  .hero-bg:has(.axis-intro-static) .hero-content {
+    z-index: 2;
+  }
+
+  /* MAIN PROJECTS */
+  .hero-bg:has(
+    .hero-cta-row:nth-child(1) .cta-button:hover
+  )::before {
+    background-image: url("images/axis/proyectos/INMERSION2/WEB/DSC_0615.jpeg");
+  }
+
+  /* PRODUCTION & COLLABORATION */
+  .hero-bg:has(
+    .hero-cta-row:nth-child(2) .cta-button:hover
+  )::before {
+    background-image: url("images/axis/production1.jpg");
+  }
+
+  /* EDUCATION */
+  .hero-bg:has(
+    .hero-cta-row:nth-child(3) .cta-button:hover
+  )::before {
+    background-image: url("images/axis/STUDENTS.png");
+  }
+
+}
+
+/* =========================================================
+   AXIS — FONDO NEGRO CON OPACIDAD AJUSTABLE
+   Solo desktop
+   ========================================================= */
+
+@media (min-width: 701px) {
+
+  .hero-bg:has(.axis-intro-static) .keyword-deploy-wrap {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 0.45rem 1rem;
+    margin-left: 0rem;
+  }
+
+  .hero-bg:has(.axis-intro-static) .keyword-sentence {
+    color: #ECE8E3;
+  }
+
+}
+
+/* =========================================================
+   AXIS — CAMBIAR FONDO AL PASAR EL MOUSE SOBRE EL LOGO
+   Solo desktop, sin JavaScript
+   ========================================================= */
+
+@media (min-width: 701px) {
+
+  .hero-bg:has(.axis-intro-static:hover)::before {
+    background-image: url("images/axis/proyectos/BETA 1/WEB/1.jpg");
+  }
+
+  /* Evitar que el área invisible del texto active el hover */
+  .hero-bg:has(.axis-intro-static) .axis-intro-static {
+    pointer-events: none;
+  }
+
+  /* Reactivar el hover únicamente sobre el logo */
+  .hero-bg:has(.axis-intro-static) .axis-intro-static img {
+    pointer-events: auto;
   }
 
 }
