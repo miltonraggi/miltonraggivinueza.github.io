@@ -1962,7 +1962,7 @@ body.lat-page .lat-intro-heading {
   text-transform: uppercase;
   font-size: 1.25rem;
   line-height: 1.2;
-  color: var(--accent);
+  color: var(--white);
   margin: 0 0 1rem;
 }
 
@@ -2015,7 +2015,7 @@ body.lat-page .lat-intro-text {
     inset: 0;
     z-index: 0;
 
-    background-image: url("images/axis/.png");
+    background-image: url("images/axis/STUDENTS.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2032,12 +2032,12 @@ body.lat-page .lat-intro-text {
 
   /* WORKSHOPS */
   body.lat-page .hero-bg:has(.hero-cta-row:nth-child(1) .cta-button:hover)::before {
-    background-image: url("images/axis/LAT/.jpg");
+    background-image: url("images/axis/LAT/workshops/resolume1.jpeg");
   }
 
   /* PRODUCTION & COLLABORATION */
   body.lat-page .hero-bg:has(.hero-cta-row:nth-child(2) .cta-button:hover)::before {
-    background-image: url("images/axis/LAT/.jpeg");
+    background-image: url("images/axis/LAT/production&collaboration/outsider3.jpeg");
   }
 
   /* TOOLS */
@@ -2047,7 +2047,7 @@ body.lat-page .lat-intro-text {
 
   /* Fondo predeterminado al pasar el ratón por el logo */
   body.lat-page .hero-bg:has(.lat-intro-static:hover)::before {
-    background-image: url("images/axis/");
+    background-image: url("images/axis/STUDENTS.png");
   }
 
   /* Descripciones desplegables */
