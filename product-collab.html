@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Production &amp; Collaboration — Milton Raggi Vinueza</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* =====================================================
+       PRODUCTION & COLLABORATION
+       NAVEGACIÓN ENTRE 8 PROYECTOS
+       ===================================================== */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.product-collab-page .hero.hero-bg {
+      border-top: 1px solid #ECE8E3;
+      scroll-margin-top: 80px;
+    }
+
+    /* BOTÓN FIJO */
+
+    body.product-collab-page .project-navigation {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+    }
+
+    body.product-collab-page .project-navigation a {
+      display: none;
+      box-sizing: border-box;
+      padding: 12px 16px;
+
+      background: #000000;
+      color: #d80c9e;
+      border: 1px solid #d80c9e;
+
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.4;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+
+      opacity: 1;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    body.product-collab-page .project-navigation a:hover {
+      background: #d80c9e;
+      color: #000000 !important;
+      -webkit-text-fill-color: #000000;
+      border-color: #d80c9e;
+      opacity: 1;
+    }
+
+    /* BOTÓN INICIAL */
+
+    body.product-collab-page .project-navigation .next-1 {
+      display: block;
+    }
+
+    /* OCULTAR LOS BOTONES CUANDO SE SELECCIONA UN PROYECTO */
+
+    body.product-collab-page:has(#project-1:target) .project-navigation a,
+    body.product-collab-page:has(#project-2:target) .project-navigation a,
+    body.product-collab-page:has(#project-3:target) .project-navigation a,
+    body.product-collab-page:has(#project-4:target) .project-navigation a,
+    body.product-collab-page:has(#project-5:target) .project-navigation a,
+    body.product-collab-page:has(#project-6:target) .project-navigation a,
+    body.product-collab-page:has(#project-7:target) .project-navigation a,
+    body.product-collab-page:has(#project-8:target) .project-navigation a {
+      display: none;
+    }
+
+    /* MOSTRAR EL BOTÓN CORRESPONDIENTE */
+
+    body.product-collab-page:has(#project-1:target) .next-1,
+    body.product-collab-page:has(#project-2:target) .next-2,
+    body.product-collab-page:has(#project-3:target) .next-3,
+    body.product-collab-page:has(#project-4:target) .next-4,
+    body.product-collab-page:has(#project-5:target) .next-5,
+    body.product-collab-page:has(#project-6:target) .next-6,
+    body.product-collab-page:has(#project-7:target) .next-7,
+    body.product-collab-page:has(#project-8:target) .next-8 {
+      display: block;
+    }
+
+    /* MÓVILES: NAVEGACIÓN MANUAL CON EL DEDO */
+
+    @media screen and (max-width: 700px) {
+      body.product-collab-page .project-navigation {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="product-collab-page">
+
+  <!-- =====================================================
+       NAVEGACIÓN PRINCIPAL
+       ===================================================== -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="logo">
+      MILTON <span>RAGGI</span> VINUEZA
+    </a>
+
+    <details class="menu-toggle">
+
+      <summary class="menu-arrow" aria-label="Abrir menú">
+        <span>↓</span>
+      </summary>
+
+      <nav class="main-nav">
+
+        <a href="index.html" class="unactive">Home</a>
+
+        <details class="nav-dropdown">
+          <summary>About</summary>
+          <div class="dropdown-panel">
+            <a href="bio.html">Bio</a>
+            <a href="cv.html">CV</a>
+          </div>
+        </details>
+
+        <details class="nav-dropdown">
+          <summary>Work</summary>
+          <div class="dropdown-panel">
+            <a href="main-projects.html">Main Projects</a>
+            <a href="curatorial-work.html">Curatorial Work</a>
+            <a href="axis-visual-lab.html">AXIS.Visual Lab</a>
+            <a href="lat.html">LAT</a>
+          </div>
+        </details>
+
+      </nav>
+
+    </details>
+
+  </header>
+
+
+  <!-- =====================================================
+       NAVEGACIÓN ENTRE PROYECTOS
+       ===================================================== -->
+
+  <nav class="project-navigation" aria-label="Navegación entre proyectos">
+
+    <a href="#project-2" class="next-1">↓ NEXT PROJECT</a>
+    <a href="#project-3" class="next-2">↓ NEXT PROJECT</a>
+    <a href="#project-4" class="next-3">↓ NEXT PROJECT</a>
+    <a href="#project-5" class="next-4">↓ NEXT PROJECT</a>
+    <a href="#project-6" class="next-5">↓ NEXT PROJECT</a>
+    <a href="#project-7" class="next-6">↓ NEXT PROJECT</a>
+    <a href="#project-8" class="next-7">↓ NEXT PROJECT</a>
+    <a href="#project-1" class="next-8">↑ BACK TO FIRST</a>
+
+  </nav>
+
+
+  <!-- =====================================================
+       PROYECTOS
+       Sustituir las imágenes provisionales por las reales.
+       ===================================================== -->
+
+  <main>
+
+    <!-- PROYECTO 1 -->
+    <section class="hero hero-bg" id="project-1">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/outsider.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/outsider1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/outsider2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/outsider3.jpeg"alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 01 // OUTSIDER AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 2 -->
+    <section class="hero hero-bg" id="project-2">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/theescapist.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/theescapist1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/theescapist2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/theescapist3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 02 // THE ESCAPIST AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 3 -->
+    <section class="hero hero-bg" id="project-3">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/16mil.jpeg"  alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/16mil1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/16mil2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/16mil3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 03 // 16 MIL PHOTOGRAPHY IN MOTION AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 4 -->
+    <section class="hero hero-bg" id="project-4">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/yo.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/yo1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/yo2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/yo3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 04 // YO AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 5 -->
+    <section class="hero hero-bg" id="project-5">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/undnachtwar.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/undnachtwar1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/undnachtwar2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/undnachtwar3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 05 // UND NACHT WAR AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 6 -->
+    <section class="hero hero-bg" id="project-6">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/vir.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/vir1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/vir2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/vir3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 06 // V.I.R AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 7 -->
+    <section class="hero hero-bg" id="project-7">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/gadgets.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/gadgets1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/gadgets2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/gadgets3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 07 // GADGETS AND DATE</span>
+    </div>
+
+
+    <!-- PROYECTO 8 -->
+    <section class="hero hero-bg" id="project-8">
+      <div class="hero-bg-slideshow">
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/tailbitting.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/tailbitting1.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/tailbitting2.jpeg" alt="" />
+        <img class="hero-bg-slide" src="images/axis/production&collaboration/tailbitting3.jpeg" alt="" />
+      </div>
+    </section>
+
+    <div class="team-divider">
+      <span>PROJECT 08 // TAIL BITTING II AND DATE</span>
+    </div>
+
+  </main>
+
+
+  <!-- =====================================================
+       PIE DE PÁGINA
+       ===================================================== -->
+
+  <footer class="site-footer">
+    <p>© 2026 Milton Raggi Vinueza.</p>
+  </footer>
+
+</body>
+</html>

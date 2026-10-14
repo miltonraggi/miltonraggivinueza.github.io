@@ -117,7 +117,7 @@ a {
   transition: transform 0.25s ease;
 }
 
-.menu-toggle[open] > .menu-arrow span {
+.menu-toggle[open]>.menu-arrow span {
   transform: rotate(180deg);
 }
 
@@ -148,7 +148,7 @@ a {
    MENÚ HOME / ABOUT / WORK
    ========================================================= */
 
-.menu-toggle > .main-nav {
+.menu-toggle>.main-nav {
   position: absolute;
   top: 3.4rem;
   right: 0;
@@ -166,8 +166,8 @@ a {
 
 /* Home / About / Work */
 
-.menu-toggle > .main-nav > a,
-.menu-toggle > .main-nav > .nav-dropdown > summary {
+.menu-toggle>.main-nav>a,
+.menu-toggle>.main-nav>.nav-dropdown>summary {
   display: block;
   padding: 0.45rem 0.5rem;
   color: var(--text);
@@ -186,23 +186,23 @@ a {
     background 0.2s ease;
 }
 
-.menu-toggle > .main-nav > .nav-dropdown > summary::-webkit-details-marker {
+.menu-toggle>.main-nav>.nav-dropdown>summary::-webkit-details-marker {
   display: none;
 }
 
-.menu-toggle > .main-nav > .nav-dropdown > summary::marker {
+.menu-toggle>.main-nav>.nav-dropdown>summary::marker {
   display: none;
   content: "";
 }
 
-.menu-toggle > .main-nav > a:hover,
-.menu-toggle > .main-nav > .nav-dropdown > summary:hover {
+.menu-toggle>.main-nav>a:hover,
+.menu-toggle>.main-nav>.nav-dropdown>summary:hover {
   color: var(--accent);
   background: transparent !important;
 }
 
-.menu-toggle > .main-nav a.active,
-.menu-toggle > .main-nav > .nav-dropdown > summary.active {
+.menu-toggle>.main-nav a.active,
+.menu-toggle>.main-nav>.nav-dropdown>summary.active {
   color: var(--accent);
 }
 
@@ -211,19 +211,19 @@ a {
    FOCUS / ACTIVE
    ========================================================= */
 
-.menu-toggle > .main-nav > a:focus,
-.menu-toggle > .main-nav > a:focus-visible,
-.menu-toggle > .main-nav > a:active,
-.menu-toggle > .main-nav > .nav-dropdown > summary:focus,
-.menu-toggle > .main-nav > .nav-dropdown > summary:focus-visible,
-.menu-toggle > .main-nav > .nav-dropdown > summary:active {
+.menu-toggle>.main-nav>a:focus,
+.menu-toggle>.main-nav>a:focus-visible,
+.menu-toggle>.main-nav>a:active,
+.menu-toggle>.main-nav>.nav-dropdown>summary:focus,
+.menu-toggle>.main-nav>.nav-dropdown>summary:focus-visible,
+.menu-toggle>.main-nav>.nav-dropdown>summary:active {
   background: transparent !important;
   outline: none !important;
   box-shadow: none !important;
 }
 
-.menu-toggle > .main-nav > a:hover,
-.menu-toggle > .main-nav > .nav-dropdown > summary:hover {
+.menu-toggle>.main-nav>a:hover,
+.menu-toggle>.main-nav>.nav-dropdown>summary:hover {
   color: var(--accent);
 }
 
@@ -236,14 +236,14 @@ a {
   position: relative;
 }
 
-.nav-dropdown > summary::after {
+.nav-dropdown>summary::after {
   content: "→";
   float: right;
   margin-left: 1rem;
   color: var(--text-muted);
 }
 
-.nav-dropdown[open] > summary::after {
+.nav-dropdown[open]>summary::after {
   content: "↓";
   color: var(--accent);
 }
@@ -264,7 +264,7 @@ a {
   min-width: 0;
 }
 
-.nav-dropdown[open] > .dropdown-panel {
+.nav-dropdown[open]>.dropdown-panel {
   display: flex;
 }
 
@@ -532,7 +532,7 @@ a {
   transition: clip-path 0.6s ease;
 }
 
-.cta-button:hover + .keyword-deploy-wrap {
+.cta-button:hover+.keyword-deploy-wrap {
   clip-path: inset(0 0% 0 0);
 }
 
@@ -816,10 +816,8 @@ a {
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(160px, 1fr)
-  );
+  grid-template-columns: repeat(auto-fill,
+      minmax(160px, 1fr));
   gap: 0.75rem;
   margin: 3rem 0;
 }
@@ -1541,7 +1539,7 @@ a {
     letter-spacing: 0.25em;
   }
 
-  .menu-toggle > .main-nav {
+  .menu-toggle>.main-nav {
     top: 3rem;
     right: 0;
     min-width: 180px;
@@ -1561,12 +1559,10 @@ a {
      ------------------------------------------------------- */
 
   .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.25) 0%,
-      rgba(0, 0, 0, 0.55) 55%,
-      rgba(0, 0, 0, 0.85) 100%
-    );
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.25) 0%,
+        rgba(0, 0, 0, 0.55) 55%,
+        rgba(0, 0, 0, 0.85) 100%);
   }
 
 
@@ -1851,23 +1847,17 @@ a {
   }
 
   /* MAIN PROJECTS */
-  .hero-bg:has(
-    .hero-cta-row:nth-child(1) .cta-button:hover
-  )::before {
-    background-image: url("images/axis/proyectos/INMERSION2/web/DSC_0615.jpeg");
+  .hero-bg:has(.hero-cta-row:nth-child(1) .cta-button:hover)::before {
+    background-image: url("images/axis/proyectos/INMERSION2/inmersionii2.jpeg");
   }
 
   /* PRODUCTION & COLLABORATION */
-  .hero-bg:has(
-    .hero-cta-row:nth-child(2) .cta-button:hover
-  )::before {
+  .hero-bg:has(.hero-cta-row:nth-child(2) .cta-button:hover)::before {
     background-image: url("images/axis/production1.jpg");
   }
 
   /* EDUCATION */
-  .hero-bg:has(
-    .hero-cta-row:nth-child(3) .cta-button:hover
-  )::before {
+  .hero-bg:has(.hero-cta-row:nth-child(3) .cta-button:hover)::before {
     background-image: url("images/axis/STUDENTS.png");
   }
 
@@ -1997,8 +1987,7 @@ body.lat-page .lat-intro-text p:last-child {
     transition: opacity 0.4s ease;
   }
 
-  body.lat-page .lat-intro-static:has(.lat-logo:hover)
-  .lat-intro-text {
+  body.lat-page .lat-intro-static:has(.lat-logo:hover) .lat-intro-text {
     opacity: 1;
   }
 }
@@ -2016,8 +2005,7 @@ body.lat-page .lat-intro-text {
     isolation: isolate;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-bg-slideshow {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-bg-slideshow {
     display: none;
   }
 
@@ -2033,8 +2021,7 @@ body.lat-page .lat-intro-text {
     background-repeat: no-repeat;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-overlay {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-overlay {
     z-index: 1;
   }
 
@@ -2044,23 +2031,17 @@ body.lat-page .lat-intro-text {
   }
 
   /* WORKSHOPS */
-  body.lat-page .hero-bg:has(
-    .hero-cta-row:nth-child(1) .cta-button:hover
-  )::before {
+  body.lat-page .hero-bg:has(.hero-cta-row:nth-child(1) .cta-button:hover)::before {
     background-image: url("images/axis/LAT/.jpg");
   }
 
   /* PRODUCTION & COLLABORATION */
-  body.lat-page .hero-bg:has(
-    .hero-cta-row:nth-child(2) .cta-button:hover
-  )::before {
+  body.lat-page .hero-bg:has(.hero-cta-row:nth-child(2) .cta-button:hover)::before {
     background-image: url("images/axis/LAT/.jpeg");
   }
 
   /* TOOLS */
-  body.lat-page .hero-bg:has(
-    .hero-cta-row:nth-child(3) .cta-button:hover
-  )::before {
+  body.lat-page .hero-bg:has(.hero-cta-row:nth-child(3) .cta-button:hover)::before {
     background-image: url("images/axis/LAT/TOOLS.png");
   }
 
@@ -2070,19 +2051,17 @@ body.lat-page .lat-intro-text {
   }
 
   /* Descripciones desplegables */
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .keyword-deploy-wrap {
-  background: rgba(0, 0, 0, 0.95);
-  padding: 0 1rem;
-  margin-left: 0;
+  body.lat-page .hero-bg:has(.lat-intro-static) .keyword-deploy-wrap {
+    background: rgba(0, 0, 0, 0.95);
+    padding: 0 1rem;
+    margin-left: 0;
 
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-}
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+  }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .keyword-sentence {
+  body.lat-page .hero-bg:has(.lat-intro-static) .keyword-sentence {
     color: #ECE8E3;
   }
 
@@ -2107,10 +2086,8 @@ body.lat-page .lat-intro-text {
     min-height: auto;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-bg-slideshow,
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-overlay {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-bg-slideshow,
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-overlay {
     display: none;
   }
 
@@ -2163,21 +2140,18 @@ body.lat-page .lat-intro-text {
     margin-bottom: 1.25rem;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-content {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-content {
     position: relative;
     width: 100%;
     padding: 1.5rem;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-cta-row {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-cta-row {
     flex-direction: column;
     align-items: stretch;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-cta-image {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-cta-image {
     display: block;
     width: 100%;
     aspect-ratio: 9 / 12;
@@ -2185,19 +2159,16 @@ body.lat-page .lat-intro-text {
     margin-bottom: 1rem;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-cta-row .cta-button {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-cta-row .cta-button {
     width: 100%;
     text-align: center;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .hero-cta-list {
+  body.lat-page .hero-bg:has(.lat-intro-static) .hero-cta-list {
     gap: 2rem;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .keyword-deploy-wrap {
+  body.lat-page .hero-bg:has(.lat-intro-static) .keyword-deploy-wrap {
     flex: none;
     width: 100%;
     padding-left: 0;
@@ -2208,8 +2179,7 @@ body.lat-page .lat-intro-text {
     background: transparent;
   }
 
-  body.lat-page .hero-bg:has(.lat-intro-static)
-  .keyword-sentence {
+  body.lat-page .hero-bg:has(.lat-intro-static) .keyword-sentence {
     color: var(--text);
   }
 }
@@ -2247,9 +2217,495 @@ body.lat-page .lat-intro-text {
 
 /* LAT — MOBILE: DISABLE BACKGROUND IMAGE TRANSITIONS */
 @media (max-width: 700px) {
+
   body.lat-page .axis-background,
   body.lat-page .axis-background img {
     display: none !important;
   }
 }
+
+
+
+/* VIDEO MAPPINGS — MOBILE: FULL IMAGE HEIGHT */
+
+
+@media (max-width: 700px) {
+
+  body.video-mappings-page .hero.hero-bg {
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.video-mappings-page .hero-bg-slideshow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.video-mappings-page .hero-bg-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+
+/* =========================================================
+   VIDEO MAPPINGS — NAVEGACIÓN DE 9 PROYECTOS
+   ========================================================= */
+
+html:has(body.video-mappings-page) {
+  scroll-behavior: smooth;
+}
+
+body.video-mappings-page .hero.hero-bg {
+  scroll-margin-top: 80px;
+  border-top: 1px solid #ECE8E3;
+}
+
+/* Posición del botón de navegación */
+
+body.video-mappings-page .project-navigation {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+}
+
+/* Estilo común de los botones */
+
+body.video-mappings-page .project-navigation a {
+  display: none;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  background: #000000;
+  color: #d80c9e;
+  border: 1px solid #d80c9e;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Mostrar el primer botón al abrir la página */
+
+body.video-mappings-page:not(:has(#project-1:target,
+    #project-2:target,
+    #project-3:target,
+    #project-4:target,
+    #project-5:target,
+    #project-6:target,
+    #project-7:target,
+    #project-8:target,
+    #project-9:target)) .project-navigation .next-1 {
+  display: block;
+}
+
+/* Mostrar el botón correspondiente al proyecto activo */
+
+body.video-mappings-page:has(#project-1:target) .project-navigation .next-1,
+body.video-mappings-page:has(#project-2:target) .project-navigation .next-2,
+body.video-mappings-page:has(#project-3:target) .project-navigation .next-3,
+body.video-mappings-page:has(#project-4:target) .project-navigation .next-4,
+body.video-mappings-page:has(#project-5:target) .project-navigation .next-5,
+body.video-mappings-page:has(#project-6:target) .project-navigation .next-6,
+body.video-mappings-page:has(#project-7:target) .project-navigation .next-7,
+body.video-mappings-page:has(#project-8:target) .project-navigation .next-8,
+body.video-mappings-page:has(#project-9:target) .project-navigation .next-9 {
+  display: block;
+}
+
+/* Efecto al pasar el cursor */
+
+body.video-mappings-page .project-navigation a:hover {
+  background: #d80c9e;
+  color: #000000;
+  border-color: #d80c9e;
+}
+
+/* Ocultar la navegación en móviles */
+
+@media screen and (max-width: 700px) {
+  body.video-mappings-page .project-navigation {
+    display: none;
+  }
+}
+
+
+
+
+
+/* =========================================================
+   PRODUCTION & COLLABORATION — MOBILE: FULL IMAGE HEIGHT
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  body.product-collab-page .hero.hero-bg {
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.product-collab-page .hero-bg-slideshow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  body.product-collab-page .hero-bg-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+
+/* =========================================================
+   PRODUCTION & COLLABORATION — NAVEGACIÓN DE 8 PROYECTOS
+   ========================================================= */
+
+html:has(body.product-collab-page) {
+  scroll-behavior: smooth;
+}
+
+body.product-collab-page .hero.hero-bg {
+  scroll-margin-top: 80px;
+  border-top: 1px solid #ECE8E3;
+}
+
+/* Posición del botón */
+
+body.product-collab-page .project-navigation {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+}
+
+/* Estilo común */
+
+body.product-collab-page .project-navigation a {
+  display: none;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  background: #000000;
+  color: #d80c9e;
+  border: 1px solid #d80c9e;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Mostrar el primer botón al abrir la página */
+
+body.product-collab-page:not(:has(#project-1:target,
+    #project-2:target,
+    #project-3:target,
+    #project-4:target,
+    #project-5:target,
+    #project-6:target,
+    #project-7:target,
+    #project-8:target)) .project-navigation .next-1 {
+  display: block;
+}
+
+/* Mostrar el botón correspondiente al proyecto activo */
+
+body.product-collab-page:has(#project-1:target) .project-navigation .next-1,
+
+body.product-collab-page:has(#project-2:target) .project-navigation .next-2,
+
+body.product-collab-page:has(#project-3:target) .project-navigation .next-3,
+
+body.product-collab-page:has(#project-4:target) .project-navigation .next-4,
+
+body.product-collab-page:has(#project-5:target) .project-navigation .next-5,
+
+body.product-collab-page:has(#project-6:target) .project-navigation .next-6,
+
+body.product-collab-page:has(#project-7:target) .project-navigation .next-7,
+
+body.product-collab-page:has(#project-8:target) .project-navigation .next-8 {
+  display: block;
+}
+
+/* Efecto al pasar el cursor */
+
+body.product-collab-page .project-navigation a:hover {
+  background: #d80c9e;
+  color: #000000;
+  border-color: #d80c9e;
+}
+
+/* Ocultar navegación en móviles */
+
+@media screen and (max-width: 700px) {
+  body.product-collab-page .project-navigation {
+    display: none;
+  }
+}
+
+
+
+/* =========================================================
+   WORKSHOPS
+   Reutiliza la estructura general de project-detail
+   ========================================================= */
+
+/* Mantener los márgenes y el ancho del resto de proyectos.
+   No redefinir .project-detail ni .project-body aquí. */
+
+body.workshops-page .workshop-item {
+  margin: 0 0 3.5rem;
+  padding: 0 0 3rem;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+
+/* Mantener la separación original entre encabezado y texto. */
+
+body.workshops-page .workshop-item .project-detail-header {
+  margin-bottom: 2.5rem;
+}
+
+/* Usar el ancho de lectura y la tipografía definidos
+   por las reglas generales de .project-body. */
+
+body.workshops-page .workshop-item .project-body {
+  margin-bottom: 1.5rem;
+}
+
+/* Conservar la configuración general de project-gallery,
+   incluidos sus ajustes responsive. */
+
+body.workshops-page .workshop-item .project-gallery {
+  margin: 3rem 0;
+}
+
+/* Créditos con el mismo estilo que los demás proyectos. */
+
+body.workshops-page .workshop-item .workshop-credits {
+  margin-bottom: 0;
+}
+
+/* Último taller: no añadir espacio innecesario antes del CTA. */
+
+body.workshops-page .workshop-item:last-of-type {
+  margin-bottom: 3rem;
+}
+
+/* Ajustes de separación para pantallas pequeñas.
+   Los márgenes laterales, las fuentes y las columnas de la
+   galería siguen dependiendo del CSS general del sitio. */
+
+@media (max-width: 640px) {
+  body.workshops-page .workshop-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  body.workshops-page .workshop-item .project-detail-header {
+    margin-bottom: 1.75rem;
+  }
+
+  body.workshops-page .workshop-item .project-gallery {
+    margin: 2rem 0;
+  }
+
+  body.workshops-page .workshop-item:last-of-type {
+    margin-bottom: 2.5rem;
+  }
+}
+
+
+
+
+
+/* =========================================================
+   PRODUCTION & COLLABORATION LAT
+   Reutiliza la estructura de Workshops
+   ========================================================= */
+
+body.production-collaboration-page .workshop-item {
+  margin: 0 0 3.5rem;
+  padding: 0 0 3rem;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+
+body.production-collaboration-page .workshop-item .project-detail-header {
+  margin-bottom: 2.5rem;
+}
+
+body.production-collaboration-page .workshop-item .project-gallery {
+  margin: 3rem 0;
+}
+
+body.production-collaboration-page .workshop-item .workshop-credits {
+  margin-bottom: 0;
+}
+
+body.production-collaboration-page .workshop-item:last-of-type {
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 640px) {
+  body.production-collaboration-page .workshop-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  body.production-collaboration-page .workshop-item .project-detail-header {
+    margin-bottom: 1.75rem;
+  }
+
+  body.production-collaboration-page .workshop-item .project-gallery {
+    margin: 2rem 0;
+  }
+
+  body.production-collaboration-page .workshop-item:last-of-type {
+    margin-bottom: 2.5rem;
+  }
+}
+
+
+
+
+
+
+
+/* =========================================================
+   LAT — TOOLS
+   Una imagen por herramienta
+   Espaciado ampliado entre imagen y textos
+   ========================================================= */
+
+body.tools-page .workshop-item {
+  margin: 0 0 3.5rem;
+  padding: 0 0 2rem;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+
+/* Espacio entre encabezado e imagen */
+body.tools-page .workshop-item .project-detail-header {
+  margin-bottom: 1.25rem !important;
+  padding-bottom: 0 !important;
+}
+
+/* Galería de una sola imagen */
+body.tools-page .tools-gallery {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0;
+}
+
+/* Imagen sin márgenes ni proporción cuadrada forzada */
+body.tools-page .tools-gallery .gallery-thumb {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+  cursor: zoom-in;
+}
+
+body.tools-page .tools-gallery .gallery-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+}
+
+/* Espacio entre imagen y descripción */
+body.tools-page .workshop-item .workshop-credits {
+  margin-top: 1.25rem !important;
+  margin-bottom: 0 !important;
+  padding-top: 0.5rem;
+}
+
+/* Separación entre herramientas */
+body.tools-page .workshop-item:last-of-type {
+  margin-bottom: 2rem;
+}
+
+/* =========================================================
+   LAT — TOOLS — MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  body.tools-page .workshop-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  body.tools-page .workshop-item .project-detail-header {
+    margin-bottom: 0.9rem !important;
+  }
+
+  body.tools-page .tools-gallery {
+    margin: 0 !important;
+  }
+
+  body.tools-page .workshop-item .workshop-credits {
+    margin-top: 0.9rem !important;
+    margin-bottom: 0 !important;
+    padding-top: 0.5rem;
+  }
+
+  body.tools-page .workshop-item:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+}
+
+
+
+/* =========================================================
+   OCULTAR CURATORIAL WORK EN TODOS LOS MENÚS
+   ========================================================= */
+
+a[href="curatorial-work.html"] {
+  display: none !important;
+}
+
+
 
